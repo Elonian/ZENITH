@@ -4,10 +4,10 @@ import os
 import time
 import traceback
 from simworld.utils.vector import Vector
-from map.map import Map
+#from map.map import Map
 from simworld.utils.logger import Logger
 from agent.nav_agent import NavAgent
-from llm.nav_llm import NavLLM
+from nav_llm.nav_llm import NavLLM
 from concurrent.futures import ThreadPoolExecutor
 from threading import Event
 
@@ -19,7 +19,7 @@ class TaskManager:
         self.communicator = communicator
         
         self.exit_event = Event()
-        self.agent = self.initialize_agent(config)
+        self.agents = self.initialize_agent(config)
 
     def initialize_agent(self, config:str):
         with open(self.config['navReq.tasks_file'], 'r') as f:
@@ -27,8 +27,8 @@ class TaskManager:
         
         selected_task = tasks_file[self.config['navReq.task_num']]
 
-        start_position = Vector(selected_task['origin'['x']],selected_task['origin']['y'])
-        end_position = Vector(selected_task['destination']['x', selected_task['destination']['y']])
+        start_position = Vector(selected_task['origin']['x'],selected_task['origin']['y'])
+        end_position = Vector(selected_task['destination']['x'], selected_task['destination']['y'])
 
         with open(self.config['navReq.agent_config'], 'r') as f:
             agent_config = json.load(f)
@@ -47,14 +47,14 @@ class TaskManager:
                         nav_llm = nav_agent_llm,
                         destination = end_position,
                         config = self.config)
-                    agents.append(agent)
+                    agents.append(nav_agent)
                 else:
                     continue 
             return agents
     
     def create_world(self):
         world_json = self.config['worldGen.world_json']
-        ue_assets_path = self.config['ue_assets_path']
+        ue_assets_path = self.config['worldGen.ue_assets_path']
         self.communicator.generate_world(world_json, ue_assets_path)
     
     def load_agent(self):
