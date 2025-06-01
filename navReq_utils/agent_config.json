@@ -1,0 +1,22 @@
+{
+    "agent1": {
+        "model": "gpt-4o-mini",
+        "url": "None",
+        "provider": "openai"
+    },
+    "agent2": {
+        "model": "gpt-4o",
+        "url": "None",
+        "provider": "openai"
+    },
+    "agent3": {
+        "model": "o1",
+        "url": "None",
+        "provider": "openai"
+    },
+    "agent4": {
+        "model": "o1-mini",
+        "url": "None",
+        "provider": "openai"
+    }
+}

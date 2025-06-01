@@ -1,0 +1,11 @@
+icl_examples = (
+    "Example 1:\n"
+    "RGB Image: /mntdata/main/sim_nav/unreal_data/Raw_Step_image_v3/Raw_Step_1.png\n"
+    "Depth Map Image: main/sim_nav/unreal_data/Depth_Step_image_v3_generated/Raw_Step_1_depth.png \n"
+    "Waypoints: [(300, 900), (100, 750), (650, 800)]\n\n"
+    "Example 2:\n"
+    "RGB Image: /mntdata/main/sim_nav/unreal_data/Depth_Step_image_v3_generated/Raw_Step_10_depth.png\n"
+    "Depth Map Image: "
+    "Waypoints: [(450, 800), (160, 780), (850, 900)]\n\n"
+    "Now for the current image and its corresponding depth map, generate waypoints."
+)
