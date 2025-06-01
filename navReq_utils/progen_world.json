@@ -1,0 +1,9200 @@
+{
+  "base_map": {
+    "name": "map_1",
+    "env_bin": "gym_citynav\\Binaries\\Win64\\gym_citynav.exe",
+    "width": 1000,
+    "height": 1000
+  },
+  "nodes": [
+    {
+      "id": "GEN_Road_0",
+      "instance_name": "BP_Road1_C",
+      "properties": {
+        "location": {
+          "x": 10000.0,
+          "y": 0.0,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 0.95,
+          "y": 0.9,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_Road_1",
+      "instance_name": "BP_Road1_C",
+      "properties": {
+        "location": {
+          "x": 20000.0,
+          "y": 10000.0,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 90.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 0.95,
+          "y": 0.9,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_Road_2",
+      "instance_name": "BP_Road1_C",
+      "properties": {
+        "location": {
+          "x": 30000.0,
+          "y": 20000.0,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 0.95,
+          "y": 0.9,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_Road_3",
+      "instance_name": "BP_Road1_C",
+      "properties": {
+        "location": {
+          "x": -10000.0,
+          "y": 0.0,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 180.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 0.95,
+          "y": 0.9,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_Road_4",
+      "instance_name": "BP_Road1_C",
+      "properties": {
+        "location": {
+          "x": -20000.0,
+          "y": 10000.0,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 90.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 0.95,
+          "y": 0.9,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_Road_5",
+      "instance_name": "BP_Road1_C",
+      "properties": {
+        "location": {
+          "x": 0.0,
+          "y": -10000.0,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 270.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 0.95,
+          "y": 0.9,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Building_50_C_6",
+      "instance_name": "BP_Building_50_C",
+      "properties": {
+        "location": {
+          "x": 5155.27,
+          "y": -4844.05,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 200,
+          "y": 0
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_19_C_7",
+      "instance_name": "BP_Building_19_C",
+      "properties": {
+        "location": {
+          "x": 10333.34,
+          "y": -6165.3,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 200,
+          "y": 0
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_29_C_8",
+      "instance_name": "BP_Building_29_C",
+      "properties": {
+        "location": {
+          "x": 3635.63,
+          "y": 4555.75,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 180.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 200,
+          "y": 0
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_75_C_9",
+      "instance_name": "BP_Building_75_C",
+      "properties": {
+        "location": {
+          "x": 7971.75,
+          "y": 3336.4,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 180.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 200,
+          "y": 0
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_50_C_10",
+      "instance_name": "BP_Building_50_C",
+      "properties": {
+        "location": {
+          "x": 11063.41,
+          "y": 4844.05,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 180.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 200,
+          "y": 0
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_75_C_11",
+      "instance_name": "BP_Building_75_C",
+      "properties": {
+        "location": {
+          "x": 14199.77,
+          "y": 3336.4,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 180.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 200,
+          "y": 0
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_75_C_12",
+      "instance_name": "BP_Building_75_C",
+      "properties": {
+        "location": {
+          "x": 15553.97,
+          "y": 3336.4,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 180.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 200,
+          "y": 0
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_75_C_13",
+      "instance_name": "BP_Building_75_C",
+      "properties": {
+        "location": {
+          "x": 16859.6,
+          "y": 3336.4,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 180.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 200,
+          "y": 0
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_11_C_14",
+      "instance_name": "BP_Building_11_C",
+      "properties": {
+        "location": {
+          "x": 24969.51,
+          "y": 2931.38,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 90.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 0
+        },
+        "end": {
+          "x": 200,
+          "y": 200
+        },
+        "angle": 90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_61_C_15",
+      "instance_name": "BP_Building_61_C",
+      "properties": {
+        "location": {
+          "x": 24537.03,
+          "y": 7881.75,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 90.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 0
+        },
+        "end": {
+          "x": 200,
+          "y": 200
+        },
+        "angle": 90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_43_C_16",
+      "instance_name": "BP_Building_43_C",
+      "properties": {
+        "location": {
+          "x": 24638.92,
+          "y": 13596.11,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 90.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 0
+        },
+        "end": {
+          "x": 200,
+          "y": 200
+        },
+        "angle": 90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_75_C_17",
+      "instance_name": "BP_Building_75_C",
+      "properties": {
+        "location": {
+          "x": 16663.6,
+          "y": 4623.98,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 270.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 0
+        },
+        "end": {
+          "x": 200,
+          "y": 200
+        },
+        "angle": 90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_47_C_18",
+      "instance_name": "BP_Building_47_C",
+      "properties": {
+        "location": {
+          "x": 15699.66,
+          "y": 9680.61,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 270.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 0
+        },
+        "end": {
+          "x": 200,
+          "y": 200
+        },
+        "angle": 90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_58_C_19",
+      "instance_name": "BP_Building_58_C",
+      "properties": {
+        "location": {
+          "x": 15631.12,
+          "y": 15707.16,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 270.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 0
+        },
+        "end": {
+          "x": 200,
+          "y": 200
+        },
+        "angle": 90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_59_C_20",
+      "instance_name": "BP_Building_59_C",
+      "properties": {
+        "location": {
+          "x": 15601.62,
+          "y": 19103.27,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 270.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 0
+        },
+        "end": {
+          "x": 200,
+          "y": 200
+        },
+        "angle": 90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_36_C_21",
+      "instance_name": "BP_Building_36_C",
+      "properties": {
+        "location": {
+          "x": 27310.21,
+          "y": 16031.37,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 200
+        },
+        "end": {
+          "x": 400,
+          "y": 200
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_36_C_22",
+      "instance_name": "BP_Building_36_C",
+      "properties": {
+        "location": {
+          "x": 28770.33,
+          "y": 16031.37,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 200
+        },
+        "end": {
+          "x": 400,
+          "y": 200
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_36_C_23",
+      "instance_name": "BP_Building_36_C",
+      "properties": {
+        "location": {
+          "x": 30199.81,
+          "y": 16031.37,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 200
+        },
+        "end": {
+          "x": 400,
+          "y": 200
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_36_C_24",
+      "instance_name": "BP_Building_36_C",
+      "properties": {
+        "location": {
+          "x": 31634.3,
+          "y": 16031.37,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 200
+        },
+        "end": {
+          "x": 400,
+          "y": 200
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_36_C_25",
+      "instance_name": "BP_Building_36_C",
+      "properties": {
+        "location": {
+          "x": 33129.05,
+          "y": 16031.37,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 200
+        },
+        "end": {
+          "x": 400,
+          "y": 200
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_62_C_26",
+      "instance_name": "BP_Building_62_C",
+      "properties": {
+        "location": {
+          "x": 34783.8,
+          "y": 15900.92,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 200
+        },
+        "end": {
+          "x": 400,
+          "y": 200
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_100_C_27",
+      "instance_name": "BP_Building_100_C",
+      "properties": {
+        "location": {
+          "x": 38217.0,
+          "y": 15880.0,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 200
+        },
+        "end": {
+          "x": 400,
+          "y": 200
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_119_C_28",
+      "instance_name": "BP_Building_119_C",
+      "properties": {
+        "location": {
+          "x": 25120.0,
+          "y": 26820.0,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 180.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 200
+        },
+        "end": {
+          "x": 400,
+          "y": 200
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_72_C_29",
+      "instance_name": "BP_Building_72_C",
+      "properties": {
+        "location": {
+          "x": 31959.23,
+          "y": 24572.26,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 180.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 200
+        },
+        "end": {
+          "x": 400,
+          "y": 200
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_27_C_30",
+      "instance_name": "BP_Building_27_C",
+      "properties": {
+        "location": {
+          "x": 35071.11,
+          "y": 24391.61,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 180.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 200
+        },
+        "end": {
+          "x": 400,
+          "y": 200
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_84_C_31",
+      "instance_name": "BP_Building_84_C",
+      "properties": {
+        "location": {
+          "x": 38387.19,
+          "y": 23892.53,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 180.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 200,
+          "y": 200
+        },
+        "end": {
+          "x": 400,
+          "y": 200
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_62_C_32",
+      "instance_name": "BP_Building_62_C",
+      "properties": {
+        "location": {
+          "x": -3613.19,
+          "y": 4099.08,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 180.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": -200,
+          "y": 0
+        },
+        "angle": 180.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_89_C_33",
+      "instance_name": "BP_Building_89_C",
+      "properties": {
+        "location": {
+          "x": -8184.44,
+          "y": 9354.72,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 180.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": -200,
+          "y": 0
+        },
+        "angle": 180.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_82_C_34",
+      "instance_name": "BP_Building_82_C",
+      "properties": {
+        "location": {
+          "x": -14441.52,
+          "y": 4205.83,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 180.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": -200,
+          "y": 0
+        },
+        "angle": 180.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_70_C_35",
+      "instance_name": "BP_Building_70_C",
+      "properties": {
+        "location": {
+          "x": -5212.26,
+          "y": -5212.27,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": -200,
+          "y": 0
+        },
+        "angle": 180.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_62_C_36",
+      "instance_name": "BP_Building_62_C",
+      "properties": {
+        "location": {
+          "x": -8654.91,
+          "y": -4099.08,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": -200,
+          "y": 0
+        },
+        "angle": 180.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_62_C_37",
+      "instance_name": "BP_Building_62_C",
+      "properties": {
+        "location": {
+          "x": -10495.32,
+          "y": -4099.08,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": -200,
+          "y": 0
+        },
+        "angle": 180.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_121_C_38",
+      "instance_name": "BP_Building_121_C",
+      "properties": {
+        "location": {
+          "x": -14128.51,
+          "y": -6420.0,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": -200,
+          "y": 0
+        },
+        "angle": 180.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_82_C_39",
+      "instance_name": "BP_Building_82_C",
+      "properties": {
+        "location": {
+          "x": -19447.53,
+          "y": -4205.83,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": -200,
+          "y": 0
+        },
+        "angle": 180.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_62_C_40",
+      "instance_name": "BP_Building_62_C",
+      "properties": {
+        "location": {
+          "x": -15900.92,
+          "y": 6647.79,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 90.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": -200,
+          "y": 0
+        },
+        "end": {
+          "x": -200,
+          "y": 200
+        },
+        "angle": 90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_13_C_41",
+      "instance_name": "BP_Building_13_C",
+      "properties": {
+        "location": {
+          "x": -15055.92,
+          "y": 10486.79,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 90.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": -200,
+          "y": 0
+        },
+        "end": {
+          "x": -200,
+          "y": 200
+        },
+        "angle": 90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_30_C_42",
+      "instance_name": "BP_Building_30_C",
+      "properties": {
+        "location": {
+          "x": -15140.85,
+          "y": 17601.32,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 90.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": -200,
+          "y": 0
+        },
+        "end": {
+          "x": -200,
+          "y": 200
+        },
+        "angle": 90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_52_C_43",
+      "instance_name": "BP_Building_52_C",
+      "properties": {
+        "location": {
+          "x": -24812.21,
+          "y": 1406.57,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 270.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": -200,
+          "y": 0
+        },
+        "end": {
+          "x": -200,
+          "y": 200
+        },
+        "angle": 90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_105_C_44",
+      "instance_name": "BP_Building_105_C",
+      "properties": {
+        "location": {
+          "x": -24020.01,
+          "y": 5533.15,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 270.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": -200,
+          "y": 0
+        },
+        "end": {
+          "x": -200,
+          "y": 200
+        },
+        "angle": 90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_52_C_45",
+      "instance_name": "BP_Building_52_C",
+      "properties": {
+        "location": {
+          "x": -24812.21,
+          "y": 9659.72,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 270.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": -200,
+          "y": 0
+        },
+        "end": {
+          "x": -200,
+          "y": 200
+        },
+        "angle": 90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_38_C_46",
+      "instance_name": "BP_Building_38_C",
+      "properties": {
+        "location": {
+          "x": -24229.52,
+          "y": 14687.94,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 270.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": -200,
+          "y": 0
+        },
+        "end": {
+          "x": -200,
+          "y": 200
+        },
+        "angle": 90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_56_C_47",
+      "instance_name": "BP_Building_56_C",
+      "properties": {
+        "location": {
+          "x": -4181.07,
+          "y": -8659.54,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 270.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 0,
+          "y": -200
+        },
+        "angle": -90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_97_C_48",
+      "instance_name": "BP_Building_97_C",
+      "properties": {
+        "location": {
+          "x": -7020.0,
+          "y": -12713.66,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 270.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 0,
+          "y": -200
+        },
+        "angle": -90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_11_C_49",
+      "instance_name": "BP_Building_11_C",
+      "properties": {
+        "location": {
+          "x": -4969.51,
+          "y": -18765.05,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 270.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 0,
+          "y": -200
+        },
+        "angle": -90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_56_C_50",
+      "instance_name": "BP_Building_56_C",
+      "properties": {
+        "location": {
+          "x": 4181.07,
+          "y": -7929.8,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 90.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 0,
+          "y": -200
+        },
+        "angle": -90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_12_C_51",
+      "instance_name": "BP_Building_12_C",
+      "properties": {
+        "location": {
+          "x": 3899.62,
+          "y": -15144.97,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 90.0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 0,
+          "y": -200
+        },
+        "angle": -90.0
+      }
+    },
+    {
+      "id": "GEN_BP_Building_88_C_52",
+      "instance_name": "BP_Building_88_C",
+      "properties": {
+        "location": {
+          "x": 18230.0,
+          "y": -8270.0,
+          "z": 0
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      },
+      "segment_assignment": {
+        "start": {
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "x": 200,
+          "y": 0
+        },
+        "angle": 0.0
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_53",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": -17746.026822603504,
+          "y": 14661.22004753872,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.0310342232380663,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_54",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 17677.526063755293,
+          "y": 8935.236061261856,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.4075452264151556,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_55",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 32016.61437933057,
+          "y": 17653.62404019441,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.6461130440470221,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_56",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": -15642.040467023084,
+          "y": 2344.37500419975,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.3747787701031293,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_57",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": 22312.71000382252,
+          "y": 11973.70490221261,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.085833838754061,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_58",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 3463.56458898972,
+          "y": 2292.2406321300705,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 6.028421636813512,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_59",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": -8401.953527334168,
+          "y": 2281.3624359755995,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.5834594592361203,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_60",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 12035.586951279342,
+          "y": -2303.5272594924804,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.31626656859719765,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_61",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -2323.6965202525867,
+          "y": -3049.8300334578616,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.5839235617294661,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_62",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": -16094.592120406456,
+          "y": -2293.0098457543395,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.811023180652978,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_63",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": 2266.496785258234,
+          "y": -16093.054970291756,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.7313558476781016,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_64",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": 23923.557581531117,
+          "y": 17686.799354277067,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.265977967165981,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_65",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": -17670.969577631357,
+          "y": 17430.11586089067,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.731887073720962,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_66",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": -17738.093043500347,
+          "y": 16534.31123383885,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 6.126074150590293,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_67",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -17652.84117210124,
+          "y": 11134.52898340337,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.840746780745034,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_68",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 17692.2815256945,
+          "y": 17040.273770174434,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.508786134564514,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_69",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -12858.174765932023,
+          "y": 2274.9180463978114,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.005660187380543,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_70",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": -15240.848870138207,
+          "y": -2335.8432937572784,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.042310600575989,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_71",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -17732.704404444707,
+          "y": 6560.254300370956,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.161402482457457,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_72",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": -2262.333053497138,
+          "y": -4802.406495920359,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.6004478766233765,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_73",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": 2326.7915997498053,
+          "y": -17013.88584291476,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.498026801602676,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_74",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 2286.0115292687146,
+          "y": -5286.979744043382,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.625543615798528,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_75",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": -22257.669004220992,
+          "y": 2578.953324326994,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.1581640095763914,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_76",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": 2313.249483926331,
+          "y": -15175.913588431893,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.953663713778718,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_77",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": 22319.74194814855,
+          "y": 10180.31198535988,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.3430982962040743,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_78",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": 17720.557314849782,
+          "y": 4434.0686003912315,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.1816032618573076,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_79",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": 29818.857770385162,
+          "y": 22264.903518642524,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.7237978763849301,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_80",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": -22308.540953913147,
+          "y": 10678.539738233667,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.7363625241657581,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_81",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 31140.634446055243,
+          "y": 17664.540897931238,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.6836088878413797,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_82",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": 26173.789403263985,
+          "y": 22298.705638731575,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.8853619066407394,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_83",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": 14347.933380697597,
+          "y": 2269.761478973171,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.062567860754178,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_84",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": -22319.863115468408,
+          "y": 8014.543857657607,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.04035631242374166,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_85",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 4779.786634324489,
+          "y": -2310.785619178037,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.0940767444433988,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_86",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": -13750.063746075783,
+          "y": 2258.150104976364,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.929670954611387,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_87",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": 16104.575637936456,
+          "y": 2263.4279919859214,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.647512324614885,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_88",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": -22274.512213305836,
+          "y": 14305.2712561046,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.609990403758215,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_89",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -9755.928931764127,
+          "y": -2321.262939227712,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.061728856376409,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_90",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": -3497.569254716693,
+          "y": -2292.0352392050063,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.7542957508025467,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_91",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": -22340.34217310213,
+          "y": 15192.70280992908,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.7789924712353726,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_92",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": -2288.5763606968576,
+          "y": -12019.07510519347,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.3914000146609267,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_93",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -22264.783816232015,
+          "y": 3521.811514719165,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.8363550469587917,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_94",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": 34667.13334044265,
+          "y": 17728.532669992564,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.217218926548725,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_95",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": -7470.134664402161,
+          "y": 2292.538838979573,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.2744656196504294,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_96",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": 17676.774242181284,
+          "y": 13435.532077986587,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.989572902376033,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_97",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -13367.449091621644,
+          "y": -2336.7408300796915,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.6717205149463448,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_98",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": 37362.895284339764,
+          "y": 17682.62523608289,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.388838731700641,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_99",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 4432.978127135277,
+          "y": 2284.3813787366444,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.084645038504191,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_100",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": 2311.7951715980394,
+          "y": -8002.129169916623,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.25435201424047,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_101",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 17739.170245479752,
+          "y": 9776.992722981851,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.7035528534182743,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_102",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": -17653.541102702256,
+          "y": 2985.291012153208,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.7106532201134035,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_103",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 6594.929388670306,
+          "y": -2283.0224519304174,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.318395075141624,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_104",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": 14700.772979766864,
+          "y": -2311.0330301723448,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.087536541010199,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_105",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": 8376.352196360991,
+          "y": -2349.400492787965,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.379943989493543,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_106",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 11060.197129301598,
+          "y": -2321.5019741920332,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.874790404872025,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_107",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -2330.686475638853,
+          "y": -5682.003116313359,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.33680266748754,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_108",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 22257.051949972592,
+          "y": 4849.328155459664,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.600209258094767,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_109",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": 22294.150072013592,
+          "y": 3002.299480077229,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.899769493615076,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_110",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 22343.925376268024,
+          "y": 11118.05716726432,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.927988740159682,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_111",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": 11555.858584762173,
+          "y": 2298.8568317825684,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.898586362022502,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_112",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 22348.39025581995,
+          "y": 8405.235968301724,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.3549854978142437,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_113",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 32889.73166302871,
+          "y": 17686.189487867465,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.249888182240853,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_114",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": -10688.804515985908,
+          "y": -2267.848343018152,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.5631656534810969,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_115",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": 17653.981713074172,
+          "y": 12458.73580259032,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.8303860009586306,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_116",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": 2332.375526540507,
+          "y": -10737.086531036557,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.707773901328157,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_117",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 35568.1668987106,
+          "y": 17692.246407954754,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.7504265367236203,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_118",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -2324.539735325651,
+          "y": -15609.18224056162,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.5260420906170595,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_119",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -2275.952048797987,
+          "y": -16501.850389020467,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.016056508962162402,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_120",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": 27058.127677057142,
+          "y": 22287.9117889658,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.22093881229423296,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_121",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": 30690.112247115918,
+          "y": 22265.687206450297,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.0668191245011587,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_122",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": 9283.502361647259,
+          "y": -2298.497344403418,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 6.012372515680654,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_123",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": -2296.51152300539,
+          "y": -8401.850260277584,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.930009727985792,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_124",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 7998.38188303271,
+          "y": 2336.4461607807834,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.16569902192868488,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_125",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": 6178.043019926717,
+          "y": 2263.614951771306,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.467995074856627,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_126",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": 2281.9584872260857,
+          "y": -4364.123839981218,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 6.200954848916562,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_127",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": -4409.024067686646,
+          "y": -2280.276156353027,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.145085066793985,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_128",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": 25338.581725908545,
+          "y": 22287.83300548497,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.917235138930591,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_129",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": 17049.800841244545,
+          "y": 2313.8656227942597,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.0518986201166,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_130",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": -2983.5434929035196,
+          "y": 2271.139333293914,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.5429886592131457,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_131",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": 13776.124767988653,
+          "y": -2336.546424762008,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.4577019537870095,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_132",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": -2295.376648700206,
+          "y": -17413.831285518667,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.7349979265157882,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_133",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -17733.919750145826,
+          "y": 5740.0848485728275,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.5581617358932296,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_134",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": -6191.747781428152,
+          "y": -2259.1890209423195,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.338698588475669,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_135",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": 2950.603596040393,
+          "y": -2287.000303289497,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.7266311029505137,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_136",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -22334.514264573012,
+          "y": 11605.525227547916,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.828811098341489,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_137",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": -17703.132415442135,
+          "y": 9329.089679622835,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.902625253965638,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_138",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": 8911.918536401654,
+          "y": 2277.735921537765,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.485624924274926,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_139",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": 29277.39454663565,
+          "y": 17696.291019198357,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.2448988263486336,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_140",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": 27473.20412100912,
+          "y": 17711.8378192903,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.5601396175702384,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_141",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -22335.697420887154,
+          "y": 5270.672503370241,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.035115854437163,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_142",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": 15616.238962433943,
+          "y": -2266.637383916665,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.040542057992283,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_143",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": -17734.440914508086,
+          "y": 10195.565335931871,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.156065541558587,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_144",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -17747.5993604391,
+          "y": 7499.012943670607,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.775618443575912,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_145",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 28427.792935252597,
+          "y": 17700.026924831633,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.6704809911380866,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_146",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 17669.67463328607,
+          "y": 11647.221510554236,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.2073096254822862,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_147",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": -22277.227032403567,
+          "y": 8936.894570271372,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.6584298647426876,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_148",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": 2342.1605922241774,
+          "y": -3457.50781841591,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.1714512614002706,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_149",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 36457.97321963468,
+          "y": 17663.097948918203,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.8008541918998887,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_150",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": 36976.885373284786,
+          "y": 22271.649736301384,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.810766021667465,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_151",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": 17663.535933280684,
+          "y": 16055.3834698094,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.2219944566996654,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_152",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": -7062.748981256814,
+          "y": -2254.824098401442,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.186440286716708,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_153",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -22295.49160715578,
+          "y": 13410.741738797591,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.8311962721485795,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_154",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": -22301.41086433549,
+          "y": 12469.857317904125,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.7507105294074696,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_155",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": 5250.320367071312,
+          "y": 2309.473232986117,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.400053944756197,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_156",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -14257.5108725108,
+          "y": -2250.5030630166025,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.0773807880026505,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_157",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -17417.056103678202,
+          "y": 2339.4183769451683,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.095172915384487,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_158",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": -17701.123873898323,
+          "y": 12005.27249531332,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.4969288202124766,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_159",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": -8899.18176035118,
+          "y": -2317.3891714311717,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.824081542416826,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_160",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": 22251.74184147603,
+          "y": 14653.560459438262,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 6.0618032360264325,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_161",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 17747.121206385014,
+          "y": 7058.6726201781485,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.178438276580127,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_162",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 2307.9058919966346,
+          "y": -6190.4561803397755,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.01124977033756134,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_163",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": 24357.364466683066,
+          "y": 22322.983192209555,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.1856192499190097,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_164",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": 2267.063547186588,
+          "y": -11573.143437449871,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.850989214689374,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_165",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 26629.244236498616,
+          "y": 17709.298819057592,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.29395864726046017,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_166",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": -22280.28554139606,
+          "y": 9832.63735727605,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.1899937314066265,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_167",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": -22262.262455156797,
+          "y": 6243.47921565627,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.18651265556799054,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_168",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": -2279.433496745772,
+          "y": -3890.530386535006,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.2533107743391811,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_169",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 16520.588277807852,
+          "y": -2259.7038929184873,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.3656718211560466,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_170",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": 23006.920847559766,
+          "y": 17672.969097342022,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.10255756675704,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_171",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": 17690.324862447193,
+          "y": 7952.935916482347,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.0266008865327745,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_172",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": -16527.432737754214,
+          "y": 2271.5580155175153,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.9757279492455946,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_173",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 10186.112266382554,
+          "y": -2311.954251541876,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.042403848524633,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_174",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": 32455.83053634865,
+          "y": 22254.245824884812,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.592567390947212,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_175",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": -2339.2738573929955,
+          "y": -6596.7783238337115,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.204922075595748,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_176",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": -17665.130668614453,
+          "y": 4780.791796592239,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.5761923441409733,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_177",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": -5679.208181812772,
+          "y": 2331.586239728233,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.234050180978754,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_178",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 33378.06826721821,
+          "y": 22263.338387725446,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.9021356540475916,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_179",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": 17673.99580279248,
+          "y": 14308.131449198663,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.031999001252514876,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_180",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": -17670.842267077514,
+          "y": 8400.720887134892,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.093955233956187,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_181",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": -4837.906023288176,
+          "y": 2282.7138353273176,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.510722193154227,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_182",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": -2326.681270641178,
+          "y": -14660.638403507382,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.8103429683558947,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_183",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 17375.42785749404,
+          "y": -2308.798929696812,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.875880588885801,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_184",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": 12861.390022977608,
+          "y": -2322.091831787355,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.921771068888205,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_185",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 17723.604665960625,
+          "y": 6193.611909106201,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.5505138845689634,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_186",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": -6599.977820715881,
+          "y": 2317.1930048860704,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.065941983732679,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_187",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 10732.69628048229,
+          "y": 2314.3072605919438,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.077768884025887,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_188",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": -22322.708707997757,
+          "y": 16131.753376163248,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.7676313706344422,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_189",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": -17673.55295391892,
+          "y": 13790.492573781943,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.519764796729212,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_190",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 3860.1984483871474,
+          "y": -2289.3357534741367,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.152459614371781,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_191",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": 22290.167335120943,
+          "y": 16503.307398175788,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.215403702929732,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_192",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": 13365.444285445386,
+          "y": 2347.975860759183,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.98153029695334,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_193",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": 2342.4009400768564,
+          "y": -8918.996061088394,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.2845925204996214,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_194",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 22341.276030234414,
+          "y": 15588.593172919505,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.7599379992292508,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_195",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": 17690.121522032194,
+          "y": 3460.706836973679,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.061594341170361985,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_196",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 22332.611133882765,
+          "y": 7454.491952821321,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.759949917762443,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_197",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 35232.194476817815,
+          "y": 22336.023370610972,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.7837326637369944,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_198",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": -11054.835992741193,
+          "y": 2306.2488355658234,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.057864078900603,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_199",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": -2274.8122309510127,
+          "y": -9268.511351228528,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.108290509337782,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_200",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": -5277.646987868014,
+          "y": -2284.6975827879164,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.388475479673367,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_201",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 25743.905399185005,
+          "y": 17705.57413442984,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.7536037947019985,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_202",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 7110.8854460804905,
+          "y": 2306.9976877564036,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.1695328813039834,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_203",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": 22335.655671509074,
+          "y": 6614.75680934621,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.5111682274369715,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_204",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 2270.644611941663,
+          "y": -2569.732450964811,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.818800698537001,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_205",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": -17739.140183228443,
+          "y": 15608.934538307209,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.8657632637221395,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_206",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": -17745.770702726477,
+          "y": 3938.989167849176,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.6519988581202072,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_207",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": -2564.758087636424,
+          "y": -2311.0568127286924,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.2921795314298747,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_208",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": 7495.232053885407,
+          "y": -2306.4445927271195,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.4930581778844798,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_209",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": -12474.938682851422,
+          "y": -2329.1931564241213,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.345482940777048,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_210",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": 30196.724827627007,
+          "y": 17693.28179319487,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.6284245256415693,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_211",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": 22258.935714393145,
+          "y": 3904.644773757065,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.973860800833347,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_212",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": -9305.700810482138,
+          "y": 2280.113961203821,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.419628006586524,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_213",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": -14662.448299142665,
+          "y": 2336.1686611787027,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.0190965443436695,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_214",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 22623.317504095514,
+          "y": 22254.401233404784,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.713388305318587,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree3_215",
+      "instance_name": "BP_Tree3_C",
+      "properties": {
+        "location": {
+          "x": -2280.9114484721185,
+          "y": -11110.89634544348,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.4360726762723095,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_216",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 17652.64087933533,
+          "y": 10736.758496544006,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.8573451832576136,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_217",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": 15169.318212399046,
+          "y": 2277.015480425929,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.31266023619300654,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_218",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 17680.28954743137,
+          "y": 15179.952058681878,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.239828639289999,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree2_219",
+      "instance_name": "BP_Tree2_C",
+      "properties": {
+        "location": {
+          "x": 22254.54407504355,
+          "y": 5706.896636166734,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.4537783504687556,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_220",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 33841.50487542889,
+          "y": 17678.212522398127,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.078800696917254,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_221",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": 2260.397434159678,
+          "y": -14339.389956399667,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.884509546139386,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_222",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -22274.089722541314,
+          "y": 4390.812426131552,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.6074782399544647,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_223",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 2295.349983731138,
+          "y": -7147.1576286281315,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.3822423956324885,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_224",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": -2304.2135537993036,
+          "y": -13816.81822138484,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.8714268766974493,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_225",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": -12040.742587143972,
+          "y": 2348.1847625633245,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.3665234537809074,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree5_226",
+      "instance_name": "BP_Tree5_C",
+      "properties": {
+        "location": {
+          "x": 2314.6519746617832,
+          "y": -9785.161201324638,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.835208839838529,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_227",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": 17664.236426686763,
+          "y": 2640.986442220543,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.052753036321236,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_228",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": -7988.221500970534,
+          "y": -2320.11717694094,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.953298900983874,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree1_229",
+      "instance_name": "BP_Tree1_C",
+      "properties": {
+        "location": {
+          "x": 28024.190225766433,
+          "y": 22312.636009494687,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.7502710799889116,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_230",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 22268.57809247538,
+          "y": 17446.71108208483,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.486181293781021,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree6_231",
+      "instance_name": "BP_Tree6_C",
+      "properties": {
+        "location": {
+          "x": -2304.2779806385156,
+          "y": -7479.001705968999,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.060264836553224,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Tree4_232",
+      "instance_name": "BP_Tree4_C",
+      "properties": {
+        "location": {
+          "x": 23496.841064706663,
+          "y": 22321.635945412407,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.402588171645806,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart_233",
+      "instance_name": "BP_Cart_C",
+      "properties": {
+        "location": {
+          "x": 21510.434636092665,
+          "y": 15562.25407325226,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.7558080681942434,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart_234",
+      "instance_name": "BP_Cart_C",
+      "properties": {
+        "location": {
+          "x": -18715.99512586387,
+          "y": 10236.27163906438,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.9786505841610362,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart2_235",
+      "instance_name": "BP_Cart2_C",
+      "properties": {
+        "location": {
+          "x": 21502.35765277471,
+          "y": 14684.641490476217,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.6023202774487615,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart_236",
+      "instance_name": "BP_Cart_C",
+      "properties": {
+        "location": {
+          "x": 18459.394939364174,
+          "y": 13393.451401666094,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.135484946230087,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Hydrant_237",
+      "instance_name": "BP_Hydrant_C",
+      "properties": {
+        "location": {
+          "x": 30670.758540501316,
+          "y": 21519.753919269187,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.1431311664201513,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_can_238",
+      "instance_name": "BP_Trash_can_C",
+      "properties": {
+        "location": {
+          "x": 1567.186883700633,
+          "y": -8931.010299296468,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.0256872823548893,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_02_239",
+      "instance_name": "BP_Scooter_02_C",
+      "properties": {
+        "location": {
+          "x": -21261.677725576374,
+          "y": 8026.121949694489,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.3934196006975796,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_01_240",
+      "instance_name": "BP_Scooter_01_C",
+      "properties": {
+        "location": {
+          "x": 26205.02345373705,
+          "y": 21832.905124475506,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.710406811795539,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box3_241",
+      "instance_name": "BP_Box3_C",
+      "properties": {
+        "location": {
+          "x": 15181.900914351729,
+          "y": 1894.5495947809222,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.404464711245077,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart2_242",
+      "instance_name": "BP_Cart2_C",
+      "properties": {
+        "location": {
+          "x": 21802.960927969485,
+          "y": 7482.350001802596,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.9878271027750307,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box2_243",
+      "instance_name": "BP_Box2_C",
+      "properties": {
+        "location": {
+          "x": -21555.852843062457,
+          "y": 6249.531382942569,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.959398603104682,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box2_244",
+      "instance_name": "BP_Box2_C",
+      "properties": {
+        "location": {
+          "x": 15646.47901183827,
+          "y": -1889.236382395738,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.471273693256823,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box_245",
+      "instance_name": "BP_Box_C",
+      "properties": {
+        "location": {
+          "x": 13382.915914045709,
+          "y": 1884.2824293519811,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 6.065982760526136,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box2_246",
+      "instance_name": "BP_Box2_C",
+      "properties": {
+        "location": {
+          "x": 1289.2061406369555,
+          "y": -11582.53374818776,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.898605361206552,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_01_247",
+      "instance_name": "BP_Scooter_01_C",
+      "properties": {
+        "location": {
+          "x": 21229.695296114478,
+          "y": 7527.311403819433,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.8164814399056817,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadBlocker_248",
+      "instance_name": "BP_RoadBlocker_C",
+      "properties": {
+        "location": {
+          "x": 18444.278331674657,
+          "y": 2622.2954343066663,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.0180663904947966,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadBlocker_249",
+      "instance_name": "BP_RoadBlocker_C",
+      "properties": {
+        "location": {
+          "x": -21263.63868391698,
+          "y": 4439.285323555133,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.2509081591164676,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadBlocker_250",
+      "instance_name": "BP_RoadBlocker_C",
+      "properties": {
+        "location": {
+          "x": -21891.400641620545,
+          "y": 5312.307067154933,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.2212344434497266,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_03_251",
+      "instance_name": "BP_Scooter_03_C",
+      "properties": {
+        "location": {
+          "x": 18759.556649737086,
+          "y": 16139.194564964446,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.522920699633371,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadCone_252",
+      "instance_name": "BP_RoadCone_C",
+      "properties": {
+        "location": {
+          "x": 24380.506134533272,
+          "y": 21507.00707209212,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.564114478100167,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Couch_253",
+      "instance_name": "BP_Couch_C",
+      "properties": {
+        "location": {
+          "x": 18705.536407939264,
+          "y": 9831.291151318756,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.53925342437073,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Hydrant_254",
+      "instance_name": "BP_Hydrant_C",
+      "properties": {
+        "location": {
+          "x": 27128.92759862093,
+          "y": 21227.294861033828,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.618439600587099,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Hydrant_255",
+      "instance_name": "BP_Hydrant_C",
+      "properties": {
+        "location": {
+          "x": -18788.365810028296,
+          "y": 5724.877401671202,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.532387205381816,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_04_256",
+      "instance_name": "BP_Scooter_04_C",
+      "properties": {
+        "location": {
+          "x": 1805.583562826169,
+          "y": -8879.694352222708,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.366703459370772,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart_257",
+      "instance_name": "BP_Cart_C",
+      "properties": {
+        "location": {
+          "x": -7454.880740296619,
+          "y": 1872.2378386330195,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.6394480232263704,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_bin_b_258",
+      "instance_name": "BP_Trash_bin_b_C",
+      "properties": {
+        "location": {
+          "x": 10171.074155169836,
+          "y": -1577.9072881598145,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.907240679311565,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_01_259",
+      "instance_name": "BP_Scooter_01_C",
+      "properties": {
+        "location": {
+          "x": 1551.9096514534028,
+          "y": -7085.027235114089,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.6766704351282,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_260",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": 4441.290565042578,
+          "y": 1543.64983876741,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.005258099349761,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_can_261",
+      "instance_name": "BP_Trash_can_C",
+      "properties": {
+        "location": {
+          "x": 18704.845849801302,
+          "y": 7141.3791795784555,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.0945399339181714,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_bin_b_262",
+      "instance_name": "BP_Trash_bin_b_C",
+      "properties": {
+        "location": {
+          "x": 28029.554866829603,
+          "y": 21555.84537683961,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.0126792597261742,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_02_263",
+      "instance_name": "BP_Scooter_02_C",
+      "properties": {
+        "location": {
+          "x": 7548.186343779222,
+          "y": -1891.7520468088844,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 6.093354798781796,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Couch_264",
+      "instance_name": "BP_Couch_C",
+      "properties": {
+        "location": {
+          "x": 31568.216944896383,
+          "y": 21559.032098521897,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.4989415621594124,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table3_265",
+      "instance_name": "BP_Table3_C",
+      "properties": {
+        "location": {
+          "x": 18124.527315893596,
+          "y": 12525.075495262941,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.3190911317438236,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_bin_a_266",
+      "instance_name": "BP_Trash_bin_a_C",
+      "properties": {
+        "location": {
+          "x": -1222.6889765288981,
+          "y": -3049.5946443347225,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.753626492320934,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadBlocker_267",
+      "instance_name": "BP_RoadBlocker_C",
+      "properties": {
+        "location": {
+          "x": 1546.899427939658,
+          "y": -16081.983903705404,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.404971103608644,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_01_268",
+      "instance_name": "BP_Scooter_01_C",
+      "properties": {
+        "location": {
+          "x": -21849.962293116132,
+          "y": 4439.742887364437,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.5895857572135326,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart2_269",
+      "instance_name": "BP_Cart2_C",
+      "properties": {
+        "location": {
+          "x": 21851.664743763675,
+          "y": 17380.71462109903,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.7405050677977494,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_03_270",
+      "instance_name": "BP_Scooter_03_C",
+      "properties": {
+        "location": {
+          "x": -21219.199250256104,
+          "y": 7109.339855825213,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.0238478687909875,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_01_271",
+      "instance_name": "BP_Scooter_01_C",
+      "properties": {
+        "location": {
+          "x": -21204.364068285115,
+          "y": 12539.859496230396,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.894153031664755,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_03_272",
+      "instance_name": "BP_Scooter_03_C",
+      "properties": {
+        "location": {
+          "x": -18434.46869091894,
+          "y": 2985.1492898772167,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.9166169940720432,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_03_273",
+      "instance_name": "BP_Scooter_03_C",
+      "properties": {
+        "location": {
+          "x": 3502.354797989357,
+          "y": 1554.1928505802007,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.8151526848180572,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_bin_a_274",
+      "instance_name": "BP_Trash_bin_a_C",
+      "properties": {
+        "location": {
+          "x": -14725.20123037394,
+          "y": 1517.4520289765373,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.795239457119853,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Hydrant_275",
+      "instance_name": "BP_Hydrant_C",
+      "properties": {
+        "location": {
+          "x": -21599.72090697646,
+          "y": 3518.6394850728175,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.0583446820275757,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table_276",
+      "instance_name": "BP_Table_C",
+      "properties": {
+        "location": {
+          "x": -8362.020260727813,
+          "y": 1520.6292782884195,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.804677471660574,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_bin_a_277",
+      "instance_name": "BP_Trash_bin_a_C",
+      "properties": {
+        "location": {
+          "x": -18712.155523310936,
+          "y": 16533.800687347175,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.4073852127592401,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box2_278",
+      "instance_name": "BP_Box2_C",
+      "properties": {
+        "location": {
+          "x": -21581.68777082587,
+          "y": 7116.440541695336,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.277582744071976,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_279",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": 32540.010642188125,
+          "y": 21819.06843773528,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.372015996056534,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadBlocker_280",
+      "instance_name": "BP_RoadBlocker_C",
+      "properties": {
+        "location": {
+          "x": -7079.503452490022,
+          "y": -1581.383407948395,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.5380162651494673,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_01_281",
+      "instance_name": "BP_Scooter_01_C",
+      "properties": {
+        "location": {
+          "x": -16106.006923743273,
+          "y": -1834.5706261262167,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.403279043178571,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box3_282",
+      "instance_name": "BP_Box3_C",
+      "properties": {
+        "location": {
+          "x": 25316.51422306659,
+          "y": 21548.012514984137,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.6126341653571705,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_04_283",
+      "instance_name": "BP_Scooter_04_C",
+      "properties": {
+        "location": {
+          "x": -1579.9019713016767,
+          "y": -4794.010304564227,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.20338971171565,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_284",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": -12869.153167842962,
+          "y": 1549.303851636878,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.845906497630409,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table_285",
+      "instance_name": "BP_Table_C",
+      "properties": {
+        "location": {
+          "x": -2583.26626047439,
+          "y": -1505.9115235065642,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.7503373406967104,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadBlocker_286",
+      "instance_name": "BP_RoadBlocker_C",
+      "properties": {
+        "location": {
+          "x": 1242.4951892600363,
+          "y": -13386.34846624643,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.40455597401286736,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_can_287",
+      "instance_name": "BP_Trash_can_C",
+      "properties": {
+        "location": {
+          "x": 31063.48779487961,
+          "y": 18764.452117211426,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.857454081390578,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart_288",
+      "instance_name": "BP_Cart_C",
+      "properties": {
+        "location": {
+          "x": 21869.692133194116,
+          "y": 12937.865030894556,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.506324892186803,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table3_289",
+      "instance_name": "BP_Table3_C",
+      "properties": {
+        "location": {
+          "x": -21503.92644802392,
+          "y": 5253.391095317345,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.252227524271413,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Hydrant_290",
+      "instance_name": "BP_Hydrant_C",
+      "properties": {
+        "location": {
+          "x": 6164.64975076009,
+          "y": 1558.083547102206,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.825736539049372,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_bin_b_291",
+      "instance_name": "BP_Trash_bin_b_C",
+      "properties": {
+        "location": {
+          "x": -13765.091496920302,
+          "y": 1527.9755216660994,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.396109094446835,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table3_292",
+      "instance_name": "BP_Table3_C",
+      "properties": {
+        "location": {
+          "x": -21585.713732096436,
+          "y": 15210.10849200363,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.1361102874479085,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_03_293",
+      "instance_name": "BP_Scooter_03_C",
+      "properties": {
+        "location": {
+          "x": 18749.674181591916,
+          "y": 11642.768494466713,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.6723555494067108,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table_294",
+      "instance_name": "BP_Table_C",
+      "properties": {
+        "location": {
+          "x": 21845.89454004278,
+          "y": 3882.300312148217,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.781272788152252,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadCone_295",
+      "instance_name": "BP_RoadCone_C",
+      "properties": {
+        "location": {
+          "x": -6229.889045622435,
+          "y": -1574.6066510219703,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.0743260175478104,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_04_296",
+      "instance_name": "BP_Scooter_04_C",
+      "properties": {
+        "location": {
+          "x": 1812.6131989570658,
+          "y": -7149.880546070276,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.8582622709374342,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadBlocker_297",
+      "instance_name": "BP_RoadBlocker_C",
+      "properties": {
+        "location": {
+          "x": 29753.86652433406,
+          "y": 21883.01831531876,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.966780599045242,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart2_298",
+      "instance_name": "BP_Cart2_C",
+      "properties": {
+        "location": {
+          "x": 14719.151459054012,
+          "y": -1557.0815228383508,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.023216915236051,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box_299",
+      "instance_name": "BP_Box_C",
+      "properties": {
+        "location": {
+          "x": 29837.376031197546,
+          "y": 21299.455164262374,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.1969950123529425,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_04_300",
+      "instance_name": "BP_Scooter_04_C",
+      "properties": {
+        "location": {
+          "x": 8418.930511343126,
+          "y": -1848.8124037753014,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.7657007206545277,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_03_301",
+      "instance_name": "BP_Scooter_03_C",
+      "properties": {
+        "location": {
+          "x": 5652.916708335338,
+          "y": -1854.9767718948738,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.701157076486249,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_302",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": 36518.38167526698,
+          "y": 18179.05501262236,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.326498421130782,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_303",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": -18458.9931524001,
+          "y": 4809.167567041373,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.0992159395791545,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadBlocker_304",
+      "instance_name": "BP_RoadBlocker_C",
+      "properties": {
+        "location": {
+          "x": 33786.34048334181,
+          "y": 18129.161007873055,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.3985246461377705,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box3_305",
+      "instance_name": "BP_Box3_C",
+      "properties": {
+        "location": {
+          "x": -18450.686318675638,
+          "y": 3921.4869616427804,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.2202515374038647,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart_306",
+      "instance_name": "BP_Cart_C",
+      "properties": {
+        "location": {
+          "x": -21837.584515195085,
+          "y": 13409.642813011942,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.361049560099035,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_307",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": 15151.38789757586,
+          "y": 1294.4764933703348,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.37770482111259,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box3_308",
+      "instance_name": "BP_Box3_C",
+      "properties": {
+        "location": {
+          "x": -18403.62336018003,
+          "y": 8437.227093108353,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.8675468097551127,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Couch_309",
+      "instance_name": "BP_Couch_C",
+      "properties": {
+        "location": {
+          "x": -18161.37405058999,
+          "y": 13770.99244293643,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.478068739315857,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_bin_a_310",
+      "instance_name": "BP_Trash_bin_a_C",
+      "properties": {
+        "location": {
+          "x": 18402.85045919997,
+          "y": 15178.78383818755,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.7948095490449174,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_03_311",
+      "instance_name": "BP_Scooter_03_C",
+      "properties": {
+        "location": {
+          "x": -11607.769418797194,
+          "y": -1874.3639461463401,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.97633097390857,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_bin_a_312",
+      "instance_name": "BP_Trash_bin_a_C",
+      "properties": {
+        "location": {
+          "x": 23908.584561286247,
+          "y": 18434.790015136754,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.577888323693292,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_03_313",
+      "instance_name": "BP_Scooter_03_C",
+      "properties": {
+        "location": {
+          "x": -12549.774803750215,
+          "y": -1506.1244524491021,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.2673605244368231,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadCone_314",
+      "instance_name": "BP_RoadCone_C",
+      "properties": {
+        "location": {
+          "x": 11146.279068783551,
+          "y": -1819.3640764503202,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.8941975110978415,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_315",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": -18167.609464948328,
+          "y": 17350.978702385553,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.5525920041251045,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_03_316",
+      "instance_name": "BP_Scooter_03_C",
+      "properties": {
+        "location": {
+          "x": 36962.60925862692,
+          "y": 21836.506513399203,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.7802450987337535,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table_317",
+      "instance_name": "BP_Table_C",
+      "properties": {
+        "location": {
+          "x": -1590.3833446220851,
+          "y": -9270.418140810576,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.214295752589008,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart2_318",
+      "instance_name": "BP_Cart2_C",
+      "properties": {
+        "location": {
+          "x": 18442.995118676965,
+          "y": 7075.489919145923,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.1668460334416118,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_319",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": -21597.65517675352,
+          "y": 14323.96816621006,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.541670017743488,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table_320",
+      "instance_name": "BP_Table_C",
+      "properties": {
+        "location": {
+          "x": -1540.0810462485772,
+          "y": -6603.880162740347,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.842577941392164,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_321",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": 28403.88229143284,
+          "y": 18142.297641386576,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.933498840917692,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box2_322",
+      "instance_name": "BP_Box2_C",
+      "properties": {
+        "location": {
+          "x": -17398.27258654885,
+          "y": 1875.2141963456368,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.3609486587944155,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadCone_323",
+      "instance_name": "BP_RoadCone_C",
+      "properties": {
+        "location": {
+          "x": 35209.28309049078,
+          "y": 21892.485859580735,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.8339191322475705,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table_324",
+      "instance_name": "BP_Table_C",
+      "properties": {
+        "location": {
+          "x": 1255.0317917573298,
+          "y": -8032.399022309036,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.139352956499243,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_bin_a_325",
+      "instance_name": "BP_Trash_bin_a_C",
+      "properties": {
+        "location": {
+          "x": 26608.54677123704,
+          "y": 18190.395524456897,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.167867691050394,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_326",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": 6619.632415626296,
+          "y": -1536.935721387833,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.583144282407342,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Couch_327",
+      "instance_name": "BP_Couch_C",
+      "properties": {
+        "location": {
+          "x": 1848.3215073680926,
+          "y": -2644.5898379949017,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.208678260086507,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Hydrant_328",
+      "instance_name": "BP_Hydrant_C",
+      "properties": {
+        "location": {
+          "x": 16505.787894417143,
+          "y": -1574.195743418939,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.9291961094105938,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Hydrant_329",
+      "instance_name": "BP_Hydrant_C",
+      "properties": {
+        "location": {
+          "x": 31984.80453275828,
+          "y": 18471.425582046697,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.6499870124922498,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box2_330",
+      "instance_name": "BP_Box2_C",
+      "properties": {
+        "location": {
+          "x": -6610.7916707351005,
+          "y": 1296.926024191461,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.948073479804733,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart2_331",
+      "instance_name": "BP_Cart2_C",
+      "properties": {
+        "location": {
+          "x": 1547.051676479975,
+          "y": -5288.3845786220345,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.260585282143297,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart_332",
+      "instance_name": "BP_Cart_C",
+      "properties": {
+        "location": {
+          "x": -1582.4624574995296,
+          "y": -12003.701656657055,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.3924890824445857,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_03_333",
+      "instance_name": "BP_Scooter_03_C",
+      "properties": {
+        "location": {
+          "x": -3018.590866836114,
+          "y": 1599.4509129233957,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.468556965429079,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_01_334",
+      "instance_name": "BP_Scooter_01_C",
+      "properties": {
+        "location": {
+          "x": 14685.796387248036,
+          "y": -1261.115487487788,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.3978595090070027,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_02_335",
+      "instance_name": "BP_Scooter_02_C",
+      "properties": {
+        "location": {
+          "x": -17043.04353034184,
+          "y": -1502.3592246974108,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.7148858277233394,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadBlocker_336",
+      "instance_name": "BP_RoadBlocker_C",
+      "properties": {
+        "location": {
+          "x": -1211.6825152861943,
+          "y": -3943.8319092257116,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.33959039445693734,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box2_337",
+      "instance_name": "BP_Box2_C",
+      "properties": {
+        "location": {
+          "x": 21851.27857085084,
+          "y": 16522.053184177934,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.510458721455472,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart2_338",
+      "instance_name": "BP_Cart2_C",
+      "properties": {
+        "location": {
+          "x": 36129.36055132556,
+          "y": 21852.48046011713,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.837753822389906,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_01_339",
+      "instance_name": "BP_Scooter_01_C",
+      "properties": {
+        "location": {
+          "x": -8850.492656701424,
+          "y": -1507.8386129525702,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.482925695812258,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_340",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": 16452.666519664905,
+          "y": -1291.9398791379565,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.0508238607082514,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_03_341",
+      "instance_name": "BP_Scooter_03_C",
+      "properties": {
+        "location": {
+          "x": 24816.64913020948,
+          "y": 18770.52728344082,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.6330643293387204,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_bin_b_342",
+      "instance_name": "BP_Trash_bin_b_C",
+      "properties": {
+        "location": {
+          "x": -6239.782703330387,
+          "y": -1239.006023274334,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.175138431519712,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table_343",
+      "instance_name": "BP_Table_C",
+      "properties": {
+        "location": {
+          "x": -11960.267543833705,
+          "y": 1875.7529598341512,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.7451744882508786,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box3_344",
+      "instance_name": "BP_Box3_C",
+      "properties": {
+        "location": {
+          "x": 21206.121529929056,
+          "y": 2999.0199533133577,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.8796090837266753,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_345",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": -21837.969114349697,
+          "y": 9829.452616763916,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.205841491910231,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_346",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": 23493.771546788186,
+          "y": 21222.144079540765,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.4478054398749953,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_347",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": -21515.838946123975,
+          "y": 4428.878103491908,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.6081495330752644,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadCone_348",
+      "instance_name": "BP_RoadCone_C",
+      "properties": {
+        "location": {
+          "x": 30161.326445783514,
+          "y": 18423.205664648558,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.5504532757188618,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_349",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": 1228.4909512815073,
+          "y": -15197.954748934866,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.397501217250275,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_350",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": 18179.395847438936,
+          "y": 16089.885267115715,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.22226810395623,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table3_351",
+      "instance_name": "BP_Table3_C",
+      "properties": {
+        "location": {
+          "x": -21881.76612382999,
+          "y": 12482.332735374875,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.8544568007400253,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table3_352",
+      "instance_name": "BP_Table3_C",
+      "properties": {
+        "location": {
+          "x": 21502.14552772089,
+          "y": 4767.8011414467255,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.497196362868634,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart_353",
+      "instance_name": "BP_Cart_C",
+      "properties": {
+        "location": {
+          "x": -18495.820202992883,
+          "y": 5718.64953409111,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.1147058252307223,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart2_354",
+      "instance_name": "BP_Cart2_C",
+      "properties": {
+        "location": {
+          "x": 28423.249244873816,
+          "y": 18467.64340179652,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.1503423070148715,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_03_355",
+      "instance_name": "BP_Scooter_03_C",
+      "properties": {
+        "location": {
+          "x": 1515.6756839934483,
+          "y": -6241.706229516035,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.4489200900648003,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart2_356",
+      "instance_name": "BP_Cart2_C",
+      "properties": {
+        "location": {
+          "x": -11076.07600795665,
+          "y": 1533.1599472520206,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.22185437038245084,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table_357",
+      "instance_name": "BP_Table_C",
+      "properties": {
+        "location": {
+          "x": -10675.29772853099,
+          "y": -1227.6191873317227,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.435936004395554,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_02_358",
+      "instance_name": "BP_Scooter_02_C",
+      "properties": {
+        "location": {
+          "x": 18417.32858330215,
+          "y": 14346.342050669304,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.928258962270567,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_359",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": 18773.17231084173,
+          "y": 12487.894025526386,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.79620589380428,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_can_360",
+      "instance_name": "BP_Trash_can_C",
+      "properties": {
+        "location": {
+          "x": 16117.308365874413,
+          "y": 1258.3870717448383,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.6267801259253747,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Couch_361",
+      "instance_name": "BP_Couch_C",
+      "properties": {
+        "location": {
+          "x": 18479.746588509664,
+          "y": 3497.420646276801,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 6.008223079806771,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_04_362",
+      "instance_name": "BP_Scooter_04_C",
+      "properties": {
+        "location": {
+          "x": -16077.359628104594,
+          "y": -1516.9491982226257,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.5994039754036398,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_can_363",
+      "instance_name": "BP_Trash_can_C",
+      "properties": {
+        "location": {
+          "x": -1536.3357137914272,
+          "y": -17388.342683721734,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.536884868803434,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box2_364",
+      "instance_name": "BP_Box2_C",
+      "properties": {
+        "location": {
+          "x": 27055.57492838399,
+          "y": 21841.175832772635,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.8809371496374323,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Couch_365",
+      "instance_name": "BP_Couch_C",
+      "properties": {
+        "location": {
+          "x": -18711.60078975592,
+          "y": 2998.9612733077706,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.545126195208154,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_02_366",
+      "instance_name": "BP_Scooter_02_C",
+      "properties": {
+        "location": {
+          "x": -21531.026878699817,
+          "y": 2611.4726926736553,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.571776232102521,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_bin_a_367",
+      "instance_name": "BP_Trash_bin_a_C",
+      "properties": {
+        "location": {
+          "x": -1293.275894644725,
+          "y": -9291.704290592743,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 6.088287440018027,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart2_368",
+      "instance_name": "BP_Cart2_C",
+      "properties": {
+        "location": {
+          "x": -8014.203932694412,
+          "y": -1803.9992974149284,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.521990515722517,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_bin_a_369",
+      "instance_name": "BP_Trash_bin_a_C",
+      "properties": {
+        "location": {
+          "x": -21875.932953568066,
+          "y": 16076.79660209975,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.611237349818409,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_04_370",
+      "instance_name": "BP_Scooter_04_C",
+      "properties": {
+        "location": {
+          "x": 34703.05952645913,
+          "y": 18467.209638868368,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.1657304792682552,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_can_371",
+      "instance_name": "BP_Trash_can_C",
+      "properties": {
+        "location": {
+          "x": 31087.77123632137,
+          "y": 18446.362664478744,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.542797174307986,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_bin_b_372",
+      "instance_name": "BP_Trash_bin_b_C",
+      "properties": {
+        "location": {
+          "x": -18495.521556468942,
+          "y": 11967.298506705381,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.3876501701986213,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadBlocker_373",
+      "instance_name": "BP_RoadBlocker_C",
+      "properties": {
+        "location": {
+          "x": -7111.5191149182,
+          "y": -1286.8730467080773,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.9992787061672552,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_02_374",
+      "instance_name": "BP_Scooter_02_C",
+      "properties": {
+        "location": {
+          "x": 33448.7666359262,
+          "y": 21585.913331262167,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.87312787680519,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Couch_375",
+      "instance_name": "BP_Couch_C",
+      "properties": {
+        "location": {
+          "x": 28926.49245903303,
+          "y": 21895.897678229547,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.6105368816637924,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart2_376",
+      "instance_name": "BP_Cart2_C",
+      "properties": {
+        "location": {
+          "x": 7950.257419875377,
+          "y": 1562.141682050185,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.9499446796031537,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_03_377",
+      "instance_name": "BP_Scooter_03_C",
+      "properties": {
+        "location": {
+          "x": 4824.861612605347,
+          "y": -1871.935199016258,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.54576695089839,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table3_378",
+      "instance_name": "BP_Table3_C",
+      "properties": {
+        "location": {
+          "x": 1525.6584487113357,
+          "y": -14330.658094570428,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 6.136311455245149,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box3_379",
+      "instance_name": "BP_Box3_C",
+      "properties": {
+        "location": {
+          "x": 26608.086436984508,
+          "y": 18466.614951373867,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.614612507917449,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadCone_380",
+      "instance_name": "BP_RoadCone_C",
+      "properties": {
+        "location": {
+          "x": -1845.5122274366045,
+          "y": -15625.554960977992,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.3162092194660926,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table2_381",
+      "instance_name": "BP_Table2_C",
+      "properties": {
+        "location": {
+          "x": -21560.023618758143,
+          "y": 10728.771962821487,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.2505790916309265,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Hydrant_382",
+      "instance_name": "BP_Hydrant_C",
+      "properties": {
+        "location": {
+          "x": -4442.3033456992935,
+          "y": -1528.9279923625054,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.326649230731739,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table_383",
+      "instance_name": "BP_Table_C",
+      "properties": {
+        "location": {
+          "x": 21896.67900824284,
+          "y": 11118.807058935276,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.198836026765836,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table3_384",
+      "instance_name": "BP_Table3_C",
+      "properties": {
+        "location": {
+          "x": 33798.36348457715,
+          "y": 18448.534606872472,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.0449163756517756,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart_385",
+      "instance_name": "BP_Cart_C",
+      "properties": {
+        "location": {
+          "x": -16525.926071977738,
+          "y": 1848.22608102091,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.4070404341028173,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_04_386",
+      "instance_name": "BP_Scooter_04_C",
+      "properties": {
+        "location": {
+          "x": -21570.233900882275,
+          "y": 9769.728561239974,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.505486918024145,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Couch_387",
+      "instance_name": "BP_Couch_C",
+      "properties": {
+        "location": {
+          "x": 7078.03966588295,
+          "y": 1500.9165422350623,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.8272451889383867,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_04_388",
+      "instance_name": "BP_Scooter_04_C",
+      "properties": {
+        "location": {
+          "x": -5269.132497754162,
+          "y": -1216.5969355758602,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.6027535898472162,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_can_389",
+      "instance_name": "BP_Trash_can_C",
+      "properties": {
+        "location": {
+          "x": -18734.313121813506,
+          "y": 11140.081879482152,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.529060656985081,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Hydrant_390",
+      "instance_name": "BP_Hydrant_C",
+      "properties": {
+        "location": {
+          "x": -18427.296408387494,
+          "y": 7460.320578366471,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.822226850731796,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_03_391",
+      "instance_name": "BP_Scooter_03_C",
+      "properties": {
+        "location": {
+          "x": 15606.425013358206,
+          "y": -1511.3006652889815,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.4911330784374215,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_04_392",
+      "instance_name": "BP_Scooter_04_C",
+      "properties": {
+        "location": {
+          "x": 1554.9776812704135,
+          "y": -17002.43497322055,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.415485848563923,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table_393",
+      "instance_name": "BP_Table_C",
+      "properties": {
+        "location": {
+          "x": 1842.5934384809477,
+          "y": -14300.051342531171,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.285776573471418,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box2_394",
+      "instance_name": "BP_Box2_C",
+      "properties": {
+        "location": {
+          "x": 28040.820838159038,
+          "y": 21205.432407452136,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.6974814009544368,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_04_395",
+      "instance_name": "BP_Scooter_04_C",
+      "properties": {
+        "location": {
+          "x": -21557.909836294613,
+          "y": 8949.738530658708,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.399877165898067,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box3_396",
+      "instance_name": "BP_Box3_C",
+      "properties": {
+        "location": {
+          "x": 29309.372472512103,
+          "y": 18490.82701221835,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.435402251646278,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadCone_397",
+      "instance_name": "BP_RoadCone_C",
+      "properties": {
+        "location": {
+          "x": -15621.006801049462,
+          "y": 1227.8951504906734,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.047427616546149,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table_398",
+      "instance_name": "BP_Table_C",
+      "properties": {
+        "location": {
+          "x": -18416.888648367352,
+          "y": 10154.13042771247,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.7074137103944595,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_bin_a_399",
+      "instance_name": "BP_Trash_bin_a_C",
+      "properties": {
+        "location": {
+          "x": -1876.7520834523223,
+          "y": -2970.353594292256,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 1.9010054713518452,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table3_400",
+      "instance_name": "BP_Table3_C",
+      "properties": {
+        "location": {
+          "x": 21273.759981760355,
+          "y": 8399.988646571666,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.361334951437695,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box_401",
+      "instance_name": "BP_Box_C",
+      "properties": {
+        "location": {
+          "x": -18730.708758536202,
+          "y": 14652.867323744624,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.625538823036298,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Trash_can_402",
+      "instance_name": "BP_Trash_can_C",
+      "properties": {
+        "location": {
+          "x": 5306.31617053362,
+          "y": 1532.956805645167,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.7088104539359628,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart_403",
+      "instance_name": "BP_Cart_C",
+      "properties": {
+        "location": {
+          "x": -14270.576059503437,
+          "y": -1829.3352709183262,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.7143610631198547,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart_404",
+      "instance_name": "BP_Cart_C",
+      "properties": {
+        "location": {
+          "x": 1561.8591938686911,
+          "y": -10701.848700378703,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.0745224259390493,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table_405",
+      "instance_name": "BP_Table_C",
+      "properties": {
+        "location": {
+          "x": -10737.084883266738,
+          "y": -1531.965754096811,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 0.18471740355344538,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table_406",
+      "instance_name": "BP_Table_C",
+      "properties": {
+        "location": {
+          "x": 1568.6705954294594,
+          "y": -7998.935883003351,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 3.09145402732551,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Cart2_407",
+      "instance_name": "BP_Cart2_C",
+      "properties": {
+        "location": {
+          "x": -2594.97824402672,
+          "y": -1810.5096453854615,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.89411009613578,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Table3_408",
+      "instance_name": "BP_Table3_C",
+      "properties": {
+        "location": {
+          "x": -1820.7804280048472,
+          "y": -13776.776464754706,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 4.511799915184599,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Box3_409",
+      "instance_name": "BP_Box3_C",
+      "properties": {
+        "location": {
+          "x": -1589.274034039306,
+          "y": -8401.250021697064,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.8378070740738903,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_Scooter_03_410",
+      "instance_name": "BP_Scooter_03_C",
+      "properties": {
+        "location": {
+          "x": 18454.18654855129,
+          "y": 6154.034269405959,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.742056243678325,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadCone_411",
+      "instance_name": "BP_RoadCone_C",
+      "properties": {
+        "location": {
+          "x": -12460.859926320998,
+          "y": -1222.465930260007,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 5.5015078597079095,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    },
+    {
+      "id": "GEN_BP_RoadCone_412",
+      "instance_name": "BP_RoadCone_C",
+      "properties": {
+        "location": {
+          "x": -18702.680975865947,
+          "y": 7483.865074391942,
+          "z": 20
+        },
+        "orientation": {
+          "pitch": 0,
+          "yaw": 2.4457515163433867,
+          "roll": 0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        }
+      }
+    }
+  ]
+}

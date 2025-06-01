@@ -1,0 +1,17 @@
+simworld:
+  seed: 30
+  ue_manager_path: "/Game/TrafficSystem/UE_Manager.UE_Manager_C"
+
+worldGen:
+  world_json: "navReq_utils/progen_world.json"
+  ue_assets_path: "navReq_utils/ue_assets.json" 
+
+
+navReq:
+  task_num: 1
+  tasks_file: "navReq_utils/tasks_file.json"
+  agent_config: "navReq_utils/agent_config.json"
+  multi_agent: False
+  agent_model_type: "agent1"
+  agent_model_path: "/Game/TrafficSystem/Pedestrian/Base_User_Agent.Base_User_Agent_C"
+  agent_speed: 200
