@@ -1,0 +1,14 @@
+{
+  "task1": {
+    "edge_count": 1,
+    "origin": {
+      "x": -0.0,
+      "y": 0.0
+    },
+    "destination": {
+      "x": -0.0,
+      "y": 10000.0
+    },
+    "cross_road": false
+  }
+}
