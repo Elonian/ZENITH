@@ -8,7 +8,7 @@ worldGen:
 
 
 navReq:
-  task_num: 1
+  task_num: "task1"
   tasks_file: "navReq_utils/tasks_file.json"
   agent_config: "navReq_utils/agent_config.json"
   multi_agent: False
