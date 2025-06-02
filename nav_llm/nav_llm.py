@@ -12,7 +12,7 @@ class NavLLM(BaseLLM):
         super().__init__(model_name,url, api_key)
 
     def generate_waypoints_openai(self, image, depth_map, system_prompt, waypoint_prompt, max_tokens=None,
-                                    temperature=0.7, top_p = 1.0, response_format=ActionSpace):
+                                    temperature=0.7, top_p = 1.0, response_format="json"):
         user_content = []
         user_content.append({"type": "text", "text": waypoint_prompt})
 
