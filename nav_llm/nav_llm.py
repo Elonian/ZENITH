@@ -15,6 +15,9 @@ class Waypoint(BaseModel):
     y: int
 class WaypointList(BaseModel):
     waypoints: list[Waypoint]
+class ReasonedWaypointList(BaseModel):
+    reasoning: str
+    waypoints: list[Waypoint]
 
 class NavLLM(BaseLLM):
     def __init__(self, model_name, url, api_key):
@@ -54,7 +57,7 @@ class NavLLM(BaseLLM):
             return None
 
     def select_waypoints_openai(image, waypoints, system_prompt, waypoint_prompt, max_tokens=None,
-                                    temperature=0.7, top_p = 1.0, response_format=WaypointList):
+                                    temperature=0.7, top_p = 1.0, response_format=ReasonedWaypointList):
         # image: PIL Image
         # waypoints: list [(x1,y1), (x2,y2), ..., (x12,y12)] of integers
     
