@@ -1,9 +1,10 @@
+from json import loads
 import math
 import traceback
 import numpy as np
 from simworld.agent.base_agent import BaseAgent
 from simworld.utils.vector import Vector
-from utils.prompt_utils import WAYPOINT_GENERATION_PROMPT, WAYPOINT_SYSTEM_PROMPT
+from utils.prompt_utils import WAYPOINT_GENERATION_PROMPT, WAYPOINT_SYSTEM_PROMPT, WAYPOINT_SELECTION_PROMPT
 # from simworld.traffic.base.traffic_signal import TrafficSignalState
 # from agent.action_space import Action, ActionSpace
 
@@ -49,14 +50,25 @@ class NavAgent(BaseAgent):
             current_yaw_rad = math.radians(self.yaw)
 
             # Genarting naviagtable waypoints
-            response = self.nav_llm.generate_waypoints_openai(
+            response1 = self.nav_llm.generate_waypoints_openai(
                 image = rgb_image,
                 depth_map = depth_image,
                 system_prompt = WAYPOINT_SYSTEM_PROMPT,
                 waypoint_prompt = WAYPOINT_GENERATION_PROMPT)
 
-            print("waypoint repsonse", response)
+            print("waypoint repsonse", response1)
 
+            # Select most viable waypoints
+            waypoints1 = [(p['x'], p['y']) for p in loads(response1)['waypoints']]
+            response2 = self.nav_llm.select_waypoints_openai(
+                image = rgb_image,
+                waypoints = waypoints1,
+                system_prompt = WAYPOINT_SYSTEM_PROMPT,
+                waypoint_prompt = WAYPOINT_SELECTION_PROMPT)
+
+            print("waypoint selection", response2)
+
+            waypoints2 = [(p['x'], p['y']) for p in loads(response2)['waypoints']]
             #  Devanshi's functionality must go here
 
 
