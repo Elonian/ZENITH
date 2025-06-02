@@ -56,7 +56,9 @@ class NavAgent(BaseAgent):
                 waypoint_prompt = WAYPOINT_GENERATION_PROMPT)
 
             print("waypoint repsonse", response)
-
+            
             #  Devanshi's functionality must go here
 
 
+
+            # Change the pixel to world and make agent move
