@@ -3,7 +3,7 @@ import json
 import os
 import time
 import traceback
-from simworld.utils.vector import Vector
+from utils.vector import Vector
 #from map.map import Map
 from simworld.utils.logger import Logger
 from agent.nav_agent import NavAgent
