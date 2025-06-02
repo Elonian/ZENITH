@@ -1,8 +1,10 @@
 import math
 import json
-
+import unrealcv
 from simworld.communicator.communicator import Communicator
 from simworld.communicator.unrealcv import UnrealCV
+from unrealcv.util import read_png
+from utils.generate_depth_map import generate_depth_from_img
 
 class nav_communicator(Communicator):
     def __init__(self, unrealcv: UnrealCV):
@@ -28,3 +30,32 @@ class nav_communicator(Communicator):
         self.unrealcv.set_scale((1, 1, 1), name)  # Default scale
         self.unrealcv.set_collision(name, True)
         self.unrealcv.set_movable(name, True)
+    
+    def get_intrinsic_matrix(self, fov_deg, width, height):
+        fov_rad = np.deg2rad(fov_deg)
+        f_x = width / (2 * np.tan(fov_rad / 2))
+        f_y = f_x  # assuming square pixels
+        c_x = width / 2
+        c_y = height / 2
+
+        K = np.array([
+            [f_x,    0, c_x],
+            [0,    f_y, c_y],
+            [0,      0,   1]
+        ])
+        return K
+    
+    def get_camera_information(self, camera_id:int, rgb_image):
+        information = {}
+        rgb_image_array = read_png(rgb_image)
+        height, width, _ = rgb_image.shape
+        information['height'] = height
+        information['width'] = width
+        information['position'] = self.UnrealCV.get_camera_location(camera_id)
+        information['rotation'] = self.UnrealCV.get_camera_rotation(camera_id)
+        information['fov'] = self.UnrealCV.get_camera_fov(camera_id)
+        information['int_mat'] = get_intrinsic_matrix(information['fov'], width, height)
+        return information
+
+    def generate_depth_model(self, rgb_image):
+        return generate_depth_from_img(rgb_image)
