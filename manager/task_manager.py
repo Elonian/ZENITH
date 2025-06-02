@@ -63,6 +63,54 @@ class TaskManager:
             agent_speed = self.config['navReq.agent_speed']
             self.communicator.spawn_agent(agent, agent_model_path)
             self.communicator.agent_set_speed(agent.id, agent_speed)
+
+    def update_physical_states(self):
+        agent_ids = [agent.id for agent in self.agents]
+        result = self.communicator.get_position_and_direction(
+            vehicle_ids = [],
+            pedestrian_ids = [],
+            traffic_signal_ids = [],
+            agent_ids = agent_ids)
+        
+        for (type, object_id), values in result.items():
+            if type == 'agent':
+                position, direction = values
+                self.agents[object_id].position = position
+                self.agents[object_id].direction = direction
+
+    def run_task(self):
+        num_threads = self.config['navReq.num_threads']
+        with ThreadPoolExecutor(max_workers=num_threads) as executor:
+            try:
+                futures = []
+                for agent in self.agents:
+                    future = executor.submit(agent.run, self.exit_event)
+                    futures.append(future)
+
+                while True:
+                    if all(future.done() for future in futures):
+                        print("Agent has reached its final destination")
+                        break
+                    self.update_physical_states()
+
+                    time.sleep(self.dt)
+            
+            except KeyboardInterrupt:
+                print("User stopped it")
+                self.exit_event.set()
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                self.exit_event.set()
+            finally:
+                print("Waiting for all agents to finish...")
+                for future in futures:
+                    try:
+                        future.result()
+                    except Exception as e:
+                        print(f"Error in thread: {e}")
+
+                print("Simulation fully stopped.")
+            
                    
 
 

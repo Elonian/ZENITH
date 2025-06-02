@@ -42,6 +42,30 @@ def generate_depth(image_path: str, output_dir: str):
     return depth_normalized
 
 
+def generate_depth_from_img(img_input, output_dir: str = None, output_name: str = "depth_map"):
+
+    if isinstance(img_input, np.ndarray):
+        img = Image.fromarray(img_input)
+    elif isinstance(img_input, Image.Image):
+        img = img_input
+    else:
+        raise ValueError("img_input must be a NumPy array or PIL.Image")
+
+    img_np = np.array(img)
+    input_tensor = transform(img_np).to(device)
+
+    with torch.no_grad():
+        depth = midas(input_tensor)
+
+    depth_resized = torch.nn.functional.interpolate(
+        depth.unsqueeze(1),
+        size=img.size[::-1],  # width, height
+        mode="bicubic",
+        align_corners=False,
+    ).squeeze().cpu().numpy()
+
+    depth_normalized = (depth_resized - depth_resized.min()) / (depth_resized.max() - depth_resized.min())
+    return depth_normalized
 
 if __name__ == "__main__":
     generate_depth(
