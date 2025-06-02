@@ -48,15 +48,18 @@ You are given:
  - color: color of dot overlaid in RGB image
 
 ## Selection Criteria
-- Waypoints must be **on the ground**; they must not float in the air or lie on top of pedestrians, vehicles, or obstacles.
+- Waypoints must be **on the ground**; they must not float in the air or lie on top of walls, pedestrians, vehicles, or obstacles.
 - Avoid pedestrians or dynamic objects by identifying regions with non-ground depth patterns.
 - Favor waypoints that follow established paths, such as roads and sidewalks.
 - Favor waypoints that are farther from the agent, or located at key points like intersections.
 - Favor a selection of waypoints that spread out in different directions. If possible, avoid selecting waypoints that are clustered together.
+- Do not select waypoints that are floating in the air, or lie on top of walls, obstacles, vehicles, or pedestrians.
+- Only select waypoints that are on the ground.
 
 ## Output Format
-Output a list of four waypoints `(x,y)` in JSON format. For example:
+Output a short reasoning, and then a list of four waypoints `(x,y)` in JSON format. For example:
 {
+  "reasoning": "<detailed reasoning here>",
   "waypoints": [
     {"x": 360, "y": 220},
     {"x": 380, "y": 230},
