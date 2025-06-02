@@ -15,3 +15,4 @@ navReq:
   agent_model_type: "agent1"
   agent_model_path: "/Game/TrafficSystem/Pedestrian/Base_User_Agent.Base_User_Agent_C"
   agent_speed: 200
+  num_threads: 4
