@@ -32,3 +32,36 @@ Each example contains:
   - `y` increases from **top to bottom**.
 - These waypoints will be used for **short-horizon local planning**.
 """
+
+WAYPOINT_SELECTION_PROMPT = """
+You are given an RGB image overlaid with a set of 10-12 waypoints, taken from an agent navigating a simulated urban environment.
+Your task is to select at most 4 waypoints as prime candidates for future consideration, based on a set of criteria given below.
+
+## Input Format
+You are given:
+1. An **RGB image** showing the agent's forward-facing view. 
+- This image is overlaid with 10-12 waypoints, as colored dots.
+2. A **list of waypoints** showing potential areas the agent might move to next.
+- These waypoints are `(x,y)` image-plane coordinates. Each waypoint contains three fields:
+ - x: position from left of image
+ - y: position from top of image
+ - color: color of dot overlaid in RGB image
+
+## Selection Criteria
+- Waypoints must be **on the ground**; they must not float in the air or lie on top of pedestrians, vehicles, or obstacles.
+- Avoid pedestrians or dynamic objects by identifying regions with non-ground depth patterns.
+- Favor waypoints that follow established paths, such as roads and sidewalks.
+- Favor waypoints that are farther from the agent, or located at key points like intersections.
+- Favor a selection of waypoints that spread out in different directions. If possible, avoid selecting waypoints that are clustered together.
+
+## Output Format
+Output a list of four waypoints `(x,y)` in JSON format. For example:
+{
+  "waypoints": [
+    {"x": 360, "y": 220},
+    {"x": 380, "y": 230},
+    {"x": 455, "y": 90},
+    {"x": 720, "y": 280}
+  ]
+}
+"""
