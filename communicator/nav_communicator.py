@@ -1,6 +1,7 @@
 import math
 import json
 import unrealcv
+import numpy as np
 from simworld.communicator.communicator import Communicator
 from simworld.communicator.unrealcv import UnrealCV
 from unrealcv.util import read_png
@@ -31,6 +32,10 @@ class nav_communicator(Communicator):
         self.unrealcv.set_collision(name, True)
         self.unrealcv.set_movable(name, True)
     
+    def get_camera_observation(self, cam_id, viewmode, mode='direct'):
+        return self.unrealcv.get_image(cam_id, viewmode, mode)
+
+    
     def get_intrinsic_matrix(self, fov_deg, width, height):
         fov_rad = np.deg2rad(fov_deg)
         f_x = width / (2 * np.tan(fov_rad / 2))
@@ -51,10 +56,10 @@ class nav_communicator(Communicator):
         height, width, _ = rgb_image.shape
         information['height'] = height
         information['width'] = width
-        information['position'] = self.UnrealCV.get_camera_location(camera_id)
-        information['rotation'] = self.UnrealCV.get_camera_rotation(camera_id)
-        information['fov'] = self.UnrealCV.get_camera_fov(camera_id)
-        information['int_mat'] = get_intrinsic_matrix(information['fov'], width, height)
+        information['position'] = self.unrealcv.get_camera_location(camera_id)
+        information['rotation'] = self.unrealcv.get_camera_rotation(camera_id)
+        information['fov'] = self.unrealcv.get_camera_fov(camera_id)
+        information['int_mat'] = self.get_intrinsic_matrix(information['fov'], width, height)
         return information
 
     def generate_depth_model(self, rgb_image):
