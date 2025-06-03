@@ -5,6 +5,7 @@ from simworld.communicator.communicator import Communicator
 from simworld.communicator.unrealcv import UnrealCV
 from unrealcv.util import read_png
 from utils.generate_depth_map import generate_depth_from_img
+from utils.generate_segment import generate_segmentation_mask
 
 class nav_communicator(Communicator):
     def __init__(self, unrealcv: UnrealCV):
@@ -59,3 +60,6 @@ class nav_communicator(Communicator):
 
     def generate_depth_model(self, rgb_image):
         return generate_depth_from_img(rgb_image)
+    
+    def generate_segmentation_model(self, rgb_image):
+        return generate_segmentation_mask(rgb_image)
