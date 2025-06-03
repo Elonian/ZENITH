@@ -53,10 +53,11 @@ class nav_communicator(Communicator):
     
     def get_camera_information(self, camera_id:int, rgb_image):
         information = {}
-        rgb_image_array = read_png(rgb_image)
+        # rgb_image_array = read_png(rgb_image)
         height, width, _ = rgb_image.shape
         information['height'] = height
         information['width'] = width
+        print(information)
         information['position'] = self.unrealcv.get_camera_location(camera_id)
         information['rotation'] = self.unrealcv.get_camera_rotation(camera_id)
         fov = self.unrealcv.get_camera_fov(camera_id)
