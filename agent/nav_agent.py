@@ -5,6 +5,7 @@ import numpy as np
 from simworld.agent.base_agent import BaseAgent
 from utils.vector import Vector
 from utils.prompt_utils import WAYPOINT_GENERATION_PROMPT, WAYPOINT_SYSTEM_PROMPT
+from utils.pixel_utils import random_waypoint_generator
 # from simworld.traffic.base.traffic_signal import TrafficSignalState
 # from agent.action_space import Action, ActionSpace
 
@@ -68,7 +69,7 @@ class NavAgent(BaseAgent):
             print(f"Error converting coordinates: {e}")
             return None
     
-    def navigate(self, exit_event):
+    def navigate(self, exit_event, generate_waypoint_zeroshot=True):
         print(f"Agent {self.id} is navigating to destination {self.destination}, current position: {self.position}")
 
         while (exit_event is None or not exit_event.is_set()):
@@ -80,18 +81,34 @@ class NavAgent(BaseAgent):
                 print(f"Error in getting depth map for agent {self.id} with camera {self.camera_id}: {e}")
                 depth_image = self.communicator.generate_depth_model(rgb_image)
             
+            try:
+                segmentation_map = self.communicator.get_camera_observation(self.camera_id, 'depth')
+            except Exception e:
+                print(f"Error in getting depth map for agent {self.id} with camera {self.camera_id}: {e}")
+                segmentation_map = self.communicator.generate_depth_model(rgb_image)
+            
             cam_info = self.communicator.get_camera_information(self.camera_id, rgb_image)
 
             current_yaw_rad = math.radians(self.yaw)
 
-            # Genarting naviagtable waypoints
-            response = self.nav_llm.generate_waypoints_openai(
-                image = rgb_image,
-                depth_map = depth_image,
-                system_prompt = WAYPOINT_SYSTEM_PROMPT,
-                waypoint_prompt = WAYPOINT_GENERATION_PROMPT)
+            # Genarting naviagtable waypoints using rgb, segmentation and depth map
+            if generate_waypoint_zeroshot:
+                response = self.nav_llm.generate_waypoints_openai(
+                    image = rgb_image,
+                    depth_map = depth_image,
+                    seg_mask = segmentation_map,
+                    system_prompt = WAYPOINT_SYSTEM_PROMPT,
+                    waypoint_prompt = WAYPOINT_GENERATION_PROMPT)
 
-            print("waypoint repsonse", response)
+                print("waypoint repsonse zeroshot", response)
+            else:
+                response = random_waypoint_generator(
+                    segmentation_mask = segmentation_map,
+                    depth_map = depth_image, 
+                    agent_position = self.position
+                )
+                print("waypoint repsonse random generation", response)
+
             
             #  Devanshi's functionality must go here
 
