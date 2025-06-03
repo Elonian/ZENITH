@@ -1,5 +1,7 @@
 import os
 import cv2
+import numpy as np
+import random 
 
 def add_pixel_points_with_dir(image_path, pixel_points, save_dir):
 
@@ -12,6 +14,30 @@ def add_pixel_points_with_dir(image_path, pixel_points, save_dir):
     output_path = os.path.join(save_dir, f"{base_filename}.png")
     cv2.imwrite(output_path, image)
     return output_path
+
+
+
+def random_waypoint_generator(segmentation_mask, depth_map, agent_position, depth_threshold = 2.5, min_distance=20, num_waypoints=12):
+
+    ground_color = np.array([0, 255, 0])
+    ground_mask = np.all(segmentation_mask == ground_color, axis=-1)
+    depth_mask = depth_map > depth_threshold
+    valid_mask = np.logical_and(ground_mask, depth_mask)
+    y_indices, x_indices = np.where(valid_mask)
+    agent_x, agent_y = agent_position
+    distances = np.sqrt((x_indices - agent_x)**2 + (y_indices - agent_y)**2)
+    far_enough_mask = distances > min_distance
+    candidate_x = x_indices[far_enough_mask]
+    candidate_y = y_indices[far_enough_mask]
+    if len(candidate_x) == 0:
+        return []
+    indices = list(range(len(candidate_x)))
+    random.shuffle(indices)
+    selected_indices = indices[:num_waypoints] if len(indices) >= num_waypoints else indices
+    waypoints = [(int(candidate_x[i]), int(candidate_y[i])) for i in selected_indices]
+    
+    return waypoints
+
 
 if __name__ == "__main__":
     image_path = "/mntdata/main/sim_nav/unreal_data/Raw_Step_image_v3/Raw_Step_4.png"
