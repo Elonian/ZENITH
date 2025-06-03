@@ -3,12 +3,17 @@ import json
 import math
 import traceback
 import numpy as np
+import matplotlib.pyplot as plt
 from simworld.agent.base_agent import BaseAgent
 from utils.vector import Vector
+from utils.generate_segment import generate_segmentation_mask
+from utils.generate_depth_map import generate_depth_from_img
 from utils.prompt_utils import WAYPOINT_GENERATION_PROMPT, WAYPOINT_SYSTEM_PROMPT, WAYPOINT_SELECTION_PROMPT
-from utils.pixel_utils import random_waypoint_generator
+from utils.pixel_utils import random_waypoint_generator, visualize_waypoints_on_image
 # from simworld.traffic.base.traffic_signal import TrafficSignalState
-# from agent.action_space import Action, ActionSpace
+# from agent.action_space import Action, ActionSpace-
+from PIL import Image
+import io
 
 class NavAgent(BaseAgent):
     _id_counter = 0
@@ -31,7 +36,7 @@ class NavAgent(BaseAgent):
         print(f"Agent {self.id} is running")
         try:
             self.navigate(exit_event)
-        except Exception e:
+        except Exception as e :
             print(f"Error in agent {self.id}: {e}")
             print(traceback.format_exc())
 
@@ -75,22 +80,41 @@ class NavAgent(BaseAgent):
 
         while (exit_event is None or not exit_event.is_set()):
             self.history.append(self.position) ## Adding the agent history
+            print(self.history)
+            print(hasattr(self.communicator, "get_camera_observation"))
             rgb_image = self.communicator.get_camera_observation(self.camera_id, 'lit')
+            print(f"rgb_image type: {type(rgb_image)}")
+            print("RGB image is taken from environment.")
+            plt.imshow(rgb_image)
+            plt.title("RGB Image")
+            plt.axis('off')
+            plt.show()
             try:
                 depth_image = self.communicator.get_camera_observation(self.camera_id, 'depth')
-            except Exception e:
+                print("Depth image is taken from the environment.")
+            except Exception as e:
                 print(f"Error in getting depth map for agent {self.id} with camera {self.camera_id}: {e}")
                 depth_image = self.communicator.generate_depth_model(rgb_image)
-            
+            print(f"depth_image type: {type(depth_image)}")
+            plt.imshow(depth_image)
+            plt.title("Depth Image")
+            plt.axis('off')
+            plt.show()
             try:
-                segmentation_map = self.communicator.get_camera_observation(self.camera_id, 'depth')
-            except Exception e:
-                print(f"Error in getting depth map for agent {self.id} with camera {self.camera_id}: {e}")
-                segmentation_map = self.communicator.generate_depth_model(rgb_image)
-            
-            cam_info = self.communicator.get_camera_information(self.camera_id, rgb_image)
+                segmentation_map = self.communicator.get_camera_observation(self.camera_id, 'object_mask')
+                print("segmentation map is taken from the environment.")
 
-            current_yaw_rad = math.radians(self.yaw)
+            except Exception as e:
+                print(f"Error in getting segmentation map for agent {self.id} with camera {self.camera_id}: {e}")
+                segmentation_map = self.communicator.generate_segmentation_model(rgb_image)
+            print(f"segmenatation_image type: {type(depth_image)}")
+            plt.imshow(segmentation_map)
+            plt.title("segment Image")
+            plt.axis('off')
+            plt.show()
+            # cam_info = self.communicator.get_camera_information(self.camera_id, rgb_image)
+            # print(f"Camera information: ", cam_info)
+            # current_yaw_rad = math.radians(self.yaw)
 
             # Genarting naviagtable waypoints using rgb, segmentation and depth map
             if generate_waypoint_zeroshot:
@@ -109,62 +133,63 @@ class NavAgent(BaseAgent):
                     agent_position = self.position
                 )
                 print("waypoint repsonse random generation", response1)
+            visualize_waypoints_on_image(response1, rgb_image)
+            ## Derick refinement module
+            # # Select most viable waypoints
+            # waypoints1 = [(p['x'], p['y']) for p in json.loads(response1)['waypoints']]
+            # response2 = self.nav_llm.select_waypoints_openai(
+            #     image = rgb_image,
+            #     waypoints = waypoints1,
+            #     system_prompt = WAYPOINT_SYSTEM_PROMPT,
+            #     waypoint_prompt = WAYPOINT_SELECTION_PROMPT)
 
-            # Select most viable waypoints
-            waypoints1 = [(p['x'], p['y']) for p in json.loads(response1)['waypoints']]
-            response2 = self.nav_llm.select_waypoints_openai(
-                image = rgb_image,
-                waypoints = waypoints1,
-                system_prompt = WAYPOINT_SYSTEM_PROMPT,
-                waypoint_prompt = WAYPOINT_SELECTION_PROMPT)
+            # print("waypoint selection", response2)
 
-            print("waypoint selection", response2)
+            # waypoints2 = [(p['x'], p['y']) for p in json.loads(response2)['waypoints']]
 
-            waypoints2 = [(p['x'], p['y']) for p in json.loads(response2)['waypoints']]
-
-            # convert into next step format
-            waypoints = {chr(65+i): p for i,p in enumerate(waypoints2)}
+            # # convert into next step format
+            # waypoints = {chr(65+i): p for i,p in enumerate(waypoints2)}
 
             #  Devanshi's functionality must go here
 
             #waypoints = self._parse_waypoints(response)
         
-            if not waypoints:
-                print("No valid waypoints received")
-                continue
+            # if not waypoints:
+            #     print("No valid waypoints received")
+            #     continue
                 
-            # Select best waypoint
-            selected_waypoint = self.nav_llm.select_best_waypoint(
-                image=rgb_image,
-                waypoints=waypoints,
-                current_pos=self.position,
-                destination=self.destination,
-                history=self.history
-            )
+            # # Select best waypoint
+            # selected_waypoint = self.nav_llm.select_best_waypoint(
+            #     image=rgb_image,
+            #     waypoints=waypoints,
+            #     current_pos=self.position,
+            #     destination=self.destination,
+            #     history=self.history
+            # )
             
-            if not selected_waypoint or selected_waypoint not in waypoints:
-                print("Invalid waypoint selection")
-                continue
+            # if not selected_waypoint or selected_waypoint not in waypoints:
+            #     print("Invalid waypoint selection")
+            #     continue
                 
-            # Convert selected waypoint to world coordinates
-            world_pos = self._pixel_to_world_coords(
-                waypoints[selected_waypoint],
-                cam_info,
-                depth_image
-            )
+            # # Convert selected waypoint to world coordinates
+            # world_pos = self._pixel_to_world_coords(
+            #     waypoints[selected_waypoint],
+            #     cam_info,
+            #     depth_image
+            # )
             
-            if world_pos is None:
-                print("Failed to convert waypoint to world coordinates")
-                continue
+            # if world_pos is None:
+            #     print("Failed to convert waypoint to world coordinates")
+            #     continue
                 
-            # Move agent towards selected waypoint using movement controller
-            reached = self.movement_controller.move_to_waypoint(world_pos)
+            # # Move agent towards selected waypoint using movement controller
+            # reached = self.movement_controller.move_to_waypoint(world_pos)
             
-            if reached:
-                print(f"Agent {self.id} reached waypoint")
+            # if reached:
+            #     print(f"Agent {self.id} reached waypoint")
             
-            # Check if destination reached
-            if Vector.distance(self.position, self.destination) < self.config.get('arrival_threshold', 1.0):
-                print(f"Agent {self.id} reached destination!")
-                break
+            # # Check if destination reached
+            # if Vector.distance(self.position, self.destination) < self.config.get('arrival_threshold', 1.0):
+            #     print(f"Agent {self.id} reached destination!")
+            #     break
 
