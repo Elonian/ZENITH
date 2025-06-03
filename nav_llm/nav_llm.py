@@ -2,7 +2,7 @@ import base64
 import io
 from json import loads
 import cv2
-from PIL import Image
+from PIL import Image, ImageDraw
 import base64
 from io import BytesIO
 import numpy as np
@@ -50,7 +50,7 @@ class NavLLM(BaseLLM):
 
             image_data = self._process_image_to_base64(image)
     
-            response = self.client.chat.completions.create(
+            response = self.client.beta.chat.completions.parse(
                 model=self.model_name,
                 messages=[
                     {"role": "system", "content": "You are a vision assistant that helps with scene segmentation."},
@@ -71,7 +71,7 @@ class NavLLM(BaseLLM):
             return None
 
     def generate_waypoints_openai(self, image, depth_map, seg_mask, system_prompt, waypoint_prompt, max_tokens=None,
-                                    temperature=0.7, top_p = 1.0, response_format="json"):
+                                    temperature=0.7, top_p = 1.0, response_format=WaypointList):
         print("Generate waypoints openai functin in navllm started.")
         user_content = []
         user_content.append({"type": "text", "text": waypoint_prompt})
@@ -95,14 +95,14 @@ class NavLLM(BaseLLM):
         print('user_content', user_content)
 
         try:
-            response = self.client.beta.chat.completions.create(
+            response = self.client.beta.chat.completions.parse(
                 model=self.model_name,
                 messages=[{"role": "system", "content": system_prompt},
                         {"role": "user", "content": user_content}],
                 max_tokens=max_tokens,
                 temperature=temperature,
                 top_p=top_p,
-                response_format="json",
+                response_format=response_format,
             )
             print("generate waypoint openai has recieved response.")
             return response.choices[0].message.content
@@ -110,7 +110,7 @@ class NavLLM(BaseLLM):
             print(f"Error in generate_waypoints_openai: {e}")
             return None
 
-    def select_waypoints_openai(image, waypoints, system_prompt, waypoint_prompt, max_tokens=None,
+    def select_waypoints_openai(self, image, waypoints, system_prompt, waypoint_prompt, max_tokens=None,
                                     temperature=0.7, top_p = 1.0, response_format=ReasonedWaypointList):
         # image: PIL Image
         # waypoints: list [(x1,y1), (x2,y2), ..., (x12,y12)] of integers
@@ -159,7 +159,7 @@ class NavLLM(BaseLLM):
         
         image_data = self._process_image_to_base64(image)
 
-        # waypoint_text = "\n".join([f"- {label}: {coords}" for label, coords in waypoints.items()])
+        waypoint_text = "\n".join([f"- {label}: {coords}" for label, coords in waypoints.items()])
         prompt = f"""
         Scene Analysis: {scene_analysis}
         
@@ -180,7 +180,7 @@ class NavLLM(BaseLLM):
         """
 
         try:
-            response = self.client.chat.completions.create(
+            response = self.client.beta.chat.completions.parse(
                 model=self.model_name,
                 messages=[
                     {"role": "system", "content": "You are a navigation assistant."},
