@@ -1,10 +1,11 @@
+
 import json
 import math
 import traceback
 import numpy as np
 from simworld.agent.base_agent import BaseAgent
 from utils.vector import Vector
-from utils.prompt_utils import WAYPOINT_GENERATION_PROMPT, WAYPOINT_SYSTEM_PROMPT
+from utils.prompt_utils import WAYPOINT_GENERATION_PROMPT, WAYPOINT_SYSTEM_PROMPT, WAYPOINT_SELECTION_PROMPT
 from utils.pixel_utils import random_waypoint_generator
 # from simworld.traffic.base.traffic_signal import TrafficSignalState
 # from agent.action_space import Action, ActionSpace
@@ -93,26 +94,40 @@ class NavAgent(BaseAgent):
 
             # Genarting naviagtable waypoints using rgb, segmentation and depth map
             if generate_waypoint_zeroshot:
-                response = self.nav_llm.generate_waypoints_openai(
+                response1 = self.nav_llm.generate_waypoints_openai(
                     image = rgb_image,
                     depth_map = depth_image,
                     seg_mask = segmentation_map,
                     system_prompt = WAYPOINT_SYSTEM_PROMPT,
                     waypoint_prompt = WAYPOINT_GENERATION_PROMPT)
 
-                print("waypoint repsonse zeroshot", response)
+                print("waypoint repsonse zeroshot", response1)
             else:
-                response = random_waypoint_generator(
+                response1 = random_waypoint_generator(
                     segmentation_mask = segmentation_map,
                     depth_map = depth_image, 
                     agent_position = self.position
                 )
-                print("waypoint repsonse random generation", response)
+                print("waypoint repsonse random generation", response1)
 
-            
+            # Select most viable waypoints
+            waypoints1 = [(p['x'], p['y']) for p in json.loads(response1)['waypoints']]
+            response2 = self.nav_llm.select_waypoints_openai(
+                image = rgb_image,
+                waypoints = waypoints1,
+                system_prompt = WAYPOINT_SYSTEM_PROMPT,
+                waypoint_prompt = WAYPOINT_SELECTION_PROMPT)
+
+            print("waypoint selection", response2)
+
+            waypoints2 = [(p['x'], p['y']) for p in json.loads(response2)['waypoints']]
+
+            # convert into next step format
+            waypoints = {chr(65+i): p for i,p in enumerate(waypoints2)}
+
             #  Devanshi's functionality must go here
 
-            waypoints = self._parse_waypoints(response)
+            #waypoints = self._parse_waypoints(response)
         
             if not waypoints:
                 print("No valid waypoints received")
