@@ -44,13 +44,14 @@ class NavLLM(BaseLLM):
             print(f"Error in generate_segmented_overlay: {e}")
             return None
 
-    def generate_waypoints_openai(self, image, depth_map, system_prompt, waypoint_prompt, max_tokens=None,
+    def generate_waypoints_openai(self, image, depth_map, seg_mask, system_prompt, waypoint_prompt, max_tokens=None,
                                     temperature=0.7, top_p = 1.0, response_format="json"):
         user_content = []
         user_content.append({"type": "text", "text": waypoint_prompt})
 
         rgb_image_data = self._process_image_to_base64(image)
         depth_data = self._process_image_to_base64(depth_map)
+        seg_data = self._process_image_to_base64(seg_mask)
         user_content.append({
             "type": "image_url",
             "image_url": {"url": f"data:image/jpeg;base64,{rgb_image_data}"}
@@ -58,6 +59,10 @@ class NavLLM(BaseLLM):
         user_content.append({
             "type": "image_url",
             "image_url": {"url": f"data:image/jpeg;base64,{depth_data}"}
+        })
+        user_content.append({
+            "type": "image_url",
+            "image_url": {"url": f"data:image/jpeg;base64,{seg_data}"}
         })
 
         print('user_content', user_content)
