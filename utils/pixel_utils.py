@@ -2,6 +2,52 @@ import os
 import cv2
 import numpy as np
 import random 
+import json
+import matplotlib.pyplot as plt
+
+def visualize_waypoints_on_image(response_json_str, rgb_image):
+    """
+    Projects waypoints onto the RGB image and shows the result.
+
+    Args:
+        response_json_str (str): JSON string containing the waypoints.
+        rgb_image (np.ndarray): RGB image (shape: H x W x 3, dtype: uint8).
+    """
+    # Parse the response
+    response_dict = json.loads(response_json_str)
+    waypoints = response_dict.get("waypoints", [])
+
+    # Copy the image for drawing
+    image_copy = rgb_image.copy()
+
+    # Draw each waypoint
+    for i, wp in enumerate(waypoints):
+        x, y = wp["x"], wp["y"]
+        
+        # Draw a small circle at each waypoint
+        cv2.circle(image_copy, (x, y), radius=5, color=(0, 255, 0), thickness=-1)  # Green dot
+
+        # Draw the index number near the waypoint
+        cv2.putText(
+            image_copy,
+            str(i + 1),
+            (x + 5, y - 5),
+            fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+            fontScale=0.5,
+            color=(255, 0, 0),  # Blue text
+            thickness=1
+        )
+
+    # Convert BGR (OpenCV default) to RGB for matplotlib
+    image_rgb = cv2.cvtColor(image_copy, cv2.COLOR_BGR2RGB)
+
+    # Show the image
+    plt.figure(figsize=(12, 8))
+    plt.imshow(image_rgb)
+    plt.title("Waypoints Visualized on Image")
+    plt.axis("off")
+    plt.show()
+
 
 def add_pixel_points_with_dir(image_path, pixel_points, save_dir):
 
