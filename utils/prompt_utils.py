@@ -18,25 +18,28 @@ Each example contains:
 - A segmentation mask where ground pixels are strictly colored green ([0, 255, 0]), and all obstacles, objects, buildings, and pedestrians are colored red ([255, 0, 0]).
 - A list of waypoints: these are image-plane coordinates (x, y) corresponding to navigable ground locations.
 
-**Guidelines for generating waypoints:**
-- Waypoints must lie on the ground (green pixels in the segmentation mask).
-- Do NOT place waypoints on or near red pixels (objects, buildings, pedestrians, or any obstacles).
-- Use the depth map to ensure waypoints are on flat, drivable surfaces within a reasonable distance from the agent.
-- Avoid areas with sharp depth discontinuities, which usually indicate walls, curbs, or obstacles.
-- Distribute waypoints broadly and randomly across the navigable ground region; do not cluster them together.
-- Ensure no waypoint is very close to the agent's current position (avoid waypoints within a 20-pixel radius from the agent in the image).
-- Favor open and unobstructed regions aligned with the agent's forward direction.
+**Important constraints and guidelines for generating waypoints:**
+- Waypoints must lie only on green pixels in the segmentation mask (navigable ground).
+- Never place waypoints on or near red pixels (obstacles, objects, pedestrians, or buildings).
+- Use the depth map to ensure waypoints are located on flat, continuous ground, and within a safe navigable distance.
+- Avoid placing waypoints on depth discontinuities, steep gradients, or near vertical surfaces.
+- **Avoid clustering**: Waypoints must be **widely distributed** across different regions of the navigable ground, covering left, center, and right fields of view.
+- **Do not follow a grid, diagonal, or symmetric pattern. Spread the points naturally and unevenly across the field of view.**
+- **Ensure all waypoints are at least 60 pixels away** from the bottom center of the image (representing the agent’s current position).
+- Prioritize waypoints that extend forward in the direction of movement, covering diverse reachable zones.
+- Place waypoints in open, unobstructed regions that offer forward progress.
 
-**Requirements:**
-- Output 10 to 12 waypoints per image, distributed across the navigable ground.
-- Waypoints must be in the format: (x, y), where:
+**Output Format Requirements:**
+- Output exactly 10 to 12 waypoints per image.
+- Each waypoint must be in the format: (x, y)
   - x is the horizontal (width) pixel coordinate.
   - y is the vertical (height) pixel coordinate.
-- The pixel coordinate origin is at the top-left corner of the image:
-  - x increases from left to right.
-  - y increases from top to bottom.
-- These waypoints will be used for short-horizon local planning.
+- The pixel origin (0, 0) is at the top-left corner of the image:
+  - x increases left to right.
+  - y increases top to bottom.
+- Do not return any text or explanation—only a JSON object in this format: {"waypoints": [{"x": X1, "y": Y1}, ..., {"x": Xn, "y": Yn}]}
 """
+
 
 WAYPOINT_SELECTION_PROMPT = """
 You are given an RGB image overlaid with a set of 10-12 waypoints, taken from an agent navigating a simulated urban environment.

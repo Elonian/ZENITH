@@ -9,7 +9,7 @@ from utils.vector import Vector
 from utils.generate_segment import generate_segmentation_mask
 from utils.generate_depth_map import generate_depth_from_img
 from utils.prompt_utils import WAYPOINT_GENERATION_PROMPT, WAYPOINT_SYSTEM_PROMPT, WAYPOINT_SELECTION_PROMPT
-from utils.pixel_utils import random_waypoint_generator
+from utils.pixel_utils import random_waypoint_generator, visualize_waypoints_on_image
 # from simworld.traffic.base.traffic_signal import TrafficSignalState
 # from agent.action_space import Action, ActionSpace-
 from PIL import Image
@@ -133,21 +133,22 @@ class NavAgent(BaseAgent):
                     agent_position = self.position
                 )
                 print("waypoint repsonse random generation", response1)
+            visualize_waypoints_on_image(response1, rgb_image)
+            ## Derick refinement module
+            # # Select most viable waypoints
+            # waypoints1 = [(p['x'], p['y']) for p in json.loads(response1)['waypoints']]
+            # response2 = self.nav_llm.select_waypoints_openai(
+            #     image = rgb_image,
+            #     waypoints = waypoints1,
+            #     system_prompt = WAYPOINT_SYSTEM_PROMPT,
+            #     waypoint_prompt = WAYPOINT_SELECTION_PROMPT)
 
-            # Select most viable waypoints
-            waypoints1 = [(p['x'], p['y']) for p in json.loads(response1)['waypoints']]
-            response2 = self.nav_llm.select_waypoints_openai(
-                image = rgb_image,
-                waypoints = waypoints1,
-                system_prompt = WAYPOINT_SYSTEM_PROMPT,
-                waypoint_prompt = WAYPOINT_SELECTION_PROMPT)
+            # print("waypoint selection", response2)
 
-            print("waypoint selection", response2)
+            # waypoints2 = [(p['x'], p['y']) for p in json.loads(response2)['waypoints']]
 
-            waypoints2 = [(p['x'], p['y']) for p in json.loads(response2)['waypoints']]
-
-            # convert into next step format
-            waypoints = {chr(65+i): p for i,p in enumerate(waypoints2)}
+            # # convert into next step format
+            # waypoints = {chr(65+i): p for i,p in enumerate(waypoints2)}
 
             #  Devanshi's functionality must go here
 
