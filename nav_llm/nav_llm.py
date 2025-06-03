@@ -11,21 +11,21 @@ class NavLLM(BaseLLM):
     def __init__(self, model_name, url, api_key):
         super().__init__(model_name,url, api_key)
 
-    def generate_waypoints_openai(self, image, depth_map, system_prompt, waypoint_prompt, max_tokens=None,
-                                    temperature=0.7, top_p = 1.0, response_format=ActionSpace):
+    def generate_waypoints_openai(self, image, system_prompt, waypoint_prompt, max_tokens=None,
+                                    temperature=0.7, top_p = 1.0):
         user_content = []
         user_content.append({"type": "text", "text": waypoint_prompt})
 
         rgb_image_data = self._process_image_to_base64(image)
-        depth_data = self._process_image_to_base64(depth_map)
+        # depth_data = self._process_image_to_base64(depth_map)
         user_content.append({
             "type": "image_url",
             "image_url": {"url": f"data:image/jpeg;base64,{rgb_image_data}"}
         })
-        user_content.append({
-            "type": "image_url",
-            "image_url": {"url": f"data:image/jpeg;base64,{depth_data}"}
-        })
+        # user_content.append({
+        #     "type": "image_url",
+        #     "image_url": {"url": f"data:image/jpeg;base64,{depth_data}"}
+        # })
 
         print('user_content', user_content)
 
@@ -37,7 +37,7 @@ class NavLLM(BaseLLM):
                 max_tokens=max_tokens,
                 temperature=temperature,
                 top_p=top_p,
-                response_format=response_format,
+                response_format="json",
             )
             return response.choices[0].message.content
         except Exception as e:
