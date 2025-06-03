@@ -59,7 +59,9 @@ class nav_communicator(Communicator):
         information['width'] = width
         information['position'] = self.unrealcv.get_camera_location(camera_id)
         information['rotation'] = self.unrealcv.get_camera_rotation(camera_id)
-        information['fov'] = self.unrealcv.get_camera_fov(camera_id)
+        fov = self.unrealcv.get_camera_fov(camera_id)
+        information['fov'] = float(fov) 
+        # information['fov'] = self.unrealcv.get_camera_fov(camera_id)
         information['int_mat'] = self.get_intrinsic_matrix(information['fov'], width, height)
         return information
 

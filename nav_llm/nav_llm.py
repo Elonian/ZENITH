@@ -2,6 +2,8 @@ import base64
 import io
 import cv2
 from PIL import Image
+import base64
+from io import BytesIO
 import numpy as np
 
 from simworld.llm.base_llm import BaseLLM
@@ -10,6 +12,18 @@ from simworld.llm.base_llm import BaseLLM
 class NavLLM(BaseLLM):
     def __init__(self, model_name, url, api_key):
         super().__init__(model_name,url, api_key)
+    
+    def _process_image_to_base64(self, image: np.ndarray) -> str:
+        """Convert a NumPy RGB image to base64-encoded PNG string."""
+        if isinstance(image, np.ndarray):
+            # Convert to PIL Image if necessary
+            img_pil = Image.fromarray(image.astype('uint8'))
+            buffered = BytesIO()
+            img_pil.save(buffered, format="PNG")
+            img_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+            return img_base64
+        else:
+            raise ValueError("Input image must be a NumPy array")
 
     def generate_segmented_overlay(self, image):
         try:
@@ -46,6 +60,7 @@ class NavLLM(BaseLLM):
 
     def generate_waypoints_openai(self, image, depth_map, seg_mask, system_prompt, waypoint_prompt, max_tokens=None,
                                     temperature=0.7, top_p = 1.0, response_format="json"):
+        print("Generate waypoints openai functin in navllm started.")
         user_content = []
         user_content.append({"type": "text", "text": waypoint_prompt})
 
@@ -68,7 +83,7 @@ class NavLLM(BaseLLM):
         print('user_content', user_content)
 
         try:
-            response = self.client.beta.chat.completions.create(
+            response = self.client.chat.completions.create(
                 model=self.model_name,
                 messages=[{"role": "system", "content": system_prompt},
                         {"role": "user", "content": user_content}],
@@ -77,6 +92,7 @@ class NavLLM(BaseLLM):
                 top_p=top_p,
                 response_format="json",
             )
+            print("generate waypoint openai has recieved response.")
             return response.choices[0].message.content
         except Exception as e:
             print(f"Error in generate_waypoints_openai: {e}")
