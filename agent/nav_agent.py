@@ -4,6 +4,7 @@ import traceback
 import numpy as np
 from simworld.agent.base_agent import BaseAgent
 from utils.vector import Vector
+import cv2
 from utils.prompt_utils import WAYPOINT_GENERATION_PROMPT, WAYPOINT_SYSTEM_PROMPT
 # from simworld.traffic.base.traffic_signal import TrafficSignalState
 # from agent.action_space import Action, ActionSpace
@@ -67,6 +68,34 @@ class NavAgent(BaseAgent):
         except Exception as e:
             print(f"Error converting coordinates: {e}")
             return None
+        
+    def _validate_and_process_image(self, image_data):
+        """Validate and convert image data to numpy array if needed"""
+        try:
+            # Check if image is None
+            if image_data is None:
+                print("Received None image data")
+                return None
+                
+            # If image is bytes, convert to numpy array
+            if isinstance(image_data, bytes):
+                nparr = np.frombuffer(image_data, np.uint8)
+                image_data = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+                
+            # Check if image is numpy array
+            if not isinstance(image_data, np.ndarray):
+                print(f"Invalid image type: {type(image_data)}")
+                return None
+                
+            # Check if image has valid dimensions
+            if len(image_data.shape) < 2:
+                print(f"Invalid image dimensions: {image_data.shape}")
+                return None
+                
+            return image_data
+        except Exception as e:
+            print(f"Error processing image: {e}")
+            return None
     
     def navigate(self, exit_event):
         print(f"Agent {self.id} is navigating to destination {self.destination}, current position: {self.position}")
@@ -74,6 +103,10 @@ class NavAgent(BaseAgent):
         while (exit_event is None or not exit_event.is_set()):
             self.history.append(self.position) ## Adding the agent history
             rgb_image = self.communicator.get_camera_observation(self.camera_id, 'lit')
+            rgb_image = self._validate_and_process_image(rgb_image)
+            if rgb_image is None:
+                print("Failed to get valid RGB image, retrying...")
+                continue
             try:
                 depth_image = self.communicator.get_camera_observation(self.camera_id, 'depth')
             except Exception e:
