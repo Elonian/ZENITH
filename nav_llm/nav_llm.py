@@ -25,8 +25,8 @@ class ReasonedWaypointList(BaseModel):
     waypoints: list[Waypoint]
 
 class NavLLM(BaseLLM):
-    def __init__(self, model_name, url, api_key):
-        super().__init__(model_name,url, api_key)
+    def __init__(self, model_name, url):
+        super().__init__(model_name,url)
     
     def _process_image_to_base64(self, image: np.ndarray) -> str:
         """Convert a NumPy RGB image to base64-encoded PNG string."""
