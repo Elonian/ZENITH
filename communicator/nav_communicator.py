@@ -40,7 +40,7 @@ class nav_communicator(Communicator):
     def get_intrinsic_matrix(self, fov_deg, width, height):
         fov_rad = np.deg2rad(fov_deg)
         f_x = width / (2 * np.tan(fov_rad / 2))
-        f_y = f_x  # assuming square pixels
+        f_y = f_x 
         c_x = width / 2
         c_y = height / 2
 
@@ -53,21 +53,60 @@ class nav_communicator(Communicator):
     
     def get_camera_information(self, camera_id:int, rgb_image):
         information = {}
-        # rgb_image_array = read_png(rgb_image)
         height, width, _ = rgb_image.shape
-        information['height'] = height
-        information['width'] = width
+        information['img_height'] = height
+        information['img_width'] = width
         print(information)
-        information['position'] = self.unrealcv.get_camera_location(camera_id)
-        information['rotation'] = self.unrealcv.get_camera_rotation(camera_id)
-        fov = self.unrealcv.get_camera_fov(camera_id)
+        information['cam_position'] = self.unrealcv.get_camera_location(camera_id)
+        information['cam_rotation'] = self.unrealcv.get_camera_rotation(camera_id)
+        try:
+            fov = self.unrealcv.get_camera_fov(camera_id)
+            print(f"FOV for camera {camera_id}: {fov}")
+        except Exception as e:
+            print(f"Error getting FOV for camera {camera_id}: {e}")
+            fov = 90  # Default FOV if not available
         information['fov'] = float(fov) 
         # information['fov'] = self.unrealcv.get_camera_fov(camera_id)
-        information['int_mat'] = self.get_intrinsic_matrix(information['fov'], width, height)
+        information['k'] = self.get_intrinsic_matrix(information['fov'], width, height)
         return information
+    def get_true_depth(self, camera_id:int):
+        """Get true depth map from the camera."""
+        return self.unrealcv.get_depth_map(camera_id)
 
     def generate_depth_model(self, rgb_image):
         return generate_depth_from_img(rgb_image)
     
     def generate_segmentation_model(self, rgb_image):
         return generate_segmentation_mask(rgb_image)
+
+    def get_objects(self):
+        """Get objects in the scene."""
+        objects = self.unrealcv.get_objects()
+        print(f"Found {len(objects)} objects in the scene.")
+        # Uncomment the following lines if you want to filter and return specific object types
+        # scene_objects = []
+        # for obj in objects:
+        #     if obj['type'] == 'StaticMeshActor':
+        #         scene_objects.append({
+        #             'name': obj['name'],
+        #             'location': obj['location'],
+        #             'rotation': obj['rotation'],
+        #             'scale': obj['scale']
+        #         })
+        return objects
+
+    
+    # def get_scene_objects(self):
+    #     objects = self.unrealcv.get_scene_objects()
+    #     print(f"Found {len(objects)} objects in the scene.")
+    #     print(objects)
+    #     # scene_objects = []
+    #     # for obj in objects:
+    #     #     if obj['type'] == 'StaticMeshActor':
+    #     #         scene_objects.append({
+    #     #             'name': obj['name'],
+    #     #             'location': obj['location'],
+    #     #             'rotation': obj['rotation'],
+    #     #             'scale': obj['scale']
+    #     #         })
+    #     return objects
