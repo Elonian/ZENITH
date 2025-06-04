@@ -13,11 +13,14 @@ from simworld.llm.base_llm import BaseLLM
 
 # define LLM output JSON format
 class Waypoint(BaseModel):
+    # json {"x":<x>, "y":<y>}
     x: int
     y: int
 class WaypointList(BaseModel):
+    # json {"waypoints": [{"x":<x1>,"y":<y1>}, ..., {"x":<xn>,"y":<yn>}]}
     waypoints: list[Waypoint]
 class ReasonedWaypointList(BaseModel):
+    # json {"reasoning": "<reasoning>", "waypoints": [{"x":<x1>,"y":<y1>}, ..., {"x":<xn>,"y":<yn>}]}
     reasoning: str
     waypoints: list[Waypoint]
 
@@ -133,7 +136,7 @@ class NavLLM(BaseLLM):
         user_content.append({"type": "text", "text": waypoint_prompt})
         user_content.append({
             "type": "image_url",
-            "image_url": {"url": image_url}
+            "image_url": {"url": f"data:image/png;base64,{image_url}"}
         })
         user_content.append({"type": "text", "text": str(legend)})
         #print('user_content', user_content)
