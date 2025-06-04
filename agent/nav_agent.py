@@ -40,20 +40,19 @@ class NavAgent(BaseAgent):
             print(f"Error in agent {self.id}: {e}")
             print(traceback.format_exc())
 
-    def _parse_waypoints(self, response):
+    def _parse_waypoints(self, coordinates):
         try:
             waypoints = {}
-            coordinates = json.loads(response)
             for i, coord in enumerate(coordinates):
                 label = chr(65 + i)  # 65 is ASCII for 'A'
-                if len(coord) >= 3:
+                if len(coord) >= 2:
                     waypoints[label] = (coord[0], coord[1])
                 else:
                     print(f"Skipping invalid coordinate set: {coord}")
             return waypoints
         except Exception as e:
             print(f"Error parsing waypoints: {e}")
-            print(f"Response received: {response}")
+            print(f"Response received: {coordinates}")
             return {}
     
     def _pixel_to_world_coords(self, pixel_coords, cam_info, depth_image):
@@ -74,6 +73,11 @@ class NavAgent(BaseAgent):
         except Exception as e:
             print(f"Error converting coordinates: {e}")
             return None
+        
+    def extract_waypoint_label(response):
+        if "**" in response:
+            return response.split("**")[1]  # Assuming the format "The best waypoint to choose is **G**."
+        return response.strip()
     
     def navigate(self, exit_event, generate_waypoint_zeroshot=True):
         print(f"Agent {self.id} is navigating to destination {self.destination}, current position: {self.position}")
@@ -112,8 +116,8 @@ class NavAgent(BaseAgent):
             plt.title("segment Image")
             plt.axis('off')
             plt.show()
-            # cam_info = self.communicator.get_camera_information(self.camera_id, rgb_image)
-            # print(f"Camera information: ", cam_info)
+            cam_info = self.communicator.get_camera_information(self.camera_id, rgb_image)
+            print(f"Camera information: ", cam_info)
             # current_yaw_rad = math.radians(self.yaw)
 
             # Genarting naviagtable waypoints using rgb, segmentation and depth map
@@ -138,51 +142,52 @@ class NavAgent(BaseAgent):
 
             # pil_image = Image.fromarray(rgb_image)
             # # Select most viable waypoints
-            waypoints1 = [(p['x'], p['y']) for p in json.loads(response1)['waypoints']]
-            response2 = self.nav_llm.select_waypoints_openai(
-                image = Image.fromarray(rgb_image),
-                waypoints = waypoints1,
-                system_prompt = WAYPOINT_SYSTEM_PROMPT,
-                waypoint_prompt = WAYPOINT_SELECTION_PROMPT)
+            # waypoints1 = [(p['x'], p['y']) for p in json.loads(response1)['waypoints']]
+            # response2 = self.nav_llm.select_waypoints_openai(
+            #     image = Image.fromarray(rgb_image),
+            #     waypoints = waypoints1,
+            #     system_prompt = WAYPOINT_SYSTEM_PROMPT,
+            #     waypoint_prompt = WAYPOINT_SELECTION_PROMPT)
 
             # print("waypoint selection", response2)
 
-            waypoints2 = [(p['x'], p['y']) for p in json.loads(response2)['waypoints']]
+            waypoints2 = [(p['x'], p['y']) for p in json.loads(response1)['waypoints']]
 
             # # convert into next step format
             # waypoints = {chr(65+i): p for i,p in enumerate(waypoints2)}
 
             #  Devanshi's functionality must go here
 
-            #waypoints = self._parse_waypoints(response)
+            waypoints = self._parse_waypoints(waypoints2)
         
             # if not waypoints:
             #     print("No valid waypoints received")
             #     continue
                 
             # # Select best waypoint
-            # selected_waypoint = self.nav_llm.select_best_waypoint(
-            #     image=rgb_image,
-            #     waypoints=waypoints,
-            #     current_pos=self.position,
-            #     destination=self.destination,
-            #     history=self.history
-            # )
+            selected_waypoint = self.nav_llm.select_best_waypoint(
+                image=rgb_image,
+                waypoints=waypoints,
+                current_pos=self.position,
+                destination=self.destination,
+                history=self.history
+            )
             
-            # if not selected_waypoint or selected_waypoint not in waypoints:
-            #     print("Invalid waypoint selection")
-            #     continue
-                
-            # # Convert selected waypoint to world coordinates
-            # world_pos = self._pixel_to_world_coords(
-            #     waypoints[selected_waypoint],
-            #     cam_info,
-            #     depth_image
-            # )
-            
-            # if world_pos is None:
-            #     print("Failed to convert waypoint to world coordinates")
-            #     continue
+            if not selected_waypoint or selected_waypoint not in waypoints:
+                print("Invalid waypoint selection")
+                continue
+            final_waypoint = self.extract_waypoint_label(selected_waypoint)
+            print("Selected waypoint: ", final_waypoint)  
+            # Convert selected waypoint to world coordinates
+            world_pos = self._pixel_to_world_coords(
+                waypoints[selected_waypoint],
+                cam_info,
+                depth_image
+            )
+            print("World position: ", world_pos)
+            if world_pos is None:
+                print("Failed to convert waypoint to world coordinates")
+                continue
                 
             # # Move agent towards selected waypoint using movement controller
             # reached = self.movement_controller.move_to_waypoint(world_pos)
