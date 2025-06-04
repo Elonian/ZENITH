@@ -10,6 +10,7 @@ from utils.generate_segment import generate_segmentation_mask
 from utils.generate_depth_map import generate_depth_from_img
 from utils.prompt_utils import WAYPOINT_GENERATION_PROMPT, WAYPOINT_SYSTEM_PROMPT, WAYPOINT_SELECTION_PROMPT
 from utils.pixel_utils import random_waypoint_generator, visualize_waypoints_on_image, pixel_to_world
+from agent.nav_move import navigate_to_target, navigate_to_target_with_heading
 # from simworld.traffic.base.traffic_signal import TrafficSignalState
 # from agent.action_space import Action, ActionSpace-
 from PIL import Image
@@ -85,7 +86,10 @@ class NavAgent(BaseAgent):
     def navigate(self, exit_event, generate_waypoint_zeroshot=True):
         print(f"Agent {self.id} is navigating to destination {self.destination}, current position: {self.position}")
 
-        while (exit_event is None or not exit_event.is_set()):
+        # while not self.agent_reached_destination() and (exit_event is None or not exit_event.is_set()):
+        while (exit_event is None or not exit_event.is_set()): ## If the pipline is good the remove this 
+                                                                ## condition and use the above one
+
             self.history.append(self.position) ## Adding the agent history
             print(self.history)
             print(hasattr(self.communicator, "get_camera_observation"))
@@ -162,6 +166,21 @@ class NavAgent(BaseAgent):
                 cam_info['cam_rotation']
             )
             print("Waypoints in world coordinates: ", waypoints_world_coords)
+            # Select a random waypoint from the list of world coordinates
+            selected_waypoint = self.random_waypoint_world_coord_selector(waypoints_world_coords)
+
+            ## Yuyuan must test this part if it works thsi will go below devanshi's functionality
+            # if selected_waypoint is None:
+            #     print("No valid waypoints selected, skipping iteration")
+            #     continue
+            # else:
+            #     navigate_to_target(
+            #         self.communicator,
+            #         self.camera_id,
+            #         [self.position.x, self.position.y],
+            #         selected_waypoint[:2]
+            #     )
+
             ## Derick refinement module
 
             # pil_image = Image.fromarray(rgb_image)
@@ -227,7 +246,7 @@ class NavAgent(BaseAgent):
     def agent_reached_destination(self):
         """Check if the agent has reached its destination."""
         distance = Vector.distance(self.position, self.destination)
-        if distance < self.config.get('arrival_threshold', 1.0):
+        if distance < self.config.get('navReq.arrival_threshold', 1.0):
             print(f"Agent {self.id} has reached the destination at {self.destination}.")
             return True
         return False
