@@ -74,7 +74,7 @@ class NavAgent(BaseAgent):
     def random_waypoint_world_coord_selector(self, world_coords):
         """Selects a random waypoint from the list of world coordinates."""
         """ woorld_coords is of the form [[x1, y1, z1], [x2, y2, z2], ...] select one of them randomly"""
-        if not world_coords:
+        if len(world_coords) == 0:
             print("No valid waypoints available")
             return None
         selected_index = np.random.randint(0, len(world_coords))
