@@ -74,7 +74,7 @@ class NavAgent(BaseAgent):
             print(f"Error converting coordinates: {e}")
             return None
         
-    def extract_waypoint_label(response):
+    def extract_waypoint_label(self, response):
         if "**" in response:
             return response.split("**")[1]  # Assuming the format "The best waypoint to choose is **G**."
         return response.strip()
@@ -116,8 +116,8 @@ class NavAgent(BaseAgent):
             plt.title("segment Image")
             plt.axis('off')
             plt.show()
-            cam_info = self.communicator.get_camera_information(self.camera_id, rgb_image)
-            print(f"Camera information: ", cam_info)
+            # cam_info = self.communicator.get_camera_information(self.camera_id, rgb_image)
+            # print(f"Camera information: ", cam_info)
             # current_yaw_rad = math.radians(self.yaw)
 
             # Genarting naviagtable waypoints using rgb, segmentation and depth map
@@ -172,22 +172,22 @@ class NavAgent(BaseAgent):
                 destination=self.destination,
                 history=self.history
             )
-            
-            if not selected_waypoint or selected_waypoint not in waypoints:
+            print("Selected waypoint from LLM: ", selected_waypoint)
+            if not selected_waypoint:
                 print("Invalid waypoint selection")
                 continue
             final_waypoint = self.extract_waypoint_label(selected_waypoint)
             print("Selected waypoint: ", final_waypoint)  
             # Convert selected waypoint to world coordinates
-            world_pos = self._pixel_to_world_coords(
-                waypoints[selected_waypoint],
-                cam_info,
-                depth_image
-            )
-            print("World position: ", world_pos)
-            if world_pos is None:
-                print("Failed to convert waypoint to world coordinates")
-                continue
+            # world_pos = self._pixel_to_world_coords(
+            #     waypoints[selected_waypoint],
+            #     cam_info,
+            #     depth_image
+            # )
+            # print("World position: ", world_pos)
+            # if world_pos is None:
+            #     print("Failed to convert waypoint to world coordinates")
+            #     continue
                 
             # # Move agent towards selected waypoint using movement controller
             # reached = self.movement_controller.move_to_waypoint(world_pos)
