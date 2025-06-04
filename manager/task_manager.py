@@ -39,7 +39,7 @@ class TaskManager:
         if not isMultiagent:
             for agent_name, agent_config in agent_config.items():
                 if agent_name == agent_model_type and agent_config['provider'] == 'openai':
-                    nav_agent_llm = NavLLM(agent_config['model'], agent_config['url'], os.getenv('OPENAI_API_KEY'))
+                    nav_agent_llm = NavLLM(agent_config['model'], agent_config['url'])
                     nav_agent = NavAgent(
                         position = start_position, 
                         direction = Vector(0, 0), 
@@ -62,7 +62,7 @@ class TaskManager:
             agent_model_path = self.config['navReq.agent_model_path']
             agent_speed = self.config['navReq.agent_speed']
             self.communicator.spawn_agent(agent, agent_model_path)
-            self.communicator.agent_set_speed(agent.id, agent_speed)
+            self.communicator.humanoid_set_speed(agent.id, agent_speed)
 
     def update_physical_states(self):
         agent_ids = [agent.id for agent in self.agents]
@@ -70,7 +70,7 @@ class TaskManager:
             vehicle_ids = [],
             pedestrian_ids = [],
             traffic_signal_ids = [],
-            agent_ids = agent_ids)
+            humanoid_ids = agent_ids)
         
         for (type, object_id), values in result.items():
             if type == 'agent':
