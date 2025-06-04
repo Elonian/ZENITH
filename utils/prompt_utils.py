@@ -30,7 +30,7 @@ Each example contains:
 - Place waypoints in open, unobstructed regions that offer forward progress.
 
 **Output Format Requirements:**
-- Output exactly 30 to 35 waypoints per image.
+- Output exactly 10 to 12 waypoints per image.
 - Each waypoint must be in the format: (x, y)
   - x is the horizontal (width) pixel coordinate.
   - y is the vertical (height) pixel coordinate.
