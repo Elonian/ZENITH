@@ -4,6 +4,8 @@ import numpy as np
 import random 
 import json
 import matplotlib.pyplot as plt
+from scipy.spatial.transform import Rotation as R
+
 
 def visualize_waypoints_on_image(response_json_str, rgb_image):
 
@@ -64,6 +66,47 @@ def random_waypoint_generator(segmentation_mask, depth_map, agent_position, dept
     waypoints = [(int(candidate_x[i]), int(candidate_y[i])) for i in selected_indices]
     
     return waypoints
+
+
+def pixel_to_world(waypoints, depth_image, intrinsics, cam_pos, cam_rot_deg):
+    fx = intrinsics[0, 0]
+    fy = intrinsics[1, 1]
+    cx = intrinsics[0, 2]
+    cy = intrinsics[1, 2]
+
+    # Parse cam_pos if string
+    if isinstance(cam_pos, str):
+        cam_pos = np.array(list(map(float, cam_pos.strip().split())), dtype=float)
+    else:
+        cam_pos = np.array(cam_pos, dtype=float)
+
+    # Parse rotation degrees
+    cam_rot_deg = list(map(float, cam_rot_deg.strip().split()))
+    # Assuming rotation order is 'xyz' (adjust if needed)
+    r = R.from_euler('xyz', cam_rot_deg, degrees=True)
+    R_wc = r.as_matrix()
+
+    if depth_image.ndim == 3:
+        depth_image = depth_image[:, :, 0]
+
+    world_points = []
+    for wp in waypoints:
+        v, u = wp["x"], wp["y"]  # v = row, u = col
+        z = depth_image[u, v]
+        print(f"Pixel: ({v}, {u}), Depth: {z}")
+        if isinstance(z, np.ndarray):
+            z = float(z[0])
+        if z <= 0:
+            continue
+        x_cam = (u - cx) * z / fx
+        y_cam = (v - cy) * z / fy
+        z_cam = z
+
+        p_cam = np.array([x_cam, y_cam, z_cam])
+        p_world = R_wc @ p_cam + cam_pos
+        world_points.append(p_world)
+
+    return np.array(world_points)
 
 
 if __name__ == "__main__":

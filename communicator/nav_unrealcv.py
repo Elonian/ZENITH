@@ -166,5 +166,37 @@ class NavUnrealCV(UnrealCV):
         img = img[-self.resolution[1]*self.resolution[0]*channel:]
         img = img.reshape(self.resolution[1], self.resolution[0], channel)
         return img[:, :, :-1]
+    
+    def get_scene_objects(self):
+        """Get scene objects.
+
+        Returns:
+            List of scene objects as strings.
+        """
+        cmd = 'vget /objects'
+        with self.lock:
+            objects_str = self.client.request(cmd)
+        # Split string into list by whitespace
+        objects_list = objects_str.split()
+        return objects_list
+    
+    def get_depth_map(self, camera_id: int):
+        """Get depth map from the camera.
+
+        Args:
+            camera_id: ID of the camera to get depth map.
+
+        Returns:
+            Depth map as a numpy array.
+        """
+        cmd = f'vget /camera/{camera_id}/depth npy'
+        with self.lock:
+            depth_map = self.client.request(cmd)
+        if depth_map is None:
+            raise ValueError(f'Failed to get depth map for camera {camera_id}')
+        else:
+            depth_map = np.load(BytesIO(depth_map)) 
+        return depth_map
+
 
 

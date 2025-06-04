@@ -9,7 +9,7 @@ from utils.vector import Vector
 from utils.generate_segment import generate_segmentation_mask
 from utils.generate_depth_map import generate_depth_from_img
 from utils.prompt_utils import WAYPOINT_GENERATION_PROMPT, WAYPOINT_SYSTEM_PROMPT, WAYPOINT_SELECTION_PROMPT
-from utils.pixel_utils import random_waypoint_generator, visualize_waypoints_on_image
+from utils.pixel_utils import random_waypoint_generator, visualize_waypoints_on_image, pixel_to_world
 # from simworld.traffic.base.traffic_signal import TrafficSignalState
 # from agent.action_space import Action, ActionSpace-
 from PIL import Image
@@ -54,30 +54,33 @@ class NavAgent(BaseAgent):
             print(f"Error parsing waypoints: {e}")
             print(f"Response received: {coordinates}")
             return {}
-    
-    def _pixel_to_world_coords(self, pixel_coords, cam_info, depth_image):
-        try:
-            x, y = pixel_coords
-            depth = depth_image[int(y), int(x)]
             
-            # Use camera parameters to convert to world coordinates
-            fov = cam_info.get('fov', 90)
-            aspect_ratio = cam_info.get('aspect_ratio', 1.0)
-            
-            # Calculate world coordinates using depth and camera parameters
-            world_x = x * depth / aspect_ratio
-            world_z = y * depth
-            world_y = depth
-            
-            return Vector(world_x, world_y, world_z)
-        except Exception as e:
-            print(f"Error converting coordinates: {e}")
-            return None
-        
     def extract_waypoint_label(self, response):
         if "**" in response:
             return response.split("**")[1]  # Assuming the format "The best waypoint to choose is **G**."
         return response.strip()
+
+    def basic_refinement(self, waypoints, height, width):
+        """Waypoints are not in permissible limit of image size, remove them"""
+        refined_waypoints = []
+        waypoints = json.loads(waypoints)
+        for wp in waypoints["waypoints"]:
+            x, y = wp['x'], wp['y']
+            if 0 <= x < width and 0 <= y < height:
+                refined_waypoints.append(wp)
+        return json.dumps({"waypoints": refined_waypoints})
+    
+    def random_waypoint_world_coord_selector(self, world_coords):
+        """Selects a random waypoint from the list of world coordinates."""
+        """ woorld_coords is of the form [[x1, y1, z1], [x2, y2, z2], ...] select one of them randomly"""
+        if not world_coords:
+            print("No valid waypoints available")
+            return None
+        selected_index = np.random.randint(0, len(world_coords))
+        selected_waypoint = world_coords[selected_index]
+        print(f"Selected random waypoint: {selected_waypoint}")
+        return selected_waypoint        
+
     
     def navigate(self, exit_event, generate_waypoint_zeroshot=True):
         print(f"Agent {self.id} is navigating to destination {self.destination}, current position: {self.position}")
@@ -116,8 +119,14 @@ class NavAgent(BaseAgent):
             plt.title("segment Image")
             plt.axis('off')
             plt.show()
-            # cam_info = self.communicator.get_camera_information(self.camera_id, rgb_image)
-            # print(f"Camera information: ", cam_info)
+            
+            # Scene Objects
+            # scene_objects = self.communicator.get_objects()
+            # print(f"Scene objects: {scene_objects}")
+
+
+            cam_info = self.communicator.get_camera_information(self.camera_id, rgb_image)
+            print(f"Camera information: ", cam_info)
             # current_yaw_rad = math.radians(self.yaw)
 
             # Genarting naviagtable waypoints using rgb, segmentation and depth map
@@ -138,6 +147,21 @@ class NavAgent(BaseAgent):
                 )
                 print("waypoint repsonse random generation", response1)
             visualize_waypoints_on_image(response1, rgb_image)
+            print("Waypoints generated: ", response1)
+            # Get true depth map
+            true_depth_image = self.communicator.get_true_depth(self.camera_id)
+            print("True depth image is taken from the environment.")
+            # Convert them to world coordinates
+            response1 = self.basic_refinement(response1, cam_info['img_height'], cam_info['img_width'])
+            print("Refined waypoints: ", response1)
+            waypoints_world_coords = pixel_to_world(
+                json.loads(response1)['waypoints'],
+                true_depth_image,
+                cam_info['k'],
+                cam_info['cam_position'],
+                cam_info['cam_rotation']
+            )
+            print("Waypoints in world coordinates: ", waypoints_world_coords)
             ## Derick refinement module
 
             # pil_image = Image.fromarray(rgb_image)
@@ -199,4 +223,34 @@ class NavAgent(BaseAgent):
             # if Vector.distance(self.position, self.destination) < self.config.get('arrival_threshold', 1.0):
             #     print(f"Agent {self.id} reached destination!")
             #     break
+    
+    def agent_reached_destination(self):
+        """Check if the agent has reached its destination."""
+        distance = Vector.distance(self.position, self.destination)
+        if distance < self.config.get('arrival_threshold', 1.0):
+            print(f"Agent {self.id} has reached the destination at {self.destination}.")
+            return True
+        return False
+    
+    def distance_current_to_waypoints(self, waypoints):
+        """Calculate the distance to all the waypoints."""
+        distances = {}
+        for label, coords in waypoints.items():
+            distance = Vector.distance(self.position, Vector(*coords))
+            distances[label] = distance
+        return distances
+    
+    def distance_waypoints_to_destination(self, waypoints):
+        """Calculate the distance from all waypoints to the destination."""
+        distances = {}
+        for label, coords in waypoints.items():
+            waypoint_vector = Vector(*coords)
+            distance = Vector.distance(waypoint_vector, self.destination)
+            distances[label] = distance
+        return distances
+    
+    def distance_to_destination(self):
+        """Calculate the distance to the destination."""
+        return Vector.distance(self.position, self.destination)
+        
 
