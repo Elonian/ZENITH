@@ -135,17 +135,19 @@ class NavAgent(BaseAgent):
                 print("waypoint repsonse random generation", response1)
             visualize_waypoints_on_image(response1, rgb_image)
             ## Derick refinement module
+
+            # pil_image = Image.fromarray(rgb_image)
             # # Select most viable waypoints
-            # waypoints1 = [(p['x'], p['y']) for p in json.loads(response1)['waypoints']]
-            # response2 = self.nav_llm.select_waypoints_openai(
-            #     image = rgb_image,
-            #     waypoints = waypoints1,
-            #     system_prompt = WAYPOINT_SYSTEM_PROMPT,
-            #     waypoint_prompt = WAYPOINT_SELECTION_PROMPT)
+            waypoints1 = [(p['x'], p['y']) for p in json.loads(response1)['waypoints']]
+            response2 = self.nav_llm.select_waypoints_openai(
+                image = Image.fromarray(rgb_image),
+                waypoints = waypoints1,
+                system_prompt = WAYPOINT_SYSTEM_PROMPT,
+                waypoint_prompt = WAYPOINT_SELECTION_PROMPT)
 
             # print("waypoint selection", response2)
 
-            # waypoints2 = [(p['x'], p['y']) for p in json.loads(response2)['waypoints']]
+            waypoints2 = [(p['x'], p['y']) for p in json.loads(response2)['waypoints']]
 
             # # convert into next step format
             # waypoints = {chr(65+i): p for i,p in enumerate(waypoints2)}

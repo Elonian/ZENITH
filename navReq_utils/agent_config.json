@@ -1,7 +1,7 @@
 {
     "agent1": {
         "model": "gpt-4o-mini",
-        "url": "https://api.openai.com/v1",
+        "url": "None",
         "provider": "openai"
     },
     "agent2": {
