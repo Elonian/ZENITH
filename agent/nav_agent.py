@@ -158,6 +158,7 @@ class NavAgent(BaseAgent):
             # Convert them to world coordinates
             response1 = self.basic_refinement(response1, cam_info['img_height'], cam_info['img_width'])
             print("Refined waypoints: ", response1)
+
             waypoints_world_coords = pixel_to_world(
                 json.loads(response1)['waypoints'],
                 true_depth_image,
@@ -203,6 +204,11 @@ class NavAgent(BaseAgent):
 
             waypoints = self._parse_waypoints(waypoints2)
         
+
+            distance_current = self.distance_current_to_waypoints(waypoints)
+            distance_destination = self.distance_waypoints_to_destination(waypoints)
+            print("Distances to current waypoints: ", distance_current)
+            print("Distances from waypoints to destination: ", distance_destination)
             # if not waypoints:
             #     print("No valid waypoints received")
             #     continue
@@ -214,6 +220,8 @@ class NavAgent(BaseAgent):
                 current_pos=self.position,
                 destination=self.destination,
                 history=self.history
+                distances_from_current=distance_current,
+                distances_to_destination=distance_destination
             )
             print("Selected waypoint from LLM: ", selected_waypoint)
             if not selected_waypoint:
