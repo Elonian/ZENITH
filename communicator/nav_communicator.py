@@ -13,7 +13,7 @@ class nav_communicator(Communicator):
         super().__init__(unrealcv)
     
     def spawn_agent(self, agent, model_path):
-        name = self.get_agent_name(agent.id)
+        name = self.get_humanoid_name(agent.id)
         self.unrealcv.spawn_bp_asset(model_path, name)
         # Convert 2D position to 3D (x,y -> x,y,z)
         location_3d = (

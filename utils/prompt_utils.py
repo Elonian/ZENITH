@@ -30,7 +30,7 @@ Each example contains:
 - Place waypoints in open, unobstructed regions that offer forward progress.
 
 **Output Format Requirements:**
-- Output exactly 10 to 12 waypoints per image.
+- Output exactly 30 to 35 waypoints per image.
 - Each waypoint must be in the format: (x, y)
   - x is the horizontal (width) pixel coordinate.
   - y is the vertical (height) pixel coordinate.
@@ -48,7 +48,7 @@ Your task is to select at most 4 waypoints as prime candidates for future consid
 ## Input Format
 You are given:
 1. An **RGB image** showing the agent's forward-facing view. 
-- This image is overlaid with 10-12 waypoints, as colored dots.
+- This image is overlaid with 30-35 waypoints, as colored dots.
 2. A **list of waypoints** showing potential areas the agent might move to next.
 - These waypoints are `(x,y)` image-plane coordinates. Each waypoint contains three fields:
  - x: position from left of image
