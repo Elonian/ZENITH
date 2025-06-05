@@ -207,12 +207,18 @@ class NavAgent(BaseAgent):
 
             waypoints2 = [(p['x'], p['y']) for p in json.loads(response1)['waypoints']]
 
+
             # # convert into next step format
             # waypoints = {chr(65+i): p for i,p in enumerate(waypoints2)}
 
             #  Devanshi's functionality must go here
 
             waypoints = self._parse_waypoints(waypoints2)
+            distance_current = self.distance_current_to_waypoints(waypoints)
+            distance_destination = self.distance_waypoints_to_destination(waypoints)
+            print("Distances to current waypoints: ", distance_current)
+            print("Distances from waypoints to destination: ", distance_destination)
+
             # if not waypoints:
             #     print("No valid waypoints received")
             #     continue
@@ -224,6 +230,8 @@ class NavAgent(BaseAgent):
                 current_pos=self.position,
                 destination=self.destination,
                 history=self.history
+                distances_from_current=distance_current,
+                distances_to_destination=distance_destination
             )
             print("Selected waypoint from LLM: ", selected_waypoint)
             if not selected_waypoint:
@@ -231,7 +239,7 @@ class NavAgent(BaseAgent):
                 continue
             final_waypoint = self.extract_waypoint_label(selected_waypoint)
             print("Selected waypoint: ", final_waypoint)  
-            selected_waypoint = waypoints.get(final_waypoint)
+
 
             ## Movement code working.
             print("current agent yaw:", self.yaw)
