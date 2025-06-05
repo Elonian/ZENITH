@@ -157,7 +157,7 @@ class NavLLM(BaseLLM):
             print(f"Error in generate_waypoints_openai: {e}")
             return None
         
-    def select_best_waypoint(self, image, waypoints, current_pos, destination, history):
+    def select_best_waypoint(self, image, waypoints, current_pos, destination, history, distances_from_current, distances_to_destination):
         scene_analysis = self.generate_segmented_overlay(image)
         
         image_data = self._process_image_to_base64(image)
@@ -169,7 +169,8 @@ class NavLLM(BaseLLM):
         Current position: {current_pos}
         Destination: {destination}
         Previous positions: {history[-5:] if len(history) > 5 else history}
-        
+        Distance from current position to waypoints: {distances_from_current}
+        Distance of waypoint to destination: {distances_to_destination}
         Available waypoints:
         {waypoint_text}
         
