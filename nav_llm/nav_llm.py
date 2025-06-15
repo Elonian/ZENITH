@@ -8,8 +8,9 @@ from io import BytesIO
 import numpy as np
 from pydantic import BaseModel
 
-from simworld.llm.base_llm import BaseLLM
 # from agent.action_space import ActionSpace
+from simworld.llm.base_llm import BaseLLM
+from utils.prompt_utils import WAYPOINT_SYSTEM_PROMPT, WAYPOINT_GENERATION_PROMPT, WAYPOINT_VERIFICATION_PROMPT, WAYPOINT_SELECTION_PROMPT
 
 # define LLM output JSON format
 class Waypoint(BaseModel):
@@ -73,11 +74,11 @@ class NavLLM(BaseLLM):
             print(f"Error in generate_segmented_overlay: {e}")
             return None
 
-    def generate_waypoints_openai(self, image, depth_map, seg_mask, system_prompt, waypoint_prompt, max_tokens=None,
+    def generate_waypoints_openai(self, image, depth_map, seg_mask, max_tokens=None,
                                     temperature=0.7, top_p = 1.0, response_format=WaypointList):
         print("Generate waypoints openai functin in navllm started.")
         user_content = []
-        user_content.append({"type": "text", "text": waypoint_prompt})
+        user_content.append({"type": "text", "text": WAYPOINT_GENERATION_PROMPT})
 
         rgb_image_data = self._process_image_to_base64(image)
         depth_data = self._process_image_to_base64(depth_map)
@@ -100,7 +101,7 @@ class NavLLM(BaseLLM):
         try:
             response = self.client.beta.chat.completions.parse(
                 model=self.model_name,
-                messages=[{"role": "system", "content": system_prompt},
+                messages=[{"role": "system", "content": WAYPOINT_SYSTEM_PROMPT},
                         {"role": "user", "content": user_content}],
                 max_tokens=max_tokens,
                 temperature=temperature,
@@ -113,7 +114,7 @@ class NavLLM(BaseLLM):
             print(f"Error in generate_waypoints_openai: {e}")
             return None
 
-    def select_waypoints_openai(self, image, waypoints, system_prompt, waypoint_prompt, max_tokens=None,
+    def select_waypoints_openai(self, image, waypoints, max_tokens=None,
                                     temperature=0.7, top_p = 1.0, response_format=ReasonedWaypointList):
         # image: PIL Image
         # waypoints: list [(x1,y1), (x2,y2), ..., (x12,y12)] of integers
@@ -133,7 +134,7 @@ class NavLLM(BaseLLM):
         # build prompt
         image_url = self._process_image_to_base64(waypoint_image)
         user_content = []
-        user_content.append({"type": "text", "text": waypoint_prompt})
+        user_content.append({"type": "text", "text": WAYPOINT_VERIFICATION_PROMPT})
         user_content.append({
             "type": "image_url",
             "image_url": {"url": f"data:image/png;base64,{image_url}"}
@@ -145,7 +146,7 @@ class NavLLM(BaseLLM):
         try:
             response = self.client.beta.chat.completions.parse(
                 model=self.model_name,
-                messages=[{"role": "system", "content": system_prompt},
+                messages=[{"role": "system", "content": WAYPOINT_SYSTEM_PROMPT},
                         {"role": "user", "content": user_content}],
                 max_tokens=max_tokens,
                 temperature=temperature,
@@ -154,34 +155,25 @@ class NavLLM(BaseLLM):
             )
             return response.choices[0].message.content
         except Exception as e:
-            print(f"Error in generate_waypoints_openai: {e}")
+            print(f"Error in select_waypoints_openai: {e}")
             return None
         
-    def select_best_waypoint(self, image, waypoints, current_pos, destination, history, distances_from_current, distances_to_destination):
-        scene_analysis = self.generate_segmented_overlay(image)
-        
-        image_data = self._process_image_to_base64(image)
+    def select_best_waypoint(self, image, waypoints, 
+                             current_pos, destination, history, distances_from_current, distances_to_destination,
+                             max_tokens=None, temperature=0.7, top_p=1.0):
 
-        waypoint_text = "\n".join([f"- {label}: {coords}" for label, coords in waypoints.items()])
-        prompt = f"""
-        Scene Analysis: {scene_analysis}
-        
-        Current position: {current_pos}
-        Destination: {destination}
-        Previous positions: {history[-5:] if len(history) > 5 else history}
-        Distance from current position to waypoints: {distances_from_current}
-        Distance of waypoint to destination: {distances_to_destination}
-        Available waypoints:
-        {waypoint_text}
-        
-        Choose the best waypoint considering:
-        1. Distance to destination
-        2. Avoiding previously visited areas
-        3. Clear path without obstacles
-        4. Natural movement flow
-        
-        Return only the waypoint label (A, B, C, etc).
-        """
+        image_data = self._process_image_to_base64(image)
+        text_inputs = {
+            "SCENE_ANALYSIS": self.generate_segmented_overlay(image),
+            "CURRENT_POS": current_pos,
+            "DESTINATION": destination,
+            "PREVIOUS_POS": history[-5:], #{history[-5:] if len(history)>5 else history},
+            "DISTANCES_FROM_CURRENT": distances_from_current,
+            "DISTANCES_TO_DESTINATION": distances_to_destination,
+            "WAYPOINT_TEXT": "\n".join(
+                [f"- {label}: {coords}" for label, coords in waypoints.items()]),
+        }
+        prompt = WAYPOINT_SELECTION_PROMPT.format(**text_inputs)
 
         try:
             response = self.client.beta.chat.completions.parse(
@@ -196,7 +188,10 @@ class NavLLM(BaseLLM):
                         ]
                     }
                 ],
-                temperature=0.2
+                temperature=temperature,
+                max_tokens=max_tokens,
+                temperature=temperature,
+                top_p=top_p,
             )
             
             return response.choices[0].message.content.strip()

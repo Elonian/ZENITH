@@ -41,7 +41,7 @@ Each example contains:
 """
 
 
-WAYPOINT_SELECTION_PROMPT = """
+WAYPOINT_VERIFICATION_PROMPT = """
 You are given an RGB image overlaid with a set of 10-12 waypoints, taken from an agent navigating a simulated urban environment.
 Your task is to select at most 4 waypoints as prime candidates for future consideration, based on a set of criteria given below.
 
@@ -75,4 +75,24 @@ Output a short reasoning, and then a list of four waypoints `(x,y)` in JSON form
     {"x": 720, "y": 280}
   ]
 }
+"""
+
+WAYPOINT_SELECTION_PROMPT = """
+Scene Analysis: {scene_analysis}
+
+Current position: {current_pos}
+Destination: {destination}
+Previous positions: {history[-5:] if len(history) > 5 else history}
+Distance from current position to waypoints: {distances_from_current}
+Distance of waypoint to destination: {distances_to_destination}
+Available waypoints:
+{waypoint_text}
+
+Choose the best waypoint considering:
+1. Distance to destination
+2. Avoiding previously visited areas
+3. Clear path without obstacles
+4. Natural movement flow
+
+Return only the waypoint label (A, B, C, etc).
 """

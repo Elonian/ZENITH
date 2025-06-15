@@ -8,7 +8,7 @@ from simworld.agent.base_agent import BaseAgent
 from utils.vector import Vector
 from utils.generate_segment import generate_segmentation_mask
 from utils.generate_depth_map import generate_depth_from_img
-from utils.prompt_utils import WAYPOINT_GENERATION_PROMPT, WAYPOINT_SYSTEM_PROMPT, WAYPOINT_SELECTION_PROMPT
+from utils.prompt_utils import WAYPOINT_SYSTEM_PROMPT, WAYPOINT_GENERATION_PROMPT, WAYPOINT_VERIFICATION_PROMPT
 from utils.pixel_utils import random_waypoint_generator, visualize_waypoints_on_image, pixel_to_world
 from agent.nav_move import navigate_to_target, navigate_to_target_with_heading
 # from simworld.traffic.base.traffic_signal import TrafficSignalState
@@ -138,9 +138,7 @@ class NavAgent(BaseAgent):
                 response1 = self.nav_llm.generate_waypoints_openai(
                     image = rgb_image,
                     depth_map = depth_image,
-                    seg_mask = segmentation_map,
-                    system_prompt = WAYPOINT_SYSTEM_PROMPT,
-                    waypoint_prompt = WAYPOINT_GENERATION_PROMPT)
+                    seg_mask = segmentation_map)
 
                 print("waypoint repsonse zeroshot", response1)
             else:
@@ -199,9 +197,7 @@ class NavAgent(BaseAgent):
             # waypoints1 = [(p['x'], p['y']) for p in json.loads(response1)['waypoints']]
             # response2 = self.nav_llm.select_waypoints_openai(
             #     image = Image.fromarray(rgb_image),
-            #     waypoints = waypoints1,
-            #     system_prompt = WAYPOINT_SYSTEM_PROMPT,
-            #     waypoint_prompt = WAYPOINT_SELECTION_PROMPT)
+            #     waypoints = waypoints1)
 
             # print("waypoint selection", response2)
 
