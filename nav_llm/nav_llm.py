@@ -13,17 +13,24 @@ from simworld.llm.base_llm import BaseLLM
 from utils.prompt_utils import WAYPOINT_SYSTEM_PROMPT, WAYPOINT_GENERATION_PROMPT, WAYPOINT_VERIFICATION_PROMPT, WAYPOINT_SELECTION_PROMPT
 
 # define LLM output JSON format
-class Waypoint(BaseModel):
+class WaypointBase(BaseModel):
     # json {"x":<x>, "y":<y>}
     x: int
     y: int
+class Waypoint(BaseModel):
+    # json {"waypoint": {"x":<x>, "y":<y>}}
+    waypoint: WaypointBase
 class WaypointList(BaseModel):
     # json {"waypoints": [{"x":<x1>,"y":<y1>}, ..., {"x":<xn>,"y":<yn>}]}
-    waypoints: list[Waypoint]
+    waypoints: list[WaypointBase]
+class ReasonedWaypoint(BaseModel):
+    # json {"reasoning": "<reasoning>", "waypoint": {"x":<x>, "y":<y>}}
+    reasoning: str
+    waypoint: WaypointBase
 class ReasonedWaypointList(BaseModel):
     # json {"reasoning": "<reasoning>", "waypoints": [{"x":<x1>,"y":<y1>}, ..., {"x":<xn>,"y":<yn>}]}
     reasoning: str
-    waypoints: list[Waypoint]
+    waypoints: list[WaypointBase]
 
 class NavLLM(BaseLLM):
     def __init__(self, model_name, url):
@@ -160,7 +167,7 @@ class NavLLM(BaseLLM):
         
     def select_best_waypoint(self, image, waypoints, 
                              current_pos, destination, history, distances_from_current, distances_to_destination,
-                             max_tokens=None, temperature=0.7, top_p=1.0):
+                             max_tokens=None, temperature=0.7, top_p=1.0, response_format=Waypoint):
 
         image_data = self._process_image_to_base64(image)
         text_inputs = {
@@ -192,6 +199,7 @@ class NavLLM(BaseLLM):
                 max_tokens=max_tokens,
                 temperature=temperature,
                 top_p=top_p,
+                response_format=response_format,
             )
             
             return response.choices[0].message.content.strip()

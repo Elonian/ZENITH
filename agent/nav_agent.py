@@ -248,8 +248,10 @@ class NavAgent(BaseAgent):
             if selected_waypoint is None:
                 print("Invalid waypoint selection")
                 continue
-            final_waypoint = self.extract_waypoint_label(selected_waypoint)
-            print("Selected waypoint: ", final_waypoint)  
+            #final_waypoint = self.extract_waypoint_label(selected_waypoint)
+            #print("Selected waypoint: ", final_waypoint)
+            selected_waypoint = json.loads(selected_waypoint)
+            
 
             ### EXECUTION STEP
             
@@ -265,7 +267,7 @@ class NavAgent(BaseAgent):
                     self.communicator,
                     self.id,
                     [self.position.x, self.position.y],
-                    selected_waypoint[:2],
+                    [selected_waypoint['x'], selected_waypoint['y']],
                     heading,
                 )
     

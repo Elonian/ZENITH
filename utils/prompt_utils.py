@@ -94,5 +94,8 @@ Choose the best waypoint considering:
 3. Clear path without obstacles
 4. Natural movement flow
 
-Return only the waypoint label (A, B, C, etc).
+Return the waypoint in JSON format:
+{
+  "waypoint": {"x": <x>, "y": <y>}
+}
 """
