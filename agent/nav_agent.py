@@ -189,7 +189,7 @@ class NavAgent(BaseAgent):
                 cam_info['cam_position'],
                 cam_info['cam_rotation']
             )
-            print("final waypoints in world coordinates: ", waypoints_world_coords)
+            # print("final waypoints in world coordinates: ", waypoints_world_coords)
             ## Getting Agent's current position and heading
             # Select a random waypoint from the list of world coordinates
             # selected_waypoint = self.random_waypoint_world_coord_selector(waypoints_world_coords)
