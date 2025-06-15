@@ -17,6 +17,7 @@ class TaskManager:
 
         self.config = config
         self.communicator = communicator
+        # self.communicator.spawn_ue_manager(config['simworld.ue_manager_path'])
         
         self.exit_event = Event()
         self.agents = self.initialize_agent(config)
@@ -29,6 +30,8 @@ class TaskManager:
 
         start_position = Vector(selected_task['origin']['x'],selected_task['origin']['y'])
         end_position = Vector(selected_task['destination']['x'], selected_task['destination']['y'])
+        print(f"Start position: {start_position}, End position: {end_position}")
+        # self.communicator.spawn
 
         with open(self.config['navReq.agent_config'], 'r') as f:
             agent_config = json.load(f)
@@ -63,6 +66,7 @@ class TaskManager:
             agent_speed = self.config['navReq.agent_speed']
             self.communicator.spawn_agent(agent, agent_model_path)
             self.communicator.humanoid_set_speed(agent.id, agent_speed)
+            self.communicator.spawn_ue_manager(self.config['simworld.ue_manager_path'])
 
     def update_physical_states(self):
         agent_ids = [agent.id for agent in self.agents]

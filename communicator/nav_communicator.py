@@ -4,6 +4,10 @@ import unrealcv
 import numpy as np
 from simworld.communicator.communicator import Communicator
 from simworld.communicator.unrealcv import UnrealCV
+from simworld.utils.vector import Vector
+import re
+# from simworld.util import get_vehicle_name, get_pedestrian_name, get_traffic_signal_name, get_humanoid_name, get_scooter_name
+# from simworld.util import get_vehicle_id, get_pedestrian_id, get_traffic_signal_id, get_humanoid_id, get_scooter_id     
 from unrealcv.util import read_png
 from utils.generate_depth_map import generate_depth_from_img
 from utils.generate_segment import generate_segmentation_mask
@@ -94,6 +98,115 @@ class nav_communicator(Communicator):
         #             'scale': obj['scale']
         #         })
         return objects
+    
+    def get_position_and_direction(self, vehicle_ids=[], pedestrian_ids=[], traffic_signal_ids=[], humanoid_ids=[], scooter_ids=[]):
+        """Get position and direction of vehicles, pedestrians, and traffic signals.
+
+        Args:
+            vehicle_ids: List of vehicle IDs.
+            pedestrian_ids: List of pedestrian IDs.
+            traffic_signal_ids: List of traffic signal IDs.
+            humanoid_ids: Optional list of humanoid IDs to get their positions and directions.
+            scooter_ids: Optional list of scooter IDs to get their positions and directions.
+
+        Returns:
+            Dictionary containing position and direction information for all objects.
+        """
+        print("WE are in nav_communicator.get_position_and_direction")
+        info = json.loads(self.unrealcv.get_informations(self.ue_manager_name))
+        print(f"Received information: {info}")
+        result = {}
+
+        # Process vehicles
+        locations = info['VLocations']
+        rotations = info['VRotations']
+        for vehicle_id in vehicle_ids:
+            name = self.get_vehicle_name(vehicle_id)
+
+            # Parse location
+            location_pattern = f'{name}X=(.*?) Y=(.*?) Z='
+            match = re.search(location_pattern, locations)
+            if match:
+                x, y = float(match.group(1)), float(match.group(2))
+                position = Vector(x, y)
+
+                # Parse rotation
+                rotation_pattern = f'{name}P=.*? Y=(.*?) R='
+                match = re.search(rotation_pattern, rotations)
+                if match:
+                    direction = float(match.group(1))
+                    result[('vehicle', vehicle_id)] = (position, direction)
+
+        # Process pedestrians
+        locations = info['PLocations']
+        rotations = info['PRotations']
+        for pedestrian_id in pedestrian_ids:
+            name = self.get_pedestrian_name(pedestrian_id)
+
+            location_pattern = f'{name}X=(.*?) Y=(.*?) Z='
+            match = re.search(location_pattern, locations)
+            if match:
+                x, y = float(match.group(1)), float(match.group(2))
+                position = Vector(x, y)
+
+                rotation_pattern = f'{name}P=.*? Y=(.*?) R='
+                match = re.search(rotation_pattern, rotations)
+                if match:
+                    direction = float(match.group(1))
+                    result[('pedestrian', pedestrian_id)] = (position, direction)
+
+        # Process traffic signals
+        light_states = info['LStates']
+        for traffic_signal_id in traffic_signal_ids:
+            name = self.get_traffic_signal_name(traffic_signal_id)
+            pattern = rf'{name}(true|false)(true|false)(\d+\.\d+)'
+            match = re.search(pattern, light_states)
+            if match:
+                is_vehicle_green = match.group(1) == 'true'
+                is_pedestrian_walk = match.group(2) == 'true'
+                left_time = float(match.group(3))
+
+                result[('traffic_signal', traffic_signal_id)] = (is_vehicle_green, is_pedestrian_walk, left_time)
+
+        # process humanoids
+        locations = info['ALocations']
+        rotations = info['ARotations']
+        for humanoid_id in humanoid_ids:
+            name = self.get_humanoid_name(humanoid_id)
+            # print(f"Processing humanoid {humanoid_id} with name {name}")
+            location_pattern = f'{name}X=(.*?) Y=(.*?) Z='
+            match = re.search(location_pattern, locations)
+            # print(f"Location pattern: {location_pattern}, Match: {match}")
+            if match:
+                x, y = float(match.group(1)), float(match.group(2))
+                position = Vector(x, y)
+
+                rotation_pattern = f'{name}P=.*? Y=(.*?) R='
+                match = re.search(rotation_pattern, rotations)
+                print(f"Rotation pattern: {rotation_pattern}, Match: {match}")  
+                if match:
+                    direction = float(match.group(1))
+                    # print(f"Humanoid {humanoid_id} position: {position}, direction: {direction}")
+                    result[('humanoid', humanoid_id)] = (position, direction)
+
+        # process scooters
+        locations = info['SLocations']
+        rotations = info['SRotations']
+        for scooter_id in scooter_ids:
+            name = self.get_scooter_name(scooter_id)
+            location_pattern = f'{name}X=(.*?) Y=(.*?) Z='
+            match = re.search(location_pattern, locations)
+            if match:
+                x, y = float(match.group(1)), float(match.group(2))
+                position = Vector(x, y)
+
+                rotation_pattern = f'{name}P=.*? Y=(.*?) R='
+                match = re.search(rotation_pattern, rotations)
+                if match:
+                    direction = float(match.group(1))
+                    result[('scooter', scooter_id)] = (position, direction)
+
+        return result
 
     
     # def get_scene_objects(self):
