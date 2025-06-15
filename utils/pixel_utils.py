@@ -93,7 +93,7 @@ def pixel_to_world(waypoints, depth_image, intrinsics, cam_pos, cam_rot_deg):
     for wp in waypoints:
         v, u = wp["x"], wp["y"]  # v = row, u = col
         z = depth_image[u, v]
-        print(f"Pixel: ({v}, {u}), Depth: {z}")
+        # print(f"Pixel: ({v}, {u}), Depth: {z}")
         if isinstance(z, np.ndarray):
             z = float(z[0])
         if z <= 0:
