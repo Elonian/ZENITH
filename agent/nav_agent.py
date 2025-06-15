@@ -1,4 +1,3 @@
-
 import json
 import math
 import traceback
@@ -43,6 +42,7 @@ class NavAgent(BaseAgent):
 
     def _parse_waypoints(self, coordinates):
         try:
+            coordinates = [(p['x'], p['y']) for p in json.loads(coordinates)['waypoints']]
             waypoints = {}
             for i, coord in enumerate(coordinates):
                 label = chr(65 + i)  # 65 is ASCII for 'A'
@@ -65,10 +65,15 @@ class NavAgent(BaseAgent):
         """Waypoints are not in permissible limit of image size, remove them"""
         refined_waypoints = []
         waypoints = json.loads(waypoints)
+        counter = 0
         for wp in waypoints["waypoints"]:
             x, y = wp['x'], wp['y']
             if 0 <= x < width and 0 <= y < height:
                 refined_waypoints.append(wp)
+            else:
+                counter += 1
+        if counter:
+            print(f'Removed {counter} out-of-bounds waypoints')
         return json.dumps({"waypoints": refined_waypoints})
     
     def random_waypoint_world_coord_selector(self, world_coords):
@@ -82,6 +87,38 @@ class NavAgent(BaseAgent):
         print(f"Selected random waypoint: {selected_waypoint}")
         return selected_waypoint        
 
+    def get_images(self):
+        # rgb
+        rgb_image = self.communicator.get_camera_observation(self.camera_id, 'lit')
+        print("RGB image is taken from environment.")
+        # depth
+        try:
+            depth_image = self.communicator.get_camera_observation(self.camera_id, 'depth')
+            print("Depth image is taken from environment.")
+        except Exception as e:
+            print(f"Error in getting depth map for agent {self.id} with camera {self.camera_id}: {e}")
+            depth_image = self.communicator.generate_depth_model(rgb_image)
+        # segmentation
+        try:
+            seg_image = self.communicator.get_camera_observation(self.camera_id, 'object_mask')
+            print("segmentation map is taken from environment.")
+        except Exception as e:
+            print(f"Error in getting segmentation map for agent {self.id} with camera {self.camera_id}: {e}")
+            seg_image = self.communicator.generate_segmentation_model(rgb_image)
+
+        return rgb_image, depth_image, seg_image
+
+    def show_images(self, rgb_image, depth_image, seg_image):
+        def show(image, title):
+            print(f"{title} type: {type(image)}")
+            plt.imshow(image)
+            plt.title(title)
+            plt.axis('off')
+            plt.show()
+        show(rgb_image, "RGB image")
+        show(depth_image, "Depth image")
+        show(seg_image, "Segmentation map")
+
     
     def navigate(self, exit_event, generate_waypoint_zeroshot=True):
         print(f"Agent {self.id} is navigating to destination {self.destination}, current position: {self.position}")
@@ -90,56 +127,36 @@ class NavAgent(BaseAgent):
         # while (exit_event is None or not exit_event.is_set()): ## If the pipline is good the remove this 
                                                                 ## condition and use the above one
 
+            ### DATA COLLECTION
+            
             self.history.append(self.position) ## Adding the agent history
             print(self.history)
             print(hasattr(self.communicator, "get_camera_observation"))
-            rgb_image = self.communicator.get_camera_observation(self.camera_id, 'lit')
-            # print(f"rgb_image type: {type(rgb_image)}")
-            print("RGB image is taken from environment.")
-            # plt.imshow(rgb_image)
-            # plt.title("RGB Image")
-            # plt.axis('off')
-            # plt.show()
-            try:
-                depth_image = self.communicator.get_camera_observation(self.camera_id, 'depth')
-                print("Depth image is taken from the environment.")
-            except Exception as e:
-                print(f"Error in getting depth map for agent {self.id} with camera {self.camera_id}: {e}")
-                depth_image = self.communicator.generate_depth_model(rgb_image)
-            # print(f"depth_image type: {type(depth_image)}")
-            # plt.imshow(depth_image)
-            # plt.title("Depth Image")
-            # plt.axis('off')
-            # plt.show()
-            try:
-                segmentation_map = self.communicator.get_camera_observation(self.camera_id, 'object_mask')
-                print("segmentation map is taken from the environment.")
 
-            except Exception as e:
-                print(f"Error in getting segmentation map for agent {self.id} with camera {self.camera_id}: {e}")
-                segmentation_map = self.communicator.generate_segmentation_model(rgb_image)
-            # print(f"segmenatation_image type: {type(depth_image)}")
-            # plt.imshow(segmentation_map)
-            # plt.title("segment Image")
-            # plt.axis('off')
-            # plt.show()
+            rgb_image, depth_image, segmentation_map = self.get_images()
+            # self.show_images(rgb_image, depth_image, segmentation_map)
+            
+            # Get true depth map
+            true_depth_image = self.communicator.get_true_depth(self.camera_id)
+            print("True depth image is taken from the environment.")
             
             # Scene Objects
             # scene_objects = self.communicator.get_objects()
             # print(f"Scene objects: {scene_objects}")
 
-
             cam_info = self.communicator.get_camera_information(self.camera_id, rgb_image)
             print(f"Camera information: ", cam_info)
             # current_yaw_rad = math.radians(self.yaw)
+
+            ### GENERATION STEP
 
             # Genarting naviagtable waypoints using rgb, segmentation and depth map
             if generate_waypoint_zeroshot:
                 response1 = self.nav_llm.generate_waypoints_openai(
                     image = rgb_image,
                     depth_map = depth_image,
-                    seg_mask = segmentation_map)
-
+                    seg_mask = segmentation_map
+                )
                 print("waypoint repsonse zeroshot", response1)
             else:
                 response1 = random_waypoint_generator(
@@ -150,9 +167,9 @@ class NavAgent(BaseAgent):
                 print("waypoint repsonse random generation", response1)
             visualize_waypoints_on_image(response1, rgb_image)
             print("Waypoints generated: ", response1)
-            # Get true depth map
-            true_depth_image = self.communicator.get_true_depth(self.camera_id)
-            print("True depth image is taken from the environment.")
+
+            ### CONVERSION STEP
+            
             # Convert them to world coordinates
             response1 = self.basic_refinement(response1, cam_info['img_height'], cam_info['img_width'])
             print("Refined waypoints: ", response1)
@@ -201,23 +218,21 @@ class NavAgent(BaseAgent):
 
             # print("waypoint selection", response2)
 
-            waypoints2 = [(p['x'], p['y']) for p in json.loads(response1)['waypoints']]
+            #waypoints2 = [(p['x'], p['y']) for p in json.loads(response1)['waypoints']]
 
 
             # # convert into next step format
             # waypoints = {chr(65+i): p for i,p in enumerate(waypoints2)}
 
+            ### SELECTION STEP
+            
             #  Devanshi's functionality must go here
 
-            waypoints = self._parse_waypoints(waypoints2)
+            waypoints = self._parse_waypoints(response1)
             distance_current = self.distance_current_to_waypoints(waypoints)
             distance_destination = self.distance_waypoints_to_destination(waypoints)
             print("Distances to current waypoints: ", distance_current)
             print("Distances from waypoints to destination: ", distance_destination)
-
-            # if not waypoints:
-            #     print("No valid waypoints received")
-            #     continue
                 
             # # Select best waypoint
             selected_waypoint = self.nav_llm.select_best_waypoint(
@@ -230,18 +245,19 @@ class NavAgent(BaseAgent):
                 distances_to_destination=distance_destination
             )
             print("Selected waypoint from LLM: ", selected_waypoint)
-            if not selected_waypoint:
+            if selected_waypoint is None:
                 print("Invalid waypoint selection")
                 continue
             final_waypoint = self.extract_waypoint_label(selected_waypoint)
             print("Selected waypoint: ", final_waypoint)  
 
-
+            ### EXECUTION STEP
+            
             ## Movement code working.
             print("current agent yaw:", self.yaw)
             heading = self.yaw
             print(f"Agent {self.id} current heading: {heading} and heading towards")
-            if selected_waypoint is None:
+            if selected_waypoint is None: # redundant check, already checked in selection step
                 print("No valid waypoints selected, skipping iteration")
                 continue
             else:
