@@ -1,6 +1,6 @@
 import base64
 import io
-from json import loads
+from json import loads, dumps
 import cv2
 from PIL import Image, ImageDraw
 import base64
@@ -11,7 +11,7 @@ from pydantic import BaseModel
 # from agent.action_space import ActionSpace
 from simworld.llm.base_llm import BaseLLM
 from utils.prompt_utils import (
-    WAYPOINT_SYSTEM_PROMPT, WAYPOINT_GENERATION_PROMPT, WAYPOINT_VERIFICATION_PROMPT, WAYPOINT_SELECTION_PROMPT,
+    WAYPOINT_SYSTEM_PROMPT, WAYPOINT_GENERATION_PROMPT, WAYPOINT_VERIFICATION_PROMPT, WAYPOINT_SELECTION_PROMPT, WAYPOINT_SELECTION_PROMPT_2,
     WAYPOINT_NO_REASONING, WAYPOINT_REASONING, WAYPOINT_LIST_NO_REASONING, WAYPOINT_LIST_REASONING
 )
 
@@ -63,6 +63,27 @@ class NavLLM(BaseLLM):
         elif response_format is ReasonedWaypointList:
             prompt += WAYPOINT_LIST_REASONING
         return prompt
+
+    def _render_waypoints_on_image(self, image, waypoints, radius=3):
+        """
+        Given an image, plot the waypoints atop it
+        @param image NumPy RGB image
+        @param waypoints List of screen-coordinate (x,y) waypoint tuples
+        @return Tuple (NumPy RGB image, list of parallel hex-code colors)
+        """
+        color_map = ["#8dd3c7", "#ffffb3", "#bebada", "#fb8072", "#80b1d3", "#fdb462",
+                     "#b3de69", "#fccde5", "#d9d9d9", "#bc80bd", "#ccebc5", "#ffed6f",]
+        
+        image = Image.fromarray(image.astype('uint8'))
+        draw = ImageDraw.Draw(image)
+        n = len(waypoints)
+        
+        for i in range(n):
+            p,c = waypoints[i], color_map[i]
+            draw.circle(p, radius, fill=c)
+
+        return image, color_map[:n]
+        
         
     def generate_segmented_overlay(self, image):
         try:
@@ -199,22 +220,48 @@ class NavLLM(BaseLLM):
 
         response_format = ReasonedWaypoint if reasoning else Waypoint
 
-        image_data = self._process_image_to_base64(image)
-        scene_data = self.generate_segmented_overlay(image)
-        waypoint_data = "\n".join([f"- {label}: {coords}" for label, coords in waypoints.items()])
-        text_inputs = {
-            "SCENE_ANALYSIS": scene_data,
-            "CURRENT_POS": current_pos,
-            "DESTINATION": destination,
-            "PREVIOUS_POS": history[-5:], #{history[-5:] if len(history)>5 else history},
-            "DISTANCES_FROM_CURRENT": distances_from_current,
-            "DISTANCES_TO_DESTINATION": distances_to_destination,
-            "WAYPOINT_TEXT": waypoint_data,
-        }
-        prompt = WAYPOINT_SELECTION_PROMPT.format(**text_inputs)
+        # image_data = self._process_image_to_base64(image)
+        # scene_data = self.generate_segmented_overlay(image)
+        # waypoint_data = "\n".join([f"- {label}: {coords}" for label, coords in waypoints.items()])
+        # text_inputs = {
+        #     "SCENE_ANALYSIS": scene_data,
+        #     "CURRENT_POS": current_pos,
+        #     "DESTINATION": destination,
+        #     "PREVIOUS_POS": history[-5:], #{history[-5:] if len(history)>5 else history},
+        #     "DISTANCES_FROM_CURRENT": distances_from_current,
+        #     "DISTANCES_TO_DESTINATION": distances_to_destination,
+        #     "WAYPOINT_TEXT": waypoint_data,
+        # }
+        # prompt = WAYPOINT_SELECTION_PROMPT.format(**text_inputs)
+
+        waypoint_image, color_map = self._render_waypoints_on_image(image, list(waypoints.values()))
+        buffered = BytesIO()
+        waypoint_image.save(buffered, format="PNG")
+        waypoint_image_data = base64.b64encode(buffered.getvalue()).decode("utf-8")
+
+        waypoint_data = []
+        #for i,p in enumerate(waypoints.items()):
+        for label in waypoints:
+            (x,y) = waypoints[label]
+            waypoint_data.append({
+                #'label': label,
+                'x': x,
+                'y': y,
+                'color': color_map[ord(label)-65],
+                'distance': distances_to_destination[label]
+            })
+
+        user_content = [
+            {'type':'text', 'text': WAYPOINT_SELECTION_PROMPT_2}, # prompt
+            {'type':'image_url', 'image_url': {'url': f'data:image/png;base64,{waypoint_image_data}'}}, # waypoint image
+            {'type':'text', 'text': f'Waypoints: {waypoint_data}'}, # waypoints, labels, distances, colors
+            {'type':'text', 'text': f'Destination: {destination}'}, # destination
+            {'type':'text', 'text': f'Current position: {current_pos}'}, # position
+            {'type':'text', 'text': f'Position history: {history[-5:]}'}, # history
+        ]
 
         if verbose:
-            print('user_content', prompt)
+            print('user_content', user_content)
 
         try:
             response = self.client.beta.chat.completions.parse(
@@ -223,10 +270,11 @@ class NavLLM(BaseLLM):
                     {"role": "system", "content": self._make_system_prompt(response_format)},
                     {
                         "role": "user",
-                        "content": [
-                            {"type": "text", "text": prompt},
-                            {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{image_data}"}}
-                        ]
+                        'content': user_content
+                        #"content": [
+                        #    {"type": "text", "text": prompt},
+                        #    {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{image_data}"}}
+                        #]
                     }
                 ],
                 max_tokens=max_tokens,
@@ -234,8 +282,25 @@ class NavLLM(BaseLLM):
                 top_p=top_p,
                 response_format=response_format,
             )
-            
-            return response.choices[0].message.content.strip()
+
+            # convert back to label
+            response_dict = loads(response.choices[0].message.content.strip())
+            waypoint_dict = response_dict['waypoint']
+            waypoint = (waypoint_dict['x'], waypoint_dict['y'])
+            for label in waypoints:
+                if waypoints[label] == waypoint:
+                    waypoint_label = label
+                    break
+            else:
+                print("Error in select_best_waypoint: LLM did not choose waypoint from given options")
+                return None
+
+            if response_format is ReasonedWaypoint:
+                return dumps({'reasoning': response_dict['reasoning'], 'label': waypoint_label, 'waypoint': waypoint_dict})
+            else:
+                return dumps({'label': waypoint_label, 'waypoint': waypoint_dict})
+            #return response.choices[0].message.content.strip()
         except Exception as e:
+            # raise e # DEBUG, REMOVE LATER
             print(f"Error in select_best_waypoint: {e}")
             return None

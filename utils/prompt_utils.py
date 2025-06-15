@@ -83,6 +83,37 @@ Choose the best waypoint considering:
 4. Natural movement flow
 """
 
+WAYPOINT_SELECTION_PROMPT_2 = """
+You are given an RGB image overlaid with a set of 10-12 waypoints, taken from an agent navigating a simulated urban environment.
+Your task is to select the waypoint best suited to navigating to the given destination.
+
+## Input Format
+You are given:
+1. An **RGB image** showing the agent's forward-facing view. 
+- This image is overlaid with 10-12 waypoints, as colored dots.
+- Each waypoint should be located directly on the ground. If a waypoint is not on the ground, do not use it.
+2. A **list of waypoints** showing potential areas the agent might move to next.
+- These waypoints are `(x,y)` image-plane coordinates with attached metadata. Each waypoint contains fields:
+ - x: position from left of image
+ - y: position from top of image
+ - color: color of dot overlaid in RGB image
+ - distance: distance of waypoint to destination
+3. A **destination** you must navigate to, in spatial (x, y) coordinates.
+4. A **current position** of the agent, in (x, y, z, heading).
+ - The heading is [TODO FINISH]
+5. A recent **position history** of the agent.
+
+## Selection Criteria
+Explicitly refer to waypoints in terms of colors. Colors are your best visual reasoning tool.
+Choose the best waypoint considering:
+- Distance to destination. Try to move as close to the destination as possible.
+- Traversable waypoints. Do not choose waypoints on top of walls or obstacles. Only choose waypoints that lie on the ground. 
+- Viable path. Do not choose waypoints with an obstacle between the agent and waypoint. Do not choose waypoints that lead to dead ends.
+- Avoiding previously visited areas.
+Many waypoints will be viable. You must pick the best one. Between viable waypoints, choose the one that is best for navigating to the given destination.
+"""
+# - label: A letter label (e.g. "A", "B") of the waypoint.
+
 WAYPOINT_NO_REASONING = """
 - Do not return any text or explanation - only the waypoint in JSON format:
 {
