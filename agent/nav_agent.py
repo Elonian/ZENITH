@@ -122,16 +122,16 @@ class NavAgent(BaseAgent):
 
     
     def navigate(self, exit_event, generate_waypoint_zeroshot=True):
-        humanoid_ids = [str(self.id)]
-        position_and_direction = self.communicator.get_position_and_direction(humanoid_ids = humanoid_ids)
-        print(position_and_direction)
-        for id in humanoid_ids:
-            pos, dir = position_and_direction[('humanoid', str(id))]
-            self.position = Vector(pos.x, pos.y)
-            heading = dir
-        print(f"Information from simulator Agent {self.id} current position: {self.position}, heading: {heading}")
+        # humanoid_ids = [str(self.id)]
+        # position_and_direction = self.communicator.get_position_and_direction(humanoid_ids = humanoid_ids)
+        # print(position_and_direction)
+        # for id in humanoid_ids:
+        #     pos, dir = position_and_direction[('humanoid', str(id))]
+        #     self.position = Vector(pos.x, pos.y)
+        #     heading = dir
+        # print(f"Information from simulator Agent {self.id} current position: {self.position}, heading: {heading}")
 
-        print(f"Agent {self.id} is navigating to destination {self.destination}, current position: {self.position}")
+        # print(f"Agent {self.id} is navigating to destination {self.destination}, current position: {self.position}")
         # humanoid_ids = [self.id]
         # position_and_direction = self.communicator.get_position_and_direction(humanoid_ids = humanoid_ids)
         # for id in humanoid_ids:
@@ -140,7 +140,7 @@ class NavAgent(BaseAgent):
         #     self.yaw = dir['yaw']
         # print(f"Information from simulator Agent {self.id} current position: {self.position}, heading: {self.yaw}")
 
-        while not self.agent_reached_destination():
+        while not self.agent_reached_distination_with_threshold():
         # while (exit_event is None or not exit_event.is_set()): ## If the pipline is good the remove this 
                                                                 ## condition and use the above
             humanoid_ids = [str(self.id)]
@@ -155,8 +155,8 @@ class NavAgent(BaseAgent):
             ### DATA COLLECTION
             
             self.history.append(self.position) ## Adding the agent history
-            print(self.history)
-            print(hasattr(self.communicator, "get_camera_observation"))
+            print(f"Overall history of agent: {self.history}")
+            # print(hasattr(self.communicator, "get_camera_observation"))
 
             rgb_image, depth_image, segmentation_map = self.get_images()
             # self.show_images(rgb_image, depth_image, segmentation_map)
@@ -182,22 +182,21 @@ class NavAgent(BaseAgent):
                     depth_map = depth_image,
                     seg_mask = segmentation_map
                 )
-                print("waypoint repsonse zeroshot using vlm", response1)
-
+                # print("waypoint repsonse zeroshot using vlm", response1)
             else:
                 response1 = random_waypoint_generator(
                     segmentation_mask = segmentation_map,
                     depth_map = depth_image, 
                     agent_position = self.position
                 )
-                print("waypoint repsonse random generation", response1)
+                # print("waypoint repsonse random generation", response1)
             visualize_waypoints_on_image(response1, rgb_image)
             # print("Waypoints generated: ", response1)
 
             ### CONVERSION STEP
             # Convert them to world coordinates
             response1 = self.basic_refinement(response1, cam_info['img_height'], cam_info['img_width'])
-            print("Basic refinement done and final waypoints for selection: ", response1)
+            # print("Basic refinement done and final waypoints for selection: ", response1)
             waypoints_world_coords = pixel_to_world(
                 json.loads(response1)['waypoints'],
                 true_depth_image,
@@ -205,7 +204,7 @@ class NavAgent(BaseAgent):
                 cam_info['cam_position'],
                 cam_info['cam_rotation']
             )
-            print("final waypoints in world coordinates: ", waypoints_world_coords)
+            # print("final waypoints in world coordinates: ", waypoints_world_coords)
             ## Getting Agent's current position and heading
             # Select a random waypoint from the list of world coordinates
             # selected_waypoint = self.random_waypoint_world_coord_selector(waypoints_world_coords)
@@ -263,8 +262,8 @@ class NavAgent(BaseAgent):
 
             # waypoints_world_coords_xy = [(x, y) for x, y, z in waypoints_world_coords]
             waypoints_labelled = self._parse_waypoints(waypoints_world_coords_xy)
-            print("Labelled waypoints in world coordinates: ", waypoints_labelled)
-            print("Current agent position: ", self.position)
+            # print("Labelled waypoints in world coordinates: ", waypoints_labelled)
+            # print("Current agent position: ", self.position)
             distance_current = self.distance_current_to_waypoints(waypoints_labelled)
             distance_destination = self.distance_waypoints_to_destination(waypoints_labelled)
 
@@ -281,7 +280,7 @@ class NavAgent(BaseAgent):
                 distances_from_current=distance_current,
                 distances_to_destination=distance_destination
             )
-            print("Selected waypoint from LLM: ", selected_waypoint)
+            # print("Selected waypoint from LLM: ", selected_waypoint)
             if selected_waypoint is None:
                 print("Invalid waypoint selection")
                 continue
@@ -292,17 +291,19 @@ class NavAgent(BaseAgent):
             
 
             final_waypoint = self.extract_waypoint_label(selected_waypoint)
+            print(f"Best waypoint that will reduce the distance to destination: {self.get_best_waypoint_reduce_distance(distance_destination)}")
+            print(f"LLM choosed waypoint label and its distance to destination: {final_waypoint} and {distance_destination[final_waypoint]}")
             # print("Selected waypoint: ", final_waypoint)  
 
             ### EXECUTION STEP
             
             ## Movement code working.
-            print("current agent yaw:", heading)
+            # print("current agent yaw:", heading)
             # heading = self.direction
             final_waypoint_world = waypoints_labelled[final_waypoint]
-            print(f"chceking the list: {[self.position.x, self.position.y]} and heading: {heading} and desired point to go: {list(final_waypoint_world)}")
+            print(f"checking the list: {[self.position.x, self.position.y]} and heading: {heading} and desired point to go: {list(final_waypoint_world)}")
             print(f"Final waypoint in world coordinates agents is going to:{final_waypoint_world}")
-            print(f"Agent {self.id} current heading: {heading} and heading towards")
+            # print(f"Agent {self.id} current heading: {heading} and heading towards")
             if selected_waypoint is None: # redundant check, already checked in selection step
                 print("No valid waypoints selected, skipping iteration")
                 continue
@@ -314,6 +315,7 @@ class NavAgent(BaseAgent):
                     list(final_waypoint_world),
                     heading,
                 )
+            print(f"Agent {self.id} has reached the waypoint {final_waypoint_world}.")
     
     def agent_reached_destination(self):
         """Check if the agent has reached its destination."""
@@ -343,5 +345,23 @@ class NavAgent(BaseAgent):
     def distance_to_destination(self):
         """Calculate the distance to the destination."""
         return Vector.distance(self.position, self.destination)
+    
+    def get_best_waypoint_reduce_distance(self, waypoints_labelled_distance_values):
+        """Get the waypoint that reduces the distance to the destination."""
+        best_waypoint = None
+        min_distance = float('inf')
+        for label, distance in waypoints_labelled_distance_values.items():
+            if distance < min_distance:
+                min_distance = distance
+                best_waypoint = label
+        return best_waypoint, min_distance
+    
+    def agent_reached_distination_with_threshold(self, threshold=0.2):
+        """Check if the agent has reached its destination within a threshold."""
+        distance = Vector.distance(self.position, self.destination)
+        if distance < threshold:
+            print(f"Agent {self.id} has reached the destination at {self.destination} within threshold {threshold}.")
+            return True
+        return False
         
 
