@@ -10,7 +10,10 @@ from pydantic import BaseModel
 
 # from agent.action_space import ActionSpace
 from simworld.llm.base_llm import BaseLLM
-from utils.prompt_utils import WAYPOINT_SYSTEM_PROMPT, WAYPOINT_GENERATION_PROMPT, WAYPOINT_VERIFICATION_PROMPT, WAYPOINT_SELECTION_PROMPT
+from utils.prompt_utils import (
+    WAYPOINT_SYSTEM_PROMPT, WAYPOINT_GENERATION_PROMPT, WAYPOINT_VERIFICATION_PROMPT, WAYPOINT_SELECTION_PROMPT,
+    WAYPOINT_NO_REASONING, WAYPOINT_REASONING, WAYPOINT_LIST_NO_REASONING, WAYPOINT_LIST_REASONING
+)
 
 # define LLM output JSON format
 class WaypointBase(BaseModel):
@@ -48,6 +51,19 @@ class NavLLM(BaseLLM):
         else:
             raise ValueError("Input image must be a NumPy array")
 
+    def _make_system_prompt(self, response_format) -> str:
+        """ Write the system prompt for the given response format """
+        prompt = WAYPOINT_SYSTEM_PROMPT
+        if response_format is Waypoint:
+            prompt += WAYPOINT_NO_REASONING
+        elif response_format is ReasonedWaypoint:
+            prompt += WAYPOINT_REASONING
+        elif response_format is WaypointList:
+            prompt += WAYPOINT_LIST_NO_REASONING
+        elif response_format is ReasonedWaypointList:
+            prompt += WAYPOINT_LIST_REASONING
+        return prompt
+        
     def generate_segmented_overlay(self, image):
         try:
             segmentation_prompt = """
@@ -81,8 +97,12 @@ class NavLLM(BaseLLM):
             print(f"Error in generate_segmented_overlay: {e}")
             return None
 
-    def generate_waypoints_openai(self, image, depth_map, seg_mask, max_tokens=None,
-                                    temperature=0.7, top_p = 1.0, response_format=WaypointList):
+    def generate_waypoints_openai(self, image, depth_map, seg_mask, reasoning=False,
+                                  max_tokens=None, temperature=0.7, top_p = 1.0,
+                                  verbose=True):
+        
+        response_format = ReasonedWaypointList if reasoning else WaypointList
+        
         print("Generate waypoints openai functin in navllm started.")
         user_content = []
         user_content.append({"type": "text", "text": WAYPOINT_GENERATION_PROMPT})
@@ -103,12 +123,13 @@ class NavLLM(BaseLLM):
             "image_url": {"url": f"data:image/jpeg;base64,{seg_data}"}
         })
 
-        print('user_content', user_content)
+        if verbose:
+            print('user_content', user_content)
 
         try:
             response = self.client.beta.chat.completions.parse(
                 model=self.model_name,
-                messages=[{"role": "system", "content": WAYPOINT_SYSTEM_PROMPT},
+                messages=[{"role": "system", "content": self._make_system_prompt(response_format)},
                         {"role": "user", "content": user_content}],
                 max_tokens=max_tokens,
                 temperature=temperature,
@@ -121,10 +142,13 @@ class NavLLM(BaseLLM):
             print(f"Error in generate_waypoints_openai: {e}")
             return None
 
-    def select_waypoints_openai(self, image, waypoints, max_tokens=None,
-                                    temperature=0.7, top_p = 1.0, response_format=ReasonedWaypointList):
+    def validate_waypoints_openai(self, image, waypoints, reasoning=False,
+                                max_tokens=None, temperature=0.7, top_p = 1.0,
+                                verbose=True):
         # image: PIL Image
         # waypoints: list [(x1,y1), (x2,y2), ..., (x12,y12)] of integers
+
+        response_format = ReasonedWaypointList if reasoning else WaypointList
     
         # add waypoints to image
         color_map = ["#8dd3c7", "#ffffb3", "#bebada", "#fb8072", "#80b1d3", "#fdb462",
@@ -147,13 +171,15 @@ class NavLLM(BaseLLM):
             "image_url": {"url": f"data:image/png;base64,{image_url}"}
         })
         user_content.append({"type": "text", "text": str(legend)})
-        #print('user_content', user_content)
+
+        if verbose:
+            print('user_content', user_content)
 
         # run prompt
         try:
             response = self.client.beta.chat.completions.parse(
                 model=self.model_name,
-                messages=[{"role": "system", "content": WAYPOINT_SYSTEM_PROMPT},
+                messages=[{"role": "system", "content": self._make_system_prompt(response_format)},
                         {"role": "user", "content": user_content}],
                 max_tokens=max_tokens,
                 temperature=temperature,
@@ -167,26 +193,34 @@ class NavLLM(BaseLLM):
         
     def select_best_waypoint(self, image, waypoints, 
                              current_pos, destination, history, distances_from_current, distances_to_destination,
-                             max_tokens=None, temperature=0.7, top_p=1.0, response_format=Waypoint):
+                             reasoning=False,
+                             max_tokens=None, temperature=0.7, top_p=1.0,
+                             verbose=False):
+
+        response_format = ReasonedWaypoint if reasoning else Waypoint
 
         image_data = self._process_image_to_base64(image)
+        scene_data = self.generate_segmented_overlay(image)
+        waypoint_data = "\n".join([f"- {label}: {coords}" for label, coords in waypoints.items()])
         text_inputs = {
-            "SCENE_ANALYSIS": self.generate_segmented_overlay(image),
+            "SCENE_ANALYSIS": scene_data,
             "CURRENT_POS": current_pos,
             "DESTINATION": destination,
             "PREVIOUS_POS": history[-5:], #{history[-5:] if len(history)>5 else history},
             "DISTANCES_FROM_CURRENT": distances_from_current,
             "DISTANCES_TO_DESTINATION": distances_to_destination,
-            "WAYPOINT_TEXT": "\n".join(
-                [f"- {label}: {coords}" for label, coords in waypoints.items()]),
+            "WAYPOINT_TEXT": waypoint_data,
         }
         prompt = WAYPOINT_SELECTION_PROMPT.format(**text_inputs)
+
+        if verbose:
+            print('user_content', prompt)
 
         try:
             response = self.client.beta.chat.completions.parse(
                 model=self.model_name,
                 messages=[
-                    {"role": "system", "content": "You are a navigation assistant."},
+                    {"role": "system", "content": self._make_system_prompt(response_format)},
                     {
                         "role": "user",
                         "content": [
@@ -195,7 +229,6 @@ class NavLLM(BaseLLM):
                         ]
                     }
                 ],
-                temperature=temperature,
                 max_tokens=max_tokens,
                 temperature=temperature,
                 top_p=top_p,
@@ -206,6 +239,3 @@ class NavLLM(BaseLLM):
         except Exception as e:
             print(f"Error in select_best_waypoint: {e}")
             return None
-
-    
-

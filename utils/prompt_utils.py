@@ -29,7 +29,7 @@ Each example contains:
 - Prioritize waypoints that extend forward in the direction of movement, covering diverse reachable zones.
 - Place waypoints in open, unobstructed regions that offer forward progress.
 
-**Output Format Requirements:**
+**Output Requirements:**
 - Output exactly 10 to 12 waypoints per image.
 - Each waypoint must be in the format: (x, y)
   - x is the horizontal (width) pixel coordinate.
@@ -37,8 +37,8 @@ Each example contains:
 - The pixel origin (0, 0) is at the top-left corner of the image:
   - x increases left to right.
   - y increases top to bottom.
-- Do not return any text or explanation—only a JSON object in this format: {"waypoints": [{"x": X1, "y": Y1}, ..., {"x": Xn, "y": Yn}]}
 """
+
 
 
 WAYPOINT_VERIFICATION_PROMPT = """
@@ -63,39 +63,61 @@ You are given:
 - Favor a selection of waypoints that spread out in different directions. If possible, avoid selecting waypoints that are clustered together.
 - Do not select waypoints that are floating in the air, or lie on top of walls, obstacles, vehicles, or pedestrians.
 - Only select waypoints that are on the ground.
-
-## Output Format
-Output a short reasoning, and then a list of four waypoints `(x,y)` in JSON format. For example:
-{
-  "reasoning": "<detailed reasoning here>",
-  "waypoints": [
-    {"x": 360, "y": 220},
-    {"x": 380, "y": 230},
-    {"x": 455, "y": 90},
-    {"x": 720, "y": 280}
-  ]
-}
 """
 
 WAYPOINT_SELECTION_PROMPT = """
-Scene Analysis: {scene_analysis}
+Scene Analysis: {SCENE_ANALYSIS}
 
-Current position: {current_pos}
-Destination: {destination}
-Previous positions: {history[-5:] if len(history) > 5 else history}
-Distance from current position to waypoints: {distances_from_current}
-Distance of waypoint to destination: {distances_to_destination}
+Current position: {CURRENT_POS}
+Destination: {DESTINATION}
+Previous positions: {PREVIOUS_POS}
+Distance from current position to waypoints: {DISTANCES_FROM_CURRENT}
+Distance of waypoint to destination: {DISTANCES_TO_DESTINATION}
 Available waypoints:
-{waypoint_text}
+{WAYPOINT_TEXT}
 
 Choose the best waypoint considering:
 1. Distance to destination
 2. Avoiding previously visited areas
 3. Clear path without obstacles
 4. Natural movement flow
+"""
 
-Return the waypoint in JSON format:
+WAYPOINT_NO_REASONING = """
+- Do not return any text or explanation - only the waypoint in JSON format:
 {
   "waypoint": {"x": <x>, "y": <y>}
+}
+"""
+
+WAYPOINT_REASONING = """
+- Output a short reasoning, and then the waypoint in JSON format:
+{
+  "reasoning": "<detailed reasoning here>",
+  "waypoint": {"x": <x>, "y": <y>}
+}
+"""
+
+
+WAYPOINT_LIST_NO_REASONING = """
+- Do not return any text or explanation - only the list of waypoints in JSON format:
+{
+  "waypoints": [
+    {"x": <x1>, "y": <y1>},
+    ...
+    {"x": <xn>, "y": <yn>}
+  ]
+}
+"""
+
+WAYPOINT_LIST_REASONING = """
+- Output a short reasoning, and then a list of waypoints in JSON format:
+{
+  "reasoning": "<detailed reasoning here>",
+  "waypoints": [
+    {"x": <x1>, "y": <y1>},
+    ...
+    {"x": <xn>, "y": <yn>}
+  ]
 }
 """

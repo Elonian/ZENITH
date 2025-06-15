@@ -212,7 +212,7 @@ class NavAgent(BaseAgent):
             # pil_image = Image.fromarray(rgb_image)
             # # Select most viable waypoints
             # waypoints1 = [(p['x'], p['y']) for p in json.loads(response1)['waypoints']]
-            # response2 = self.nav_llm.select_waypoints_openai(
+            # response2 = self.nav_llm.validate_waypoints_openai(
             #     image = Image.fromarray(rgb_image),
             #     waypoints = waypoints1)
 
