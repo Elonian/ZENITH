@@ -95,7 +95,7 @@ class NavLLM(BaseLLM):
             "image_url": {"url": f"data:image/jpeg;base64,{seg_data}"}
         })
 
-        print('user_content', user_content)
+        # print('user_content', user_content)
 
         try:
             response = self.client.beta.chat.completions.parse(
@@ -163,24 +163,40 @@ class NavLLM(BaseLLM):
         image_data = self._process_image_to_base64(image)
 
         waypoint_text = "\n".join([f"- {label}: {coords}" for label, coords in waypoints.items()])
+        # prompt = f"""
+        #     Scene Analysis: {scene_analysis}
+
+        #     Current Position (world coordinates): {current_pos}
+        #     Destination (world coordinates): {destination}
+        #     Previous Positions: {history[-5:] if len(history) > 5 else history}
+
+        #     Distance from Current Position to Each Waypoint (in world coordinates): {distances_from_current}
+        #     Distance from Each Waypoint to Destination (in world coordinates): {distances_to_destination}
+
+        #     Available Waypoints are in world coordinates: {waypoint_text}
+
+        #     Objective:
+        #     Choose the next waypoint that **effectively reduces the total distance from the new position to the destination meaning choose the waypoint which has lowest distance between waypoint coordinates and destination coordinates**, based on distances provided. Additionally, ensure the selected waypoint:
+        #     1. Avoids previously visited or nearby areas (based on history)
+        #     2. Has a clear path without obstacles
+        #     3. Aligns with natural and logical movement flow in the scene
+
+        #     Return only the waypoint label (e.g., A, B, C), **surrounded by double asterisks**. For example, return **B**.
+        #     Dont return any additional text or explanations, just the waypoint label.
+
+        # """
+
         prompt = f"""
-        Scene Analysis: {scene_analysis}
-        
-        Current position: {current_pos}
-        Destination: {destination}
-        Previous positions: {history[-5:] if len(history) > 5 else history}
-        Distance from current position to waypoints: {distances_from_current}
-        Distance of waypoint to destination: {distances_to_destination}
-        Available waypoints:
-        {waypoint_text}
-        
-        Choose the best waypoint considering:
-        1. Distance to destination
-        2. Avoiding previously visited areas
-        3. Clear path without obstacles
-        4. Natural movement flow
-        
-        Return only the waypoint label (A, B, C, etc).
+            Current position: {current_pos}
+            Destination: {destination}
+            Distance of each waypoint to destination: {distances_to_destination}
+            Waypoints: {waypoint_text}
+            Choose the waypoint with the lowest distance to the destination. Return the label of the waypoint.
+
+            Output format:
+                Return only the waypoint label (e.g., A, B, C), **surrounded by double asterisks**. For example, return **B**.
+                Dont return any additional text or explanations, just the waypoint label.
+
         """
 
         try:

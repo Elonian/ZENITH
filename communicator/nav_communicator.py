@@ -112,9 +112,9 @@ class nav_communicator(Communicator):
         Returns:
             Dictionary containing position and direction information for all objects.
         """
-        print("WE are in nav_communicator.get_position_and_direction")
+        # print("WE are in nav_communicator.get_position_and_direction")
         info = json.loads(self.unrealcv.get_informations(self.ue_manager_name))
-        print(f"Received information: {info}")
+        # print(f"Received information: {info}")
         result = {}
 
         # Process vehicles
@@ -183,7 +183,7 @@ class nav_communicator(Communicator):
 
                 rotation_pattern = f'{name}P=.*? Y=(.*?) R='
                 match = re.search(rotation_pattern, rotations)
-                print(f"Rotation pattern: {rotation_pattern}, Match: {match}")  
+                # print(f"Rotation pattern: {rotation_pattern}, Match: {match}")  
                 if match:
                     direction = float(match.group(1))
                     # print(f"Humanoid {humanoid_id} position: {position}, direction: {direction}")
