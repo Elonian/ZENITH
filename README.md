@@ -2,7 +2,7 @@
 
 ## Overview
 
-**ZENITH** is a research project that explores how Large Language Models (LLMs) can perform zero-shot, waypoint-based navigation in simulated 3D urban environments. Instead of relying on precomputed maps or explicit training, ZENITH leverages real-time visual observations and prompt-based reasoning to generate and select intermediate navigation goals (waypoints). The project uses the **SimWorld** platform (Unreal Engine 5) for high-fidelity, city-scale simulations.
+**ZENITH** is a DSC 291 course project that explores how Large Language Models (LLMs) can perform zero-shot, waypoint-based navigation in simulated 3D urban environments. Instead of relying on precomputed maps or explicit training, ZENITH leverages real-time visual observations and prompt-based reasoning to generate and select intermediate navigation goals (waypoints). The project uses the **SimWorld** platform (Unreal Engine 5) for high-fidelity, city-scale simulations.
 
 ---
 
