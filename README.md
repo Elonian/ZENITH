@@ -1,98 +1,171 @@
-# ZENITH: Zero-shot Exploration and Navigation in Intelligent Textual Horizons
+# ZENITH
 
-## Overview
+<p align="center">
+  <img src="placeholder-social.png" alt="ZENITH built with Unreal Engine 5" width="100%" />
+</p>
 
-**ZENITH** is a DSC 291 course project that explores how Large Language Models (LLMs) can perform zero-shot, waypoint-based navigation in simulated 3D urban environments. Instead of relying on precomputed maps or explicit training, ZENITH leverages real-time visual observations and prompt-based reasoning to generate and select intermediate navigation goals (waypoints). The project uses the **SimWorld** platform (Unreal Engine 5) for high-fidelity, city-scale simulations.
+<p align="center">
+  <strong>Zero-shot waypoint navigation in city-scale Unreal Engine 5 environments using multimodal scene observations and language-model reasoning.</strong>
+</p>
 
----
+<p align="center">
+  SimWorld + Unreal Engine 5 + RGB/Depth/Segmentation + LLM waypoint planning
+</p>
 
-## Features
+ZENITH is a waypoint-driven navigation system for simulated urban environments. At each step, the agent observes the scene through an RGB camera, a depth map, and a segmentation mask, proposes candidate waypoints in image space, projects them into world coordinates, selects the best next waypoint, and executes a short-horizon movement command.
 
-- **Zero-shot waypoint planning:** No environment-specific training required; navigation is driven by LLM reasoning over real-time multimodal inputs.
-- **Multimodal input:** Agents receive RGB images, depth maps, and segmentation masks at each step.
-- **Waypoint-based navigation:** LLMs propose and select waypoints as intermediate goals using visual and spatial cues.
-- **Closed-loop control:** The agent autonomously interfaces with the LLM, executing navigation actions based on model outputs.
-- **Evaluation metrics:** Success rates for both waypoint selection and final goal-reaching are reported, with ablation studies comparing LLM reasoning to hardcoded controllers.
+The project explores whether a language model can act as a zero-shot spatial planner without relying on a precomputed global map or task-specific training. The implementation in this repository includes the navigation loop, simulator communication layer, waypoint prompts, perception fallbacks, project report, and source media from the experiments.
 
----
+## Highlights
 
-## Motivation
+- Zero-shot waypoint generation from RGB, depth, and segmentation inputs
+- Pixel-to-world projection for turning image-plane waypoints into executable 3D targets
+- Closed-loop navigation inside a SimWorld / Unreal Engine 5 environment
+- Reported evaluation on waypoint-selection success and end-to-end goal-reaching success
+- Standalone comparisons between hardcoded control, standard prompting, and Chain-of-Thought prompting
 
-Traditional navigation agents often rely on static maps or require extensive training. In dynamic or partially observable environments, agents must reason over both high-level goals and local observations. ZENITH investigates whether LLMs can serve as flexible reasoning modules for navigation, particularly in settings where only real-time visual data is available and the environment may change unpredictably.
+## System Pipeline
 
----
+The navigation loop follows four main stages:
 
-## Methodology
+1. Capture the current RGB view, depth map, segmentation mask, and agent pose.
+2. Prompt the model to generate navigable waypoint candidates in image coordinates.
+3. Convert those waypoint pixels into world coordinates and select the best candidate.
+4. Execute a short movement toward the chosen waypoint, then repeat.
 
-### Environment
+![ZENITH framework](docs/assets/paper/framework_pipeline.png)
 
-- **SimWorld (UE5):** Procedurally generates realistic urban scenes with buildings, roads, and dynamic obstacles.
-- **Agent Observations:** At each timestep, the agent receives:
-  - RGB image (first-person view)
-  - Depth map
-  - Segmentation mask (ground vs. obstacles)
-  - Current pose and target coordinates
+In the current repository snapshot, the core logic is split across:
 
-### Waypoint Generation and Selection
+- `agent/nav_agent.py` for the main navigation loop
+- `nav_llm/nav_llm.py` for waypoint generation and selection prompts
+- `utils/pixel_utils.py` for waypoint visualization and pixel-to-world conversion
+- `agent/nav_move.py` for low-level rotate-and-step movement
+- `communicator/` for simulator and UnrealCV integration
 
-1. **Generation:** The LLM (e.g., GPT-4o-mini) is prompted with the current visual data to propose 10–12 candidate waypoints, ensuring they are on navigable ground and widely distributed.
-2. **Conversion:** Candidate waypoints (image-plane coordinates) are mapped to 3D world coordinates using camera intrinsics and depth data.
-3. **Selection:** The LLM selects the optimal waypoint based on criteria such as proximity to the target, path clarity, and avoidance of previously visited or obstructed areas.
-4. **Execution:** The agent moves toward the selected waypoint, repeating the process until the goal is reached or a stopping condition is met.
+## Unreal Engine 5 Environment
 
----
+ZENITH runs inside a city-scale environment built through SimWorld on top of Unreal Engine 5. The environment provides both the street-level first-person view used for navigation and a global top-down view used for debugging and evaluation.
 
-## Experiments
+![Unreal Engine 5 environment panel](docs/assets/panels/ue5_views_panel.png)
 
-- **Setup:** Agents start at random positions in city-scale scenes and must reach randomly assigned targets using only visual inputs.
-- **Metrics:**
-  - **Waypoint Selection Success Rate:** Proportion of steps where the LLM selects the optimal waypoint (closest valid point to the goal).
-  - **Goal Success Rate:** Proportion of episodes where the agent reaches within 50 units of the target without collision or looping.
+The left view is the agent-facing street scene used for decision making. The right view shows the broader urban layout that was generated for the navigation experiments.
 
-| Model         | Waypoint SR | Goal SR |
-|---------------|-------------|---------|
-| GPT-4o mini   | 77%         | 12.5%   |
+## Multimodal Observations
 
-- **Ablation Study:** Compared hardcoded controllers, standard LLM prompting, and Chain-of-Thought (CoT) prompting for local movement execution. Hardcoded controllers were most reliable, but CoT prompting improved LLM reasoning over standard prompting.
+Each planning iteration uses three aligned visual inputs:
 
----
+- RGB image for semantic scene understanding
+- Segmentation mask for separating traversable regions from obstacles
+- Depth map for estimating spatial structure and projecting points into the world frame
 
-## Key Findings
+![Multimodal observation panel](docs/assets/panels/multimodal_panel.png)
 
-- LLMs can effectively generate and select waypoints in real-time, leveraging multimodal scene understanding.
-- The agent demonstrates strong local reasoning but struggles with long-horizon planning when the goal is outside its field of view.
-- Most failures are due to the agent drifting away from the target, highlighting the need for richer memory or global guidance.
-- Hardcoded controllers outperform LLMs for precise low-level control, but LLMs offer flexible high-level reasoning.
+This combination is what makes the waypoint formulation practical: the language model reasons over the visual context, while depth and camera intrinsics make the selected waypoint executable in world coordinates.
 
----
+## Waypoint Generation and Selection
 
-## Getting Started
+ZENITH uses a short-horizon planning strategy. Instead of asking the model to output a full route, the model proposes a set of local waypoint candidates that are visible in the current frame. Those candidates are then projected into world coordinates, compared against the current goal, and used to drive the next action.
 
-### Prerequisites
+![Waypoint generation panel](docs/assets/panels/waypoint_panel.png)
 
-- Unreal Engine 5 (for SimWorld)
-- Python 3.8+
-- OpenAI GPT-4o-mini (or compatible LLM API)
-- See `requirements.txt` for dependencies
+The intended waypoint behavior is:
 
-### Usage
+- place candidates on traversable ground
+- avoid obvious obstacles and non-ground surfaces
+- keep candidates spatially spread out rather than tightly clustered
+- favor options that preserve forward progress toward the destination
 
-1. **Set up SimWorld:** Launch the UE5 environment and initialize the simulation.
-2. **Configure Agent:** Set agent starting and goal positions.
-3. **Run Navigation Loop:** The agent will:
-    - Capture current observations (RGB, depth, segmentation)
-    - Prompt the LLM for candidate waypoints
-    - Convert and select the optimal waypoint
-    - Move toward the selected waypoint
-    - Repeat until the goal is reached or a stopping condition is met
+This design keeps the reasoning problem local, but it also creates a known limitation: when the goal is outside the field of view, the system can choose locally sensible steps that are globally suboptimal.
 
----
+## Demo Media
 
-## Future Work
+The repository now includes archived experiment videos together with lightweight GIF previews stored under `docs/assets`.
 
-- **Dynamic environments:** Introduce moving obstacles (pedestrians, vehicles) and non-physical constraints (e.g., traffic lights).
-- **Richer prompts:** Provide the LLM with orientation and heading information to improve reorientation and recovery.
-- **Hierarchical planning:** Integrate global planning modules or memory to mitigate local-only reasoning.
-- **Human-like navigation:** Teach societal rules (e.g., sidewalk preference), variable speed, and more natural movement patterns.
+The hardcoded-control export arrived without valid QuickTime metadata, so its preview was recovered from a repaired copy and is visually degraded compared with the two standalone runs.
 
----
+![Navigation video preview panel](docs/assets/panels/navigation_gif_panel.png)
+
+### GIF Previews
+
+- [Full pipeline hardcoded control GIF](docs/assets/gifs/full_pipeline_hardcoded.gif)
+- [Standalone navigation with CoT prompting GIF](docs/assets/gifs/standalone_cot.gif)
+- [Standalone navigation with standard prompting GIF](docs/assets/gifs/standalone_standard.gif)
+
+### Embedded Standalone GIFs
+
+The two standalone runs are embedded below so they can be previewed directly in the README.
+
+#### Chain-of-Thought Prompting
+
+![Standalone navigation with CoT prompting](docs/assets/gifs/standalone_cot.gif)
+
+#### Standard Prompting
+
+![Standalone navigation with standard prompting](docs/assets/gifs/standalone_standard.gif)
+
+### Source Recordings
+
+- [Full pipeline (hardcoded control) repaired MP4](docs/assets/videos/source/Full%20pipeline%20%28hardcoded%20control%29_fixed.mp4)
+- [Full pipeline (hardcoded control) original MOV](docs/assets/videos/source/Full%20pipeline%20%28hardcoded%20control%29.mov)
+- [Standalone navigation with CoT prompting](docs/assets/videos/source/Standalone%20navigation%20with%20CoT%20prompting.mov)
+- [Standalone navigation with standard prompting](docs/assets/videos/source/Standalone%20navigation%20with%20standard%20prompting.mov)
+
+## Results
+
+The report evaluates ZENITH across 8 navigation episodes and measures both intermediate waypoint quality and final task success.
+
+### Main Navigation Results
+
+| Model | Waypoint Selection Success Rate | Goal Success Rate |
+| --- | ---: | ---: |
+| GPT-4o mini | 71.04% | 12.50% |
+
+### Local Execution Comparison
+
+| Strategy | Summary |
+| --- | --- |
+| Hardcoded controller | Most reliable and most direct local movement behavior |
+| Standard prompting | Can succeed on simple motions, but often struggles with angle estimation and rotation-heavy cases |
+| Chain-of-Thought prompting | Better than standard prompting, but still less direct and less stable than the hardcoded controller |
+
+### Interpretation
+
+- The system is reasonably good at selecting locally plausible next waypoints.
+- End-to-end goal completion remains difficult because local waypoint quality does not automatically produce strong long-horizon navigation.
+- The largest failure mode is drift: once the agent turns away from the destination, its future waypoint proposals can keep moving it farther from the goal.
+- The low-level hardcoded controller is currently stronger than language-model-based local control.
+
+## Repository Layout
+
+| Path | Purpose |
+| --- | --- |
+| `agent/` | Navigation loop and movement controllers |
+| `communicator/` | UnrealCV and simulator communication utilities |
+| `manager/` | Task orchestration and multi-threaded execution |
+| `nav_llm/` | Language-model interface and structured waypoint prompting |
+| `utils/` | Pixel conversion, vector math, depth fallback, segmentation fallback, prompt templates |
+| `navReq_utils/` | Task, asset, and environment JSON configuration files |
+| `docs/assets/paper/` | Cropped images extracted from the project report |
+| `docs/assets/panels/` | README-ready composite panels built from the paper figures |
+| `docs/assets/gifs/` | GIF previews generated from the three experiment recordings |
+| `docs/assets/videos/source/` | Archived source video recordings |
+
+## Key Limitations
+
+- The policy is strongly local and can struggle when the destination is outside the current field of view.
+- Goal success is much lower than waypoint-selection success, which indicates compounding errors over time.
+- The current implementation relies on short-horizon geometric execution rather than a full global planner.
+- Fallback segmentation and depth generation are helpful for prototyping, but they are not equivalent to simulator-ground-truth perception.
+
+## Included Reference Material
+
+- [Project report PDF](Project_final_report.pdf)
+- [Extracted report figures](docs/assets/paper)
+- [Generated README panels](docs/assets/panels)
+- [GIF previews](docs/assets/gifs)
+- [Archived experiment media](docs/assets/videos/source)
+
+## Summary
+
+ZENITH is best understood as a practical exploration of language-model-guided waypoint navigation rather than a finished navigation stack. Its main contribution is the end-to-end integration of multimodal scene capture, waypoint reasoning, pixel-to-world projection, and short-horizon execution inside a high-fidelity Unreal Engine 5 environment.
