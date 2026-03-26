@@ -166,6 +166,12 @@ The report evaluates ZENITH across 8 navigation episodes and measures both inter
 - [GIF previews](docs/assets/gifs)
 - [Archived experiment media](docs/assets/videos/source)
 
+## License
+
+Copyright 2026 Elonian.
+
+Licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE) for details.
+
 ## Summary
 
 ZENITH is best understood as a practical exploration of language-model-guided waypoint navigation rather than a finished navigation stack. Its main contribution is the end-to-end integration of multimodal scene capture, waypoint reasoning, pixel-to-world projection, and short-horizon execution inside a high-fidelity Unreal Engine 5 environment.
